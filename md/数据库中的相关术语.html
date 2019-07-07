@@ -1,0 +1,444 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+<meta charset="UTF-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Oracle 相关 - 数据库中的相关术语</title>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="" name="description">
+<meta content="刘士" name="author">
+
+<link href="..\../asserts/lsbook/less/website.css" rel="stylesheet">
+<link href="..\../asserts/lsbook/katex/katex.min.css" rel="stylesheet">
+<link href="..\../asserts/lsbook/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+<meta content="true" name="HandheldFriendly"/>
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<link href="..\../asserts/lsbook/images/apple-touch-icon-precomposed-152.png"
+      rel="apple-touch-icon-precomposed" sizes="152x152">
+<link href="..\../asserts/lsbook/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<!--分页-->
+<link href="范式.html" rel="next"/>
+</head>
+<body>
+<div class="book"><div class="book-summary">
+    <div id="book-search-input" role="search">
+        <input placeholder="输入并搜索" type="text"/>
+    </div>
+    <nav role="navigation">
+        <ul class="summary">
+            <li class="header">Summary</li><li class="chapter" data-level="1.1" data-path="../index.html">
+    <a href="../index.html"><b>1.1.</b> 介绍</a>
+</li>
+<li class="chapter" data-level="1.2" data-path="index.html">
+    <a href="index.html"><b>1.2.</b> Oracle 部署</a>
+</li>
+<li class="chapter" data-level="1.3" data-path="总结/语法总结.html">
+    <a href="总结/语法总结.html"><b>1.3.</b> Oracle 语法总结</a>
+</li>
+<li class="chapter" data-level="1.4" data-path="概念.html">
+    <a href="概念.html"><b>1.4.</b> Oracle 概念</a>
+    <ul class="articles">
+    <li class="chapter active" data-level="1.4.1" data-path="数据库中的相关术语.html">
+    <a href="数据库中的相关术语.html"><b>1.4.1.</b> 数据库中的相关术语</a>
+</li>
+<li class="chapter" data-level="1.4.2" data-path="范式.html">
+    <a href="范式.html"><b>1.4.2.</b> 范式</a>
+</li>
+<li class="chapter" data-level="1.4.3" data-path="E-R图.html">
+    <a href="E-R图.html"><b>1.4.3.</b> E-R图</a>
+</li>
+<li class="chapter" data-level="1.4.4" data-path="Oracle数据类型.html">
+    <a href="Oracle数据类型.html"><b>1.4.4.</b> Oracle 数据类型</a>
+</li>
+
+    </ul>
+</li>
+<li class="chapter" data-level="1.5" data-path="function/function.html">
+    <a href="function/function.html"><b>1.5.</b> Oracle 常用函数</a>
+    <ul class="articles">
+    <li class="chapter" data-level="1.5.1" data-path="function/数值型函数.html">
+    <a href="function/数值型函数.html"><b>1.5.1.</b> 数值型函数</a>
+</li>
+<li class="chapter" data-level="1.5.2" data-path="function/字符型函数.html">
+    <a href="function/字符型函数.html"><b>1.5.2.</b> 字符型函数</a>
+</li>
+<li class="chapter" data-level="1.5.3" data-path="function/日期型函数.html">
+    <a href="function/日期型函数.html"><b>1.5.3.</b> 日期型函数</a>
+</li>
+<li class="chapter" data-level="1.5.4" data-path="function/转换函数.html">
+    <a href="function/转换函数.html"><b>1.5.4.</b> 转换函数</a>
+</li>
+<li class="chapter" data-level="1.5.5" data-path="function/NULL函数.html">
+    <a href="function/NULL函数.html"><b>1.5.5.</b> NULL函数</a>
+</li>
+<li class="chapter" data-level="1.5.6" data-path="function/聚合函数.html">
+    <a href="function/聚合函数.html"><b>1.5.6.</b> 聚合函数</a>
+</li>
+<li class="chapter" data-level="1.5.7" data-path="function/其他函数.html">
+    <a href="function/其他函数.html"><b>1.5.7.</b> 其他函数</a>
+</li>
+
+    </ul>
+</li>
+<li class="chapter" data-level="1.6" data-path="exercise/index.html">
+    <a href="exercise/index.html"><b>1.6.</b> Oracle 练习汇总</a>
+    <ul class="articles">
+    <li class="chapter" data-level="1.6.1" data-path="exercise/001.html">
+    <a href="exercise/001.html"><b>1.6.1.</b> Oracle 练习 001</a>
+</li>
+<li class="chapter" data-level="1.6.2" data-path="exercise/002.html">
+    <a href="exercise/002.html"><b>1.6.2.</b> Oracle 练习 002</a>
+</li>
+<li class="chapter" data-level="1.6.3" data-path="exercise/003.html">
+    <a href="exercise/003.html"><b>1.6.3.</b> Oracle 练习 003</a>
+</li>
+<li class="chapter" data-level="1.6.4" data-path="exercise/004.html">
+    <a href="exercise/004.html"><b>1.6.4.</b> Oracle 练习 004</a>
+</li>
+<li class="chapter" data-level="1.6.5" data-path="exercise/005.html">
+    <a href="exercise/005.html"><b>1.6.5.</b> Oracle 练习 005</a>
+</li>
+<li class="chapter" data-level="1.6.6" data-path="exercise/006.html">
+    <a href="exercise/006.html"><b>1.6.6.</b> Oracle 练习 006</a>
+</li>
+<li class="chapter" data-level="1.6.7" data-path="exercise/007.html">
+    <a href="exercise/007.html"><b>1.6.7.</b> Oracle 练习 007</a>
+</li>
+<li class="chapter" data-level="1.6.8" data-path="exercise/008.html">
+    <a href="exercise/008.html"><b>1.6.8.</b> Oracle 练习 008</a>
+</li>
+<li class="chapter" data-level="1.6.9" data-path="exercise/009.html">
+    <a href="exercise/009.html"><b>1.6.9.</b> Oracle 练习 009</a>
+</li>
+<li class="chapter" data-level="1.6.10" data-path="exercise/010.html">
+    <a href="exercise/010.html"><b>1.6.10.</b> Oracle 练习 010</a>
+</li>
+<li class="chapter" data-level="1.6.11" data-path="exercise/011.html">
+    <a href="exercise/011.html"><b>1.6.11.</b> Oracle 练习 011</a>
+</li>
+<li class="chapter" data-level="1.6.12" data-path="exercise/012.html">
+    <a href="exercise/012.html"><b>1.6.12.</b> Oracle 练习 012</a>
+</li>
+<li class="chapter" data-level="1.6.13" data-path="exercise/013.html">
+    <a href="exercise/013.html"><b>1.6.13.</b> Oracle 练习 013</a>
+</li>
+<li class="chapter" data-level="1.6.14" data-path="exercise/014.html">
+    <a href="exercise/014.html"><b>1.6.14.</b> Oracle 练习 014</a>
+</li>
+<li class="chapter" data-level="1.6.15" data-path="exercise/015.html">
+    <a href="exercise/015.html"><b>1.6.15.</b> Oracle 练习 015</a>
+</li>
+<li class="chapter" data-level="1.6.16" data-path="exercise/016.html">
+    <a href="exercise/016.html"><b>1.6.16.</b> Oracle 练习 016</a>
+</li>
+<li class="chapter" data-level="1.6.17" data-path="exercise/017.html">
+    <a href="exercise/017.html"><b>1.6.17.</b> Oracle 练习 017</a>
+</li>
+<li class="chapter" data-level="1.6.18" data-path="exercise/018.html">
+    <a href="exercise/018.html"><b>1.6.18.</b> Oracle 练习 018</a>
+</li>
+<li class="chapter" data-level="1.6.19" data-path="exercise/019.html">
+    <a href="exercise/019.html"><b>1.6.19.</b> Oracle 练习 019</a>
+</li>
+<li class="chapter" data-level="1.6.20" data-path="exercise/020.html">
+    <a href="exercise/020.html"><b>1.6.20.</b> Oracle 练习 020</a>
+</li>
+<li class="chapter" data-level="1.6.21" data-path="exercise/021.html">
+    <a href="exercise/021.html"><b>1.6.21.</b> Oracle 练习 021</a>
+</li>
+<li class="chapter" data-level="1.6.22" data-path="exercise/022.html">
+    <a href="exercise/022.html"><b>1.6.22.</b> Oracle 练习 022</a>
+</li>
+<li class="chapter" data-level="1.6.23" data-path="exercise/023.html">
+    <a href="exercise/023.html"><b>1.6.23.</b> Oracle 练习 023</a>
+</li>
+<li class="chapter" data-level="1.6.24" data-path="exercise/024.html">
+    <a href="exercise/024.html"><b>1.6.24.</b> Oracle 练习 024</a>
+</li>
+<li class="chapter" data-level="1.6.25" data-path="exercise/025.html">
+    <a href="exercise/025.html"><b>1.6.25.</b> Oracle 练习 025</a>
+</li>
+<li class="chapter" data-level="1.6.26" data-path="exercise/026.html">
+    <a href="exercise/026.html"><b>1.6.26.</b> Oracle 练习 026</a>
+</li>
+<li class="chapter" data-level="1.6.27" data-path="exercise/027.html">
+    <a href="exercise/027.html"><b>1.6.27.</b> Oracle 练习 027</a>
+</li>
+<li class="chapter" data-level="1.6.28" data-path="exercise/028.html">
+    <a href="exercise/028.html"><b>1.6.28.</b> Oracle 练习 028</a>
+</li>
+<li class="chapter" data-level="1.6.29" data-path="exercise/029.html">
+    <a href="exercise/029.html"><b>1.6.29.</b> Oracle 练习 029</a>
+</li>
+<li class="chapter" data-level="1.6.30" data-path="exercise/030.html">
+    <a href="exercise/030.html"><b>1.6.30.</b> Oracle 练习 030</a>
+</li>
+<li class="chapter" data-level="1.6.31" data-path="exercise/031.html">
+    <a href="exercise/031.html"><b>1.6.31.</b> Oracle 练习 031</a>
+</li>
+<li class="chapter" data-level="1.6.32" data-path="exercise/032.html">
+    <a href="exercise/032.html"><b>1.6.32.</b> Oracle 练习 032</a>
+</li>
+<li class="chapter" data-level="1.6.33" data-path="exercise/033.html">
+    <a href="exercise/033.html"><b>1.6.33.</b> Oracle 练习 033</a>
+</li>
+<li class="chapter" data-level="1.6.34" data-path="exercise/034.html">
+    <a href="exercise/034.html"><b>1.6.34.</b> Oracle 练习 034</a>
+</li>
+<li class="chapter" data-level="1.6.35" data-path="exercise/035.html">
+    <a href="exercise/035.html"><b>1.6.35.</b> Oracle 练习 035</a>
+</li>
+<li class="chapter" data-level="1.6.36" data-path="exercise/036.html">
+    <a href="exercise/036.html"><b>1.6.36.</b> Oracle 练习 036</a>
+</li>
+<li class="chapter" data-level="1.6.37" data-path="exercise/037.html">
+    <a href="exercise/037.html"><b>1.6.37.</b> Oracle 练习 037</a>
+</li>
+<li class="chapter" data-level="1.6.38" data-path="exercise/038.html">
+    <a href="exercise/038.html"><b>1.6.38.</b> Oracle 练习 038</a>
+</li>
+<li class="chapter" data-level="1.6.39" data-path="exercise/039.html">
+    <a href="exercise/039.html"><b>1.6.39.</b> Oracle 练习 039</a>
+</li>
+<li class="chapter" data-level="1.6.40" data-path="exercise/040.html">
+    <a href="exercise/040.html"><b>1.6.40.</b> Oracle 练习 040</a>
+</li>
+<li class="chapter" data-level="1.6.41" data-path="exercise/041.html">
+    <a href="exercise/041.html"><b>1.6.41.</b> Oracle 练习 041</a>
+</li>
+<li class="chapter" data-level="1.6.42" data-path="exercise/042.html">
+    <a href="exercise/042.html"><b>1.6.42.</b> Oracle 练习 042</a>
+</li>
+<li class="chapter" data-level="1.6.43" data-path="exercise/043.html">
+    <a href="exercise/043.html"><b>1.6.43.</b> Oracle 练习 043</a>
+</li>
+<li class="chapter" data-level="1.6.44" data-path="exercise/044.html">
+    <a href="exercise/044.html"><b>1.6.44.</b> Oracle 练习 044</a>
+</li>
+<li class="chapter" data-level="1.6.45" data-path="exercise/045.html">
+    <a href="exercise/045.html"><b>1.6.45.</b> Oracle 练习 045</a>
+</li>
+<li class="chapter" data-level="1.6.46" data-path="exercise/046.html">
+    <a href="exercise/046.html"><b>1.6.46.</b> Oracle 练习 046</a>
+</li>
+<li class="chapter" data-level="1.6.47" data-path="exercise/047.html">
+    <a href="exercise/047.html"><b>1.6.47.</b> Oracle 练习 047</a>
+</li>
+<li class="chapter" data-level="1.6.48" data-path="exercise/048.html">
+    <a href="exercise/048.html"><b>1.6.48.</b> Oracle 练习 048</a>
+</li>
+<li class="chapter" data-level="1.6.49" data-path="exercise/049.html">
+    <a href="exercise/049.html"><b>1.6.49.</b> Oracle 练习 049</a>
+</li>
+<li class="chapter" data-level="1.6.50" data-path="exercise/050.html">
+    <a href="exercise/050.html"><b>1.6.50.</b> Oracle 练习 050</a>
+</li>
+<li class="chapter" data-level="1.6.51" data-path="exercise/051.html">
+    <a href="exercise/051.html"><b>1.6.51.</b> Oracle 练习 051</a>
+</li>
+<li class="chapter" data-level="1.6.52" data-path="exercise/052.html">
+    <a href="exercise/052.html"><b>1.6.52.</b> Oracle 练习 052</a>
+</li>
+<li class="chapter" data-level="1.6.53" data-path="exercise/053.html">
+    <a href="exercise/053.html"><b>1.6.53.</b> Oracle 练习 053</a>
+</li>
+<li class="chapter" data-level="1.6.54" data-path="exercise/选择题.html">
+    <a href="exercise/选择题.html"><b>1.6.54.</b> Oracle 选择题</a>
+</li>
+
+    </ul>
+</li>
+
+            <li class="divider"></li>
+            <li>
+                <a class="lsbook-link" href="https://github.com/liushilive/lsbook" target="blank">
+                    本书使用 LsBook 发布
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<div class="book-body">
+    <div class="body-inner">
+    <div class="book-header" role="navigation">
+        <!-- Title -->
+        <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i>
+            <a href="..">数据库中的相关术语</a>
+        </h1>
+    </div>
+
+    <div class="page-wrapper" role="main" tabindex="-1">
+        <div class="page-inner">
+            <div class="search-plus" id="book-search-results">
+                <div class="search-noresults">
+                    <section class="normal markdown-section">
+                        <div id='anchor-navigation-ex-navbar'><i class='fa fa-anchor'></i><ul><li><span class='title-icon fa fa-hand-o-right'></span><a aria-label class='on-toolbar-action' href='' onclick="$('.fa.fa-align-justify').parent()[0].click();">目录</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_1'><b></b>数据库中的相关术语</a></li><ul><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_2'><b>1. </b>表</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_3'><b>2. </b>视图</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_4'><b>3. </b>存储过程</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_5'><b>4. </b>触发器</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_6'><b>5. </b>约束</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_7'><b>6. </b>事务</a></li><ul><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_8'><b>6.1. </b>事务的 ACID 特性</a></li></ul></ul></ul></div><a href='#anchor_1' id='anchorNavigationExGoTop'><i class='fa fa-arrow-up'></i></a>
+                        <h1 id="anchor_1"><a name="anchor_1" class="anchor-navigation-ex-anchor" href="#anchor_1"><i class="fa fa-link" aria-hidden="true"></i></a>数据库中的相关术语</h1><p>在 Oracle 数据库中每个数据库里面都包含很多对象，主要包括表、视图、存储过程、触发器以及约束。在这儿只简单介绍一下每一个术语的含义，在后面会详细地讲解这些术语的使用。</p>
+<h2 id="anchor_2"><a name="anchor_2" class="anchor-navigation-ex-anchor" href="#anchor_2"><i class="fa fa-link" aria-hidden="true"></i></a>1. 表</h2><p>表，即在数据库中存放数据用的数据表。每一个数据库中都可以包含多张数据表，但是每一个数据表的名字都是不能重复的。表的一行代表一条记录，每一列都有一个列名，列名是唯一的，行与列的交叉点称为字段。</p>
+<p>例如，创建一个存放图书信息的表，表中信息包括图书编号、图书名称、图书作者、图书出版社、图书价格、备注。</p>
+<table>
+<thead><tr>
+<th>图书编号</th>
+<th>图书名称</th>
+<th>图书作者</th>
+<th>图书出版社</th>
+<th>图书价格</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0001</td>
+<td>Oracle 10g</td>
+<td>刘一</td>
+<td>XX 出版社</td>
+<td>20</td>
+<td></td>
+</tr>
+<tr>
+<td>0002</td>
+<td>Oracle 11g</td>
+<td>王五</td>
+<td>XX 出版社</td>
+<td>30</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>在表中，第一行是表中每一列的列名，后两行每一行都是表中的一条记录。</p>
+<h2 id="anchor_3"><a name="anchor_3" class="anchor-navigation-ex-anchor" href="#anchor_3"><i class="fa fa-link" aria-hidden="true"></i></a>2. 视图</h2><p>视图是数据库中的虚拟表。在视图中存放的是从数据库表中查询出来的记录，使用视图主要是为了方便信息查询，同时也能够缩短查询数据的时间。</p>
+<h2 id="anchor_4"><a name="anchor_4" class="anchor-navigation-ex-anchor" href="#anchor_4"><i class="fa fa-link" aria-hidden="true"></i></a>3. 存储过程</h2><p>存储过程是由 SQL 语句和控制流语句组成的语句块。存储过程存储在数据库内，可由应用程序通过存储过程的名称调用执行。</p>
+<p>存储过程在开发软件时，可以把大量的数据操作放在服务器端的存储过程中，而只返回需要的数据，这样就减少了数据的传输量，速度也可以大大地提高。</p>
+<h2 id="anchor_5"><a name="anchor_5" class="anchor-navigation-ex-anchor" href="#anchor_5"><i class="fa fa-link" aria-hidden="true"></i></a>4. 触发器</h2><p>触发器是特殊的存储过程，也是由 SQL 语句和程序控制语句组成的。但是，触发器在数据库中是不需调用而自动执行的。例如，在触发器中可以定义在修改某张表记录后执行触发器中的内容。</p>
+<h2 id="anchor_6"><a name="anchor_6" class="anchor-navigation-ex-anchor" href="#anchor_6"><i class="fa fa-link" aria-hidden="true"></i></a>5. 约束</h2><p>约束是在数据库中保证数据库里表中数据完整性的手段。在 Oracle 中使用的约束有主键约束、外键约束、唯一约束、检查约束、非空约束、默认约束 6 个，其中主键约束和唯一约束都被认为是唯一约束，而外键约束被认为是参照约束。</p>
+<ul>
+<li><p>主键（Primary Key）约束</p>
+<p>主键约束在每个数据表中只能有一个，但是一个主键约束可以由多个列组成，通常把由多个列组成的主键又叫做复合主键或组合主键。</p>
+<p>主键约束可以保证主键列的数据没有重复值且值不为空，也可以说是唯一地标识表中的一条记录。</p>
+</li>
+<li><p>外键（Foreign Key）约束</p>
+<p>外键约束之所以被认为是参照约束，是因为它主要用作把一个表中的数据和另一个表中的数据进行关联，表和表之间的关联是为了保证数据库中数据的完整性，使用外键保证数据的完整性，也叫参照完整性。</p>
+<p>下面就创建商品信息表和商品类型信息表，并建立两个表之间的外键约束。</p>
+<p><a data-lightbox="1" href="../screenshot/2018-06-08-16-20-02.png">
+  <img alt="外键约束" src="../screenshot/2018-06-08-16-20-02.png" title="外键约束">
+</a></p>
+<p>在商品信息表中“商品编号”是主键，而在商品类型信息表中“类型编号”是主键，当把商品信息表中的“商品编号”与商品类型信息表中的“类型编号”设置为外键约束后，在商品信息表中的类型信息就可以用商品类型信息表中的类型编号代替。设置完外键约束后，商品信息表中类型字段值必须是在商品类型信息表中存在的，同时当在商品类型信息表中删除一个类型时，如果商品信息表已经使用过该类型，那么商品类型信息表中的数据就无法被删除。这样就保证了数据库中数据的完整性。</p>
+</li>
+<li><p>唯一（unique）约束</p>
+<p>唯一约束和主键约束一样都是设置表中的列不能重复的约束，区别就是一个表中只能有一个主键约束，而却可以有多个唯一约束。通常情况下设置唯一约束的目的就是使非主键列没有重复值。唯一约束与主键约束的另一个区别是如果数据表中的某一列中有空值，那么就不能把这个列设置为主键列，而可以设置成唯一约束。例如，在商品信息表中把商品编号设置成了主键，但是还要保证商品的名称不重名时，就可以把商品名称设置为唯一约束。</p>
+</li>
+<li><p>检查（check）约束</p>
+<p>检查约束是用来指定表中列的值的取值范围的。例如，在员工信息表中员工年龄的列，如果要使员工年龄列的值为 18～50，就可以使用检查约束进行设置，当输入的值不在有效范围内时，就会出现错误。这样就保证了数据库中数据的有效性。</p>
+</li>
+<li><p>非空（not null）约束</p>
+<p>非空约束是用来约束表中的列不允许为空的。例如，在员工信息表中员工身份证号码列，要求员工 必须输入时，可以使用非空约束来保证该列不能为空。</p>
+</li>
+<li><p>默认（default）约束</p>
+<p>插入数据没有赋值时，给一个默认值。</p>
+</li>
+</ul>
+<h2 id="anchor_7"><a name="anchor_7" class="anchor-navigation-ex-anchor" href="#anchor_7"><i class="fa fa-link" aria-hidden="true"></i></a>6. 事务</h2><p>我们可以把事务理解成一组 SQL 语句的集合。</p>
+<p>事务可以只包含一条 SQL 语句，也可以包含多条复杂的 SQL 语句，事务中的所有 SQL 语句被当做一个操作单元，换句话说，事务中的 SQL 语句要么都执行成功，要么全部执行失败，事务内的 SQL 语句被当做一个整体，被当做一个原子进行操作。</p>
+<h3 id="anchor_8"><a name="anchor_8" class="anchor-navigation-ex-anchor" href="#anchor_8"><i class="fa fa-link" aria-hidden="true"></i></a>6.1. 事务的 ACID 特性</h3><p>事务有 4 个特性，它们分别是原子性、一致性、隔离性、持久性。</p>
+<ul>
+<li><p>原子性 (atomicity)</p>
+<p>整个事务中的所有操作要么全部执行成功，要么全部执行失败后回滚到最初状态。</p>
+<p>事务的原子性是指，事务中程序是数据库的逻辑工作单位，它对数据的修改要么全部执行，要么完全不执行。原子也意味着不可分割，不管有多少程序，只要在同一个事务中，那么它们就是一个整体，如果都执行成功才意味着该事务成功，而有一个操作失败，那么同一个事务中的其他操作即使执行成功也没有用，事务会使其全部撤销。</p>
+</li>
+<li><p>一致性 (consistency)</p>
+<p>数据库总是从一个一致性状态转为另一个一致性状态。</p>
+<p>事务的一致性指事务执行的前后数据库都必须处于一致性状态，它是相对脏读而言的。只有在事务完成后才能被所有使用者看见，保证了数据的完整性。</p>
+<p>例如在银行转账时，从 A 账户取款但没有放到 B 账户中时数据是不一致的，同时也是不完整的，其他使用者此时不能看到 A 中修改后的数据，只有存到 B 账户中，交易完成并提交事务，这时才算数据一致，所有用户也会看到修改后的数据。</p>
+</li>
+<li><p>隔离性 (isolation)</p>
+<p>一个事务在提交之前所做出的的操作是否能为其他事务可见，由于不同的场景需求不同，所以针对隔离性来说，有不同的隔离级别。</p>
+<p>隔离性是指并发事务之间不能相互的干扰。也就是说，一个事务操作的数据不会被其他事务看到和操作。</p>
+</li>
+<li><p>持久性 (durability)</p>
+<p>事务一旦提交，事务所做出的修改将会永久保存，此时即使数据库崩溃，修改的数据也不会丢失。</p>
+</li>
+</ul>
+<blockquote><p>事务的提交很重要，但不建议频繁地提交事务，因为每次提交事务都需要时间，如果 1W 行记录，每行记录都提交事务，那么事务本身将是性能的主要消耗者。所以，适当地减少事务提交次数比较重要。例如，可以每 1K 行提交一次。</p>
+</blockquote>
+
+                        <footer class="page-footer"><span class="copyright">© 2019 刘士. 
+All rights reserved.</span><span class="footer-modification">
+<span id="busuanzi_container_site_uv" style="display:none">本站访客数 <span id="busuanzi_value_site_uv">
+</span> 人次</span></span></footer>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+var _hmt = _hmt || [];
+(function () {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?921ac157b25b6c9fd562a97abf2806a7";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+(function () {
+  var bp = document.createElement('script');
+  var curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else {
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+                    </section>
+                </div>
+                <div class="search-results">
+                    <div class="has-results">
+                        <h1 class="search-results-title"><span class='search-results-count'></span> 结果匹配 "<span class='search-query'></span>"</h1>
+                        <ul class="search-results-list"></ul>
+                    </div>
+                    <div class="no-results">
+                        <h1 class="search-results-title">没有匹配的结果 "<span class='search-query'></span>"</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<a aria-label="Previous page: Oracle 概念" class="navigation navigation-prev" href="概念.html">
+    <i class="fa fa-angle-left"></i>
+</a>
+
+
+<a aria-label="Next page: 范式" class="navigation navigation-next" href="范式.html">
+    <i class="fa fa-angle-right"></i>
+</a>
+
+
+</div>
+<script>
+    var lsbook = lsbook || [];
+    lsbook.push(function () {
+        lsbook.page.hasChanged({
+            "config": {
+                "github_url":"https://liushilive.github.io/",
+                "language": "zh-cn"
+            },
+            "basePath": "..",
+            "js": {}
+        });
+    });
+</script>
+</div>
+
+<script src="..\../asserts/lsbook/jquery-3.3.1.min.js"></script>
+<script charset="UTF-8" src="..\../asserts/lsbook/jquery_mar/jquery.mark.js"></script>
+<script src="..\../asserts/lsbook/lightbox/js/lightbox.min.js"></script>
+<script src="..\../asserts/lsbook/lsbook.min.js"></script>
+
+</body>
+</html>

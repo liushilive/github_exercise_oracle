@@ -1,0 +1,729 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+<meta charset="UTF-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Oracle 相关 - 转换函数</title>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="" name="description">
+<meta content="刘士" name="author">
+
+<link href="../..\../asserts/lsbook/less/website.css" rel="stylesheet">
+<link href="../..\../asserts/lsbook/katex/katex.min.css" rel="stylesheet">
+<link href="../..\../asserts/lsbook/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+<meta content="true" name="HandheldFriendly"/>
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<link href="../..\../asserts/lsbook/images/apple-touch-icon-precomposed-152.png"
+      rel="apple-touch-icon-precomposed" sizes="152x152">
+<link href="../..\../asserts/lsbook/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<!--分页-->
+<link href="NULL函数.html" rel="next"/>
+</head>
+<body>
+<div class="book"><div class="book-summary">
+    <div id="book-search-input" role="search">
+        <input placeholder="输入并搜索" type="text"/>
+    </div>
+    <nav role="navigation">
+        <ul class="summary">
+            <li class="header">Summary</li><li class="chapter" data-level="1.1" data-path="../../index.html">
+    <a href="../../index.html"><b>1.1.</b> 介绍</a>
+</li>
+<li class="chapter" data-level="1.2" data-path="../index.html">
+    <a href="../index.html"><b>1.2.</b> Oracle 部署</a>
+</li>
+<li class="chapter" data-level="1.3" data-path="../总结/语法总结.html">
+    <a href="../总结/语法总结.html"><b>1.3.</b> Oracle 语法总结</a>
+</li>
+<li class="chapter" data-level="1.4" data-path="../概念.html">
+    <a href="../概念.html"><b>1.4.</b> Oracle 概念</a>
+    <ul class="articles">
+    <li class="chapter" data-level="1.4.1" data-path="../数据库中的相关术语.html">
+    <a href="../数据库中的相关术语.html"><b>1.4.1.</b> 数据库中的相关术语</a>
+</li>
+<li class="chapter" data-level="1.4.2" data-path="../范式.html">
+    <a href="../范式.html"><b>1.4.2.</b> 范式</a>
+</li>
+<li class="chapter" data-level="1.4.3" data-path="../E-R图.html">
+    <a href="../E-R图.html"><b>1.4.3.</b> E-R图</a>
+</li>
+<li class="chapter" data-level="1.4.4" data-path="../Oracle数据类型.html">
+    <a href="../Oracle数据类型.html"><b>1.4.4.</b> Oracle 数据类型</a>
+</li>
+
+    </ul>
+</li>
+<li class="chapter" data-level="1.5" data-path="function.html">
+    <a href="function.html"><b>1.5.</b> Oracle 常用函数</a>
+    <ul class="articles">
+    <li class="chapter" data-level="1.5.1" data-path="数值型函数.html">
+    <a href="数值型函数.html"><b>1.5.1.</b> 数值型函数</a>
+</li>
+<li class="chapter" data-level="1.5.2" data-path="字符型函数.html">
+    <a href="字符型函数.html"><b>1.5.2.</b> 字符型函数</a>
+</li>
+<li class="chapter" data-level="1.5.3" data-path="日期型函数.html">
+    <a href="日期型函数.html"><b>1.5.3.</b> 日期型函数</a>
+</li>
+<li class="chapter active" data-level="1.5.4" data-path="转换函数.html">
+    <a href="转换函数.html"><b>1.5.4.</b> 转换函数</a>
+</li>
+<li class="chapter" data-level="1.5.5" data-path="NULL函数.html">
+    <a href="NULL函数.html"><b>1.5.5.</b> NULL函数</a>
+</li>
+<li class="chapter" data-level="1.5.6" data-path="聚合函数.html">
+    <a href="聚合函数.html"><b>1.5.6.</b> 聚合函数</a>
+</li>
+<li class="chapter" data-level="1.5.7" data-path="其他函数.html">
+    <a href="其他函数.html"><b>1.5.7.</b> 其他函数</a>
+</li>
+
+    </ul>
+</li>
+<li class="chapter" data-level="1.6" data-path="../exercise/index.html">
+    <a href="../exercise/index.html"><b>1.6.</b> Oracle 练习汇总</a>
+    <ul class="articles">
+    <li class="chapter" data-level="1.6.1" data-path="../exercise/001.html">
+    <a href="../exercise/001.html"><b>1.6.1.</b> Oracle 练习 001</a>
+</li>
+<li class="chapter" data-level="1.6.2" data-path="../exercise/002.html">
+    <a href="../exercise/002.html"><b>1.6.2.</b> Oracle 练习 002</a>
+</li>
+<li class="chapter" data-level="1.6.3" data-path="../exercise/003.html">
+    <a href="../exercise/003.html"><b>1.6.3.</b> Oracle 练习 003</a>
+</li>
+<li class="chapter" data-level="1.6.4" data-path="../exercise/004.html">
+    <a href="../exercise/004.html"><b>1.6.4.</b> Oracle 练习 004</a>
+</li>
+<li class="chapter" data-level="1.6.5" data-path="../exercise/005.html">
+    <a href="../exercise/005.html"><b>1.6.5.</b> Oracle 练习 005</a>
+</li>
+<li class="chapter" data-level="1.6.6" data-path="../exercise/006.html">
+    <a href="../exercise/006.html"><b>1.6.6.</b> Oracle 练习 006</a>
+</li>
+<li class="chapter" data-level="1.6.7" data-path="../exercise/007.html">
+    <a href="../exercise/007.html"><b>1.6.7.</b> Oracle 练习 007</a>
+</li>
+<li class="chapter" data-level="1.6.8" data-path="../exercise/008.html">
+    <a href="../exercise/008.html"><b>1.6.8.</b> Oracle 练习 008</a>
+</li>
+<li class="chapter" data-level="1.6.9" data-path="../exercise/009.html">
+    <a href="../exercise/009.html"><b>1.6.9.</b> Oracle 练习 009</a>
+</li>
+<li class="chapter" data-level="1.6.10" data-path="../exercise/010.html">
+    <a href="../exercise/010.html"><b>1.6.10.</b> Oracle 练习 010</a>
+</li>
+<li class="chapter" data-level="1.6.11" data-path="../exercise/011.html">
+    <a href="../exercise/011.html"><b>1.6.11.</b> Oracle 练习 011</a>
+</li>
+<li class="chapter" data-level="1.6.12" data-path="../exercise/012.html">
+    <a href="../exercise/012.html"><b>1.6.12.</b> Oracle 练习 012</a>
+</li>
+<li class="chapter" data-level="1.6.13" data-path="../exercise/013.html">
+    <a href="../exercise/013.html"><b>1.6.13.</b> Oracle 练习 013</a>
+</li>
+<li class="chapter" data-level="1.6.14" data-path="../exercise/014.html">
+    <a href="../exercise/014.html"><b>1.6.14.</b> Oracle 练习 014</a>
+</li>
+<li class="chapter" data-level="1.6.15" data-path="../exercise/015.html">
+    <a href="../exercise/015.html"><b>1.6.15.</b> Oracle 练习 015</a>
+</li>
+<li class="chapter" data-level="1.6.16" data-path="../exercise/016.html">
+    <a href="../exercise/016.html"><b>1.6.16.</b> Oracle 练习 016</a>
+</li>
+<li class="chapter" data-level="1.6.17" data-path="../exercise/017.html">
+    <a href="../exercise/017.html"><b>1.6.17.</b> Oracle 练习 017</a>
+</li>
+<li class="chapter" data-level="1.6.18" data-path="../exercise/018.html">
+    <a href="../exercise/018.html"><b>1.6.18.</b> Oracle 练习 018</a>
+</li>
+<li class="chapter" data-level="1.6.19" data-path="../exercise/019.html">
+    <a href="../exercise/019.html"><b>1.6.19.</b> Oracle 练习 019</a>
+</li>
+<li class="chapter" data-level="1.6.20" data-path="../exercise/020.html">
+    <a href="../exercise/020.html"><b>1.6.20.</b> Oracle 练习 020</a>
+</li>
+<li class="chapter" data-level="1.6.21" data-path="../exercise/021.html">
+    <a href="../exercise/021.html"><b>1.6.21.</b> Oracle 练习 021</a>
+</li>
+<li class="chapter" data-level="1.6.22" data-path="../exercise/022.html">
+    <a href="../exercise/022.html"><b>1.6.22.</b> Oracle 练习 022</a>
+</li>
+<li class="chapter" data-level="1.6.23" data-path="../exercise/023.html">
+    <a href="../exercise/023.html"><b>1.6.23.</b> Oracle 练习 023</a>
+</li>
+<li class="chapter" data-level="1.6.24" data-path="../exercise/024.html">
+    <a href="../exercise/024.html"><b>1.6.24.</b> Oracle 练习 024</a>
+</li>
+<li class="chapter" data-level="1.6.25" data-path="../exercise/025.html">
+    <a href="../exercise/025.html"><b>1.6.25.</b> Oracle 练习 025</a>
+</li>
+<li class="chapter" data-level="1.6.26" data-path="../exercise/026.html">
+    <a href="../exercise/026.html"><b>1.6.26.</b> Oracle 练习 026</a>
+</li>
+<li class="chapter" data-level="1.6.27" data-path="../exercise/027.html">
+    <a href="../exercise/027.html"><b>1.6.27.</b> Oracle 练习 027</a>
+</li>
+<li class="chapter" data-level="1.6.28" data-path="../exercise/028.html">
+    <a href="../exercise/028.html"><b>1.6.28.</b> Oracle 练习 028</a>
+</li>
+<li class="chapter" data-level="1.6.29" data-path="../exercise/029.html">
+    <a href="../exercise/029.html"><b>1.6.29.</b> Oracle 练习 029</a>
+</li>
+<li class="chapter" data-level="1.6.30" data-path="../exercise/030.html">
+    <a href="../exercise/030.html"><b>1.6.30.</b> Oracle 练习 030</a>
+</li>
+<li class="chapter" data-level="1.6.31" data-path="../exercise/031.html">
+    <a href="../exercise/031.html"><b>1.6.31.</b> Oracle 练习 031</a>
+</li>
+<li class="chapter" data-level="1.6.32" data-path="../exercise/032.html">
+    <a href="../exercise/032.html"><b>1.6.32.</b> Oracle 练习 032</a>
+</li>
+<li class="chapter" data-level="1.6.33" data-path="../exercise/033.html">
+    <a href="../exercise/033.html"><b>1.6.33.</b> Oracle 练习 033</a>
+</li>
+<li class="chapter" data-level="1.6.34" data-path="../exercise/034.html">
+    <a href="../exercise/034.html"><b>1.6.34.</b> Oracle 练习 034</a>
+</li>
+<li class="chapter" data-level="1.6.35" data-path="../exercise/035.html">
+    <a href="../exercise/035.html"><b>1.6.35.</b> Oracle 练习 035</a>
+</li>
+<li class="chapter" data-level="1.6.36" data-path="../exercise/036.html">
+    <a href="../exercise/036.html"><b>1.6.36.</b> Oracle 练习 036</a>
+</li>
+<li class="chapter" data-level="1.6.37" data-path="../exercise/037.html">
+    <a href="../exercise/037.html"><b>1.6.37.</b> Oracle 练习 037</a>
+</li>
+<li class="chapter" data-level="1.6.38" data-path="../exercise/038.html">
+    <a href="../exercise/038.html"><b>1.6.38.</b> Oracle 练习 038</a>
+</li>
+<li class="chapter" data-level="1.6.39" data-path="../exercise/039.html">
+    <a href="../exercise/039.html"><b>1.6.39.</b> Oracle 练习 039</a>
+</li>
+<li class="chapter" data-level="1.6.40" data-path="../exercise/040.html">
+    <a href="../exercise/040.html"><b>1.6.40.</b> Oracle 练习 040</a>
+</li>
+<li class="chapter" data-level="1.6.41" data-path="../exercise/041.html">
+    <a href="../exercise/041.html"><b>1.6.41.</b> Oracle 练习 041</a>
+</li>
+<li class="chapter" data-level="1.6.42" data-path="../exercise/042.html">
+    <a href="../exercise/042.html"><b>1.6.42.</b> Oracle 练习 042</a>
+</li>
+<li class="chapter" data-level="1.6.43" data-path="../exercise/043.html">
+    <a href="../exercise/043.html"><b>1.6.43.</b> Oracle 练习 043</a>
+</li>
+<li class="chapter" data-level="1.6.44" data-path="../exercise/044.html">
+    <a href="../exercise/044.html"><b>1.6.44.</b> Oracle 练习 044</a>
+</li>
+<li class="chapter" data-level="1.6.45" data-path="../exercise/045.html">
+    <a href="../exercise/045.html"><b>1.6.45.</b> Oracle 练习 045</a>
+</li>
+<li class="chapter" data-level="1.6.46" data-path="../exercise/046.html">
+    <a href="../exercise/046.html"><b>1.6.46.</b> Oracle 练习 046</a>
+</li>
+<li class="chapter" data-level="1.6.47" data-path="../exercise/047.html">
+    <a href="../exercise/047.html"><b>1.6.47.</b> Oracle 练习 047</a>
+</li>
+<li class="chapter" data-level="1.6.48" data-path="../exercise/048.html">
+    <a href="../exercise/048.html"><b>1.6.48.</b> Oracle 练习 048</a>
+</li>
+<li class="chapter" data-level="1.6.49" data-path="../exercise/049.html">
+    <a href="../exercise/049.html"><b>1.6.49.</b> Oracle 练习 049</a>
+</li>
+<li class="chapter" data-level="1.6.50" data-path="../exercise/050.html">
+    <a href="../exercise/050.html"><b>1.6.50.</b> Oracle 练习 050</a>
+</li>
+<li class="chapter" data-level="1.6.51" data-path="../exercise/051.html">
+    <a href="../exercise/051.html"><b>1.6.51.</b> Oracle 练习 051</a>
+</li>
+<li class="chapter" data-level="1.6.52" data-path="../exercise/052.html">
+    <a href="../exercise/052.html"><b>1.6.52.</b> Oracle 练习 052</a>
+</li>
+<li class="chapter" data-level="1.6.53" data-path="../exercise/053.html">
+    <a href="../exercise/053.html"><b>1.6.53.</b> Oracle 练习 053</a>
+</li>
+<li class="chapter" data-level="1.6.54" data-path="../exercise/选择题.html">
+    <a href="../exercise/选择题.html"><b>1.6.54.</b> Oracle 选择题</a>
+</li>
+
+    </ul>
+</li>
+
+            <li class="divider"></li>
+            <li>
+                <a class="lsbook-link" href="https://github.com/liushilive/lsbook" target="blank">
+                    本书使用 LsBook 发布
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<div class="book-body">
+    <div class="body-inner">
+    <div class="book-header" role="navigation">
+        <!-- Title -->
+        <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i>
+            <a href="../..">转换函数</a>
+        </h1>
+    </div>
+
+    <div class="page-wrapper" role="main" tabindex="-1">
+        <div class="page-inner">
+            <div class="search-plus" id="book-search-results">
+                <div class="search-noresults">
+                    <section class="normal markdown-section">
+                        <div id='anchor-navigation-ex-navbar'><i class='fa fa-anchor'></i><ul><li><span class='title-icon fa fa-hand-o-right'></span><a aria-label class='on-toolbar-action' href='' onclick="$('.fa.fa-align-justify').parent()[0].click();">目录</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_1'><b></b>转换函数</a></li><ul><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_2'><b>1. </b>TO_CHAR(number) 函数。</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_3'><b>2. </b>TO_CHAR(date) 函数。</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_4'><b>3. </b>TO_DATE 函数。</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_5'><b>4. </b>TO_NUMBER 函数。</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_6'><b>5. </b>数字格式元素</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_7'><b>6. </b>日期时间格式元素</a></li></ul></ul></div><a href='#anchor_1' id='anchorNavigationExGoTop'><i class='fa fa-arrow-up'></i></a>
+                        <h1 id="anchor_1"><a name="anchor_1" class="anchor-navigation-ex-anchor" href="#anchor_1"><i class="fa fa-link" aria-hidden="true"></i></a>转换函数</h1><p>转换函数可以完成不同数据类型之间的转换，是平常使用比较多的函数类型之一。本节将介绍平常使用率较高的转换函数。</p>
+<h2 id="anchor_2"><a name="anchor_2" class="anchor-navigation-ex-anchor" href="#anchor_2"><i class="fa fa-link" aria-hidden="true"></i></a>1. TO_CHAR(number) 函数。</h2><p>该函数将一个数值型参数转换成字符型数据。其具体语法结构是  <code class="language-markup">TO_CHAR(n,[,fmt[,nlsparam]])</code> ，各参数表示含义如下：</p>
+<ul>
+<li><p>n：数值型数据。</p>
+</li>
+<li><p>fmt：要转成字符的格式。</p>
+</li>
+<li><p>nlsparam：由该参数指定  <code class="language-markup">fmt</code>  的特征。通常包括小数点字符、组分隔符、本地钱币符号。</p>
+</li>
+</ul>
+<p>该函数如果想用的好需要了解多方面的知识，这里不做详细介绍。</p>
+<p>示例脚本如下：</p>
+<pre class="line-numbers"><code class="lang-sql">select to_char(16.89), to_char(16.89, &#39;99.9&#39;)
+from dual;
+</code></pre>
+<h2 id="anchor_3"><a name="anchor_3" class="anchor-navigation-ex-anchor" href="#anchor_3"><i class="fa fa-link" aria-hidden="true"></i></a>2. TO_CHAR(date) 函数。</h2><p>该函数将一个日期型数据转换成一个字符型数据。</p>
+<p>它同前面介绍的同名函数一样，只不过转换的对象变化了。</p>
+<p>具体的语法结构是  <code class="language-markup">TO_CHAR(n,[,fmt[,nlsparam]])</code> ，各参数具体含义如下：</p>
+<ul>
+<li><p>n：日期类型数据。</p>
+</li>
+<li><p>fmt：要转成字符的格式。</p>
+</li>
+<li><p>nlsparam：使用的语言类型。</p>
+</li>
+</ul>
+<p>示例脚本如下：</p>
+<pre class="line-numbers"><code class="lang-sql">select to_char(sysdate, &#39;YYYY-MM-DD&#39;),
+       to_char(sysdate, &#39;HH24:MI:SS&#39;),
+       to_char(sysdate, &#39;D&#39;),
+       to_char(sysdate, &#39;WW&#39;),
+       to_char(sysdate, &#39;Q&#39;),
+       to_char(sysdate)
+from dual;
+</code></pre>
+<h2 id="anchor_4"><a name="anchor_4" class="anchor-navigation-ex-anchor" href="#anchor_4"><i class="fa fa-link" aria-hidden="true"></i></a>3. TO_DATE 函数。</h2><p>该函数可将字符型数据转换成日期型数据。</p>
+<p>函数的具体语法结构是  <code class="language-markup">TO_DATE(char[,fmt[,nlsparam]])</code> 。</p>
+<p>各参数的具体含义如下：</p>
+<ul>
+<li><p>char：待转换的字符。类型可以是 CHAR、VARCHAR2、NCHAR、NVARCHAR2。</p>
+</li>
+<li><p>fmt：表示转换的格式。</p>
+</li>
+<li><p>nlsparam：控制格式化时使用的语言类型。</p>
+</li>
+</ul>
+<p>示例脚本如下：</p>
+<pre class="line-numbers"><code class="lang-sql">select to_char(to_date(&#39;2010-7-1&#39;, &#39;YYYY-MM-DD&#39;), &#39;MONTH&#39;)
+from dual;
+</code></pre>
+<h2 id="anchor_5"><a name="anchor_5" class="anchor-navigation-ex-anchor" href="#anchor_5"><i class="fa fa-link" aria-hidden="true"></i></a>4. TO_NUMBER 函数。</h2><p>该函数将字符串转成数字。语法结构是  <code class="language-markup">TO_NUMBER(expr[,fmt[,nlsparam]])</code> ，各参数表示的具体含义如下：</p>
+<ul>
+<li><p>expr：待转换的字符，其类型可以是 CHAR、VARCHAR2、NCHAR、NVARCHAR2。</p>
+</li>
+<li><p>fmt：指定转换的数字格式。</p>
+</li>
+<li><p>nlsparam：该参数指定 fmt 的特征。通常包括小数点字符、组分隔符、本地钱币符号。</p>
+</li>
+</ul>
+<p>示例脚本如下：</p>
+<pre class="line-numbers"><code class="lang-sql">select to_number(&#39;2456.304&#39;, &#39;9999.999&#39;)
+from dual;
+</code></pre>
+<hr>
+<h2 id="anchor_6"><a name="anchor_6" class="anchor-navigation-ex-anchor" href="#anchor_6"><i class="fa fa-link" aria-hidden="true"></i></a>5. 数字格式元素</h2><p>数字格式模型由一个或多个数字格式元素组成。</p>
+<p>下表列出了数字格式模型的元素。</p>
+<table>
+<thead><tr>
+<th style="text-align:center">元素</th>
+<th style="text-align:center">举例</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"> <code class="language-markup">, （逗号）</code> </td>
+<td style="text-align:center"> <code class="language-markup">9,999</code> </td>
+<td style="text-align:left">返回指定位置的逗号。<br>可以在数字格式模型中指定多个逗号。<br><strong>限制：</strong> <br><em> 逗号元素无法启动数字格式模型。<br></em> 逗号不能出现在数字格式模型中的十进制字符或句点的右侧。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">. （句号）</code> </td>
+<td style="text-align:center"> <code class="language-markup">99.99</code> </td>
+<td style="text-align:left">返回小数点，即指定位置的句点（.）。<br><strong>限制：</strong> 只能在数字格式模型中指定一个句点。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">$</code> </td>
+<td style="text-align:center"> <code class="language-markup">$9999</code> </td>
+<td style="text-align:left">返回带有前导美元符号的值。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">0</code> </td>
+<td style="text-align:center"> <code class="language-markup">0999</code>  <br>  <code class="language-markup">9990</code> </td>
+<td style="text-align:left">返回前导零。<br>返回尾随零。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">9</code> </td>
+<td style="text-align:center"> <code class="language-markup">9999</code> </td>
+<td style="text-align:left">返回具有指定位数的值，如果为正数，则前导空格；如果为负，则返回前导减号。前导零是空白的，除了零值，它返回零作为定点数的整数部分。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">B</code> </td>
+<td style="text-align:center"> <code class="language-markup">B9999</code> </td>
+<td style="text-align:left">当整数部分为零时（无论格式模型中的零如何），返回定点数的整数部分的空白。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">C</code> </td>
+<td style="text-align:center"> <code class="language-markup">C999</code> </td>
+<td style="text-align:left">在指定位置返回 ISO 货币符号（NLS_ISO_CURRENCY 参数的当前值）。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">D</code> </td>
+<td style="text-align:center"> <code class="language-markup">99D99</code> </td>
+<td style="text-align:left">在指定位置返回十进制字符，即 NLS_NUMERIC_CHARACTER 参数的当前值。默认值为句点（.）。<br><strong>限制：</strong> 只能在数字格式模型中指定一个十进制字符。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">EEEE</code> </td>
+<td style="text-align:center"> <code class="language-markup">9.9EEEE</code> </td>
+<td style="text-align:left">使用科学计数法返回值。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">G</code> </td>
+<td style="text-align:center"> <code class="language-markup">9G999</code> </td>
+<td style="text-align:left">返回指定位置的组分隔符（NLS_NUMERIC_CHARACTER 参数的当前值）。可以在数字格式模型中指定多个组分隔符。<br><strong>限制：</strong> 组分隔符不能出现在数字格式模型中的小数字符或句点的右侧。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">L</code> </td>
+<td style="text-align:center"> <code class="language-markup">L999</code> </td>
+<td style="text-align:left">在指定位置返回本地货币符号（NLS_CURRENCY 参数的当前值）。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">MI</code> </td>
+<td style="text-align:center"> <code class="language-markup">9999MI</code> </td>
+<td style="text-align:left">使用尾随减号（-）返回负值。<br>返回带有尾随空白的正值。<br><strong>限制：</strong> MI 格式元素只能出现在数字格式模型的最后位置。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">PR</code> </td>
+<td style="text-align:center"> <code class="language-markup">9999PR</code> </td>
+<td style="text-align:left">返回尖括号  <code class="language-markup">&lt;&gt;</code>  中的负值。<br>返回带有前导和尾随空白的正值。<br><strong>限制：</strong> PR 格式元素只能出现在数字格式模型的最后位置。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">RN</code> </td>
+<td style="text-align:center"> <code class="language-markup">RN</code> </td>
+<td style="text-align:left">以大写形式返回罗马数字的值。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">rn</code> </td>
+<td style="text-align:center"> <code class="language-markup">rn</code> </td>
+<td style="text-align:left">以小写形式返回罗马数字的值。<br>值可以是 1 到 3999 之间的整数。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">S</code> </td>
+<td style="text-align:center"> <code class="language-markup">S9999</code> <br><br>  <code class="language-markup">9999S</code>  <br><br></td>
+<td style="text-align:left">使用前导减号（-）返回负值。<br>使用前导加号（+）返回正值。<br>使用尾随减号（-）返回负值。<br>使用尾随加号（+）返回正值。<br><strong>限制：</strong> S 格式元素只能出现在数字格式模型的第一个或最后一个位置。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">TM</code> </td>
+<td style="text-align:center"> <code class="language-markup">TM</code> </td>
+<td style="text-align:left">文本最小数字格式模型返回（十进制输出）可能的最小字符数。此元素不区分大小写。<br>默认值为 TM9，它以固定表示法返回数字，除非输出超过 64 个字符。如果输出超过 64 个字符，则 Oracle 数据库会自动以科学计数形式返回该数字。<br><strong>限制：</strong> <br> <em> 不能在此元素之前添加任何其他元素。 <br> </em> 只能使用一个 9 或一个 E（或 e）来跟随此元素，但不能与这些元素的任何组合一起使用。以下语句返回错误：<br> <code class="language-markup">SELECT TO_CHAR(1234, 'TM9e') FROM DUAL;</code> </td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">U</code> </td>
+<td style="text-align:center"> <code class="language-markup">U9999</code> </td>
+<td style="text-align:left">在指定位置返回欧元（或其他）双重货币符号，由 NLS_DUAL_CURRENCY 参数的当前值确定。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">V</code> </td>
+<td style="text-align:center"> <code class="language-markup">999V99</code> </td>
+<td style="text-align:left">返回一个乘以 10 n 的值（如果需要，将其四舍五入），其中 n 是 9 之后的数字 V。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">X</code> </td>
+<td style="text-align:center"> <code class="language-markup">XXXX</code> </td>
+<td style="text-align:left">返回指定位数的十六进制值。如果指定的数字不是整数，则 Oracle 数据库将其舍入为整数。<br> <strong>限制：</strong><br> <em> 此元素仅接受正值或 0. 负值返回错误。<br> </em> 可以在此元素之前仅使用 0（返回前导零）或 FM。任何其他元素都会返回错误。如果既不指定 0 也不指定带有 X 的 FM，则返回总是有一个前导空白。</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="anchor_7"><a name="anchor_7" class="anchor-navigation-ex-anchor" href="#anchor_7"><i class="fa fa-link" aria-hidden="true"></i></a>6. 日期时间格式元素</h2><p>日期时间格式模型由一个或多个日期时间格式元素组成。</p>
+<p>下表列出了日期格式模型的元素。</p>
+<table>
+<thead><tr>
+<th style="text-align:center">元素</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"> <code class="language-markup">-</code> <br> <code class="language-markup">/</code> <br> <code class="language-markup">,</code> <br> <code class="language-markup">.</code> <br>;<br> <code class="language-markup">:</code> <br> <code class="language-markup">"文本"</code> </td>
+<td style="text-align:left">在结果中复制标点符号和引用的文本。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">AD</code> <br> <code class="language-markup">A.D.</code> </td>
+<td style="text-align:left">AD 指示有或没有句点。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">AM</code> <br> <code class="language-markup">A.M.</code> </td>
+<td style="text-align:left">上午的简写</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">BC</code> <br> <code class="language-markup">B.C.</code> </td>
+<td style="text-align:left">表示公元前</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">CC</code> <br> <code class="language-markup">SCC</code> </td>
+<td style="text-align:left">世纪。<br> <em> 如果 4 位数年份的最后 2 位数字介于 01 和 99（含）之间，则该世纪比该年份的前 2 位数大 1。<br> </em> 如果 4 位数年份的最后 2 位数字是 00，则该世纪与该年份的前 2 位数字相同。<br>例如，2002 年返回 21； 2000 年回归 20。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">D</code> </td>
+<td style="text-align:left">星期几（1-7）。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">DAY</code> </td>
+<td style="text-align:left">一周之中的某天，不过返回的是星期几而已，这和语言设置有关系，在中国环境 NLS_DATE_LANGUAGE=SIMPLIFIED CHINESE ，用星期一到星期天表示</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">DD</code> </td>
+<td style="text-align:left">月份中的某天 (1-31)</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">DDD</code> </td>
+<td style="text-align:left">年份中的某天（1-366）</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">DL</code> </td>
+<td style="text-align:left">返回长的日期格式。受到 NLS_TERRITORY,NLS_LANGUAGE 参数控制。例 2008 年 4 月 28 日 星期一 <br><strong>限制：</strong> 只能使用 TS 元素指定此格式，以空格分隔。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">DS</code> </td>
+<td style="text-align:left">返回短的日期格式。受到 NLS_TERRITORY,NLS_LANGUAGE 参数控制。 例如 2008-04-28<br><strong>限制：</strong> 只能使用 TS 元素指定此格式，以空格分隔。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">DY</code> </td>
+<td style="text-align:left">日期的简称，就是星期几（当然这指的是中国环境下）</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">E</code> </td>
+<td style="text-align:left">缩写时代名称（日本帝国，中华民国官方和泰国佛历）</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">EE</code> </td>
+<td style="text-align:left">全时代的名字（日本帝国，中华民国官方和泰国佛历）</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">FF [1..9]</code> </td>
+<td style="text-align:left">在 FF 之后使用数字 1 到 9 指定返回的日期时间值的小数部分中的位数。如果未指定数字，则 Oracle 数据库将使用为 datetime 数据类型或数据类型的默认精度指定的精度。时间戳和间隔格式有效，但 DATE 格式不存在。<br><strong>例子：</strong> 'HH:MI:SS.FF'<br> <code class="language-markup">SELECT TO_CHAR(SYSTIMESTAMP, 'SS.FF3') from dual;</code> </td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">FM</code> </td>
+<td style="text-align:left">返回没有前导或尾随空格的值。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">FX</code> </td>
+<td style="text-align:left">需要字符数据和格式模型之间的精确匹配。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">HH</code> <br> <code class="language-markup">HH12</code> </td>
+<td style="text-align:left">一天中的小时（1-12）。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">HH24</code> </td>
+<td style="text-align:left">一天中的小时（0-23）。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">IW</code> </td>
+<td style="text-align:left">一年中的一周（1-52 或 1-53）基于 ISO 标准。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">IYY</code> <br> <code class="language-markup">IY</code> <br> <code class="language-markup">I</code> </td>
+<td style="text-align:left">ISO 年份的最后 3 个，2 个或 1 个数字。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">IYYY</code> </td>
+<td style="text-align:left">基于 ISO 标准的 4 位数年份。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">J</code> </td>
+<td style="text-align:left">朱利安日；公元前 4712 年 1 月 1 日以来的天数。用 J 指定的数字必须是整数。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">MI</code> </td>
+<td style="text-align:left">分钟（0-59）。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">MM</code> </td>
+<td style="text-align:left">月（01-12; 1 月 = 01）。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">MON</code> </td>
+<td style="text-align:left">月的简称，和国家有关系 NLS_DATE_LANGUAGE，例如 04 在中文环境下用 4 月表示。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">MONTH</code> </td>
+<td style="text-align:left">月的名称，国家有关系 NLS_DATE_LANGUAGE, 目前在中文下 04 表示为 4 月。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">PM</code> <br> <code class="language-markup">P.M.</code> </td>
+<td style="text-align:left">同 am,a.m. 表示下午</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">Q</code> </td>
+<td style="text-align:left">季度（1-4）</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">RM</code> </td>
+<td style="text-align:left">用罗马数字表示的月份，I, II, III, IV, V, VI, VII, VIII, IX, X, XI, XII</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">RR</code> </td>
+<td style="text-align:left">只用两位数就可以存储 21 世纪的 20 世纪日期。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">RRRR</code> </td>
+<td style="text-align:left">一年。接受 4 位或 2 位输入。如果是 2 位数，则提供与 RR 相同的返回值。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">SS</code> </td>
+<td style="text-align:left">秒（0-59），一分钟内</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">SSSSS</code> </td>
+<td style="text-align:left">一天从午夜开始的累积秒数。(0-86399)</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">TS</code> </td>
+<td style="text-align:left">以短时间格式返回值。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">TZD</code> </td>
+<td style="text-align:left">夏令时信息。TZD 值是带有夏令时信息的缩写时区字符串。它必须与 TZR 中指定的区域相对应。时间戳和间隔格式有效，但 DATE 格式不存在。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">TZH</code> </td>
+<td style="text-align:left">时区小时。（请参阅 TZMformat 元素。）以时间戳和间隔格式有效，但不以 DATE 格式表示。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">TZM</code> </td>
+<td style="text-align:left">时区分钟。（请参阅 TZHformat 元素。）以时间戳和间隔格式有效，但不以 DATE 格式表示。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">TZR</code> </td>
+<td style="text-align:left">时区地区信息。该值必须是数据库中支持的时区之一。时间戳和间隔格式有效，但 DATE 格式不存在。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">WW</code> </td>
+<td style="text-align:left">一年中的一周（1-53），其中第 1 周从一年的第一天开始并持续到一年的第七天。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">W</code> </td>
+<td style="text-align:left">每周的一周（1-5），其中第 1 周从该月的第一天开始，到第七周结束。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">X</code> </td>
+<td style="text-align:left">本地基数字符。</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">Y</code> , <code class="language-markup">YYY</code> </td>
+<td style="text-align:left">四位年，用逗号分隔</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">YEAR</code> <br> <code class="language-markup">SYEAR</code> </td>
+<td style="text-align:left">发音表达的年，例如 2008=two thousand eight</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">YYYY</code> <br> <code class="language-markup">SYYYY</code> </td>
+<td style="text-align:left">四位年，S 前缀表示公元前 BC</td>
+</tr>
+<tr>
+<td style="text-align:center"> <code class="language-markup">YYY</code> <br> <code class="language-markup">YY</code> <br> <code class="language-markup">Y</code> </td>
+<td style="text-align:left">一次表示后面 3，2，1 位的年，例如 2008 可以分别取值为 008,08,8</td>
+</tr>
+</tbody>
+</table>
+
+                        <footer class="page-footer"><span class="copyright">© 2019 刘士. 
+All rights reserved.</span><span class="footer-modification">
+<span id="busuanzi_container_site_uv" style="display:none">本站访客数 <span id="busuanzi_value_site_uv">
+</span> 人次</span></span></footer>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+var _hmt = _hmt || [];
+(function () {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?921ac157b25b6c9fd562a97abf2806a7";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+(function () {
+  var bp = document.createElement('script');
+  var curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else {
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+                    </section>
+                </div>
+                <div class="search-results">
+                    <div class="has-results">
+                        <h1 class="search-results-title"><span class='search-results-count'></span> 结果匹配 "<span class='search-query'></span>"</h1>
+                        <ul class="search-results-list"></ul>
+                    </div>
+                    <div class="no-results">
+                        <h1 class="search-results-title">没有匹配的结果 "<span class='search-query'></span>"</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<a aria-label="Previous page: 日期型函数" class="navigation navigation-prev" href="日期型函数.html">
+    <i class="fa fa-angle-left"></i>
+</a>
+
+
+<a aria-label="Next page: NULL函数" class="navigation navigation-next" href="NULL函数.html">
+    <i class="fa fa-angle-right"></i>
+</a>
+
+
+</div>
+<script>
+    var lsbook = lsbook || [];
+    lsbook.push(function () {
+        lsbook.page.hasChanged({
+            "config": {
+                "github_url":"https://liushilive.github.io/",
+                "language": "zh-cn"
+            },
+            "basePath": "../..",
+            "js": {'prism': ['../..\\../asserts/lsbook/prismjs/clipboard.min.js', '../..\\../asserts/lsbook/prismjs/prism.js']}
+        });
+    });
+</script>
+</div>
+
+<script src="../..\../asserts/lsbook/jquery-3.3.1.min.js"></script>
+<script charset="UTF-8" src="../..\../asserts/lsbook/jquery_mar/jquery.mark.js"></script>
+<script src="../..\../asserts/lsbook/lightbox/js/lightbox.min.js"></script>
+<script src="../..\../asserts/lsbook/lsbook.min.js"></script>
+
+</body>
+</html>

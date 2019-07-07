@@ -1,0 +1,495 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+<meta charset="UTF-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Oracle 相关 - 字符型函数</title>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="" name="description">
+<meta content="刘士" name="author">
+
+<link href="../..\../asserts/lsbook/less/website.css" rel="stylesheet">
+<link href="../..\../asserts/lsbook/katex/katex.min.css" rel="stylesheet">
+<link href="../..\../asserts/lsbook/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+<meta content="true" name="HandheldFriendly"/>
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<link href="../..\../asserts/lsbook/images/apple-touch-icon-precomposed-152.png"
+      rel="apple-touch-icon-precomposed" sizes="152x152">
+<link href="../..\../asserts/lsbook/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<!--分页-->
+<link href="日期型函数.html" rel="next"/>
+</head>
+<body>
+<div class="book"><div class="book-summary">
+    <div id="book-search-input" role="search">
+        <input placeholder="输入并搜索" type="text"/>
+    </div>
+    <nav role="navigation">
+        <ul class="summary">
+            <li class="header">Summary</li><li class="chapter" data-level="1.1" data-path="../../index.html">
+    <a href="../../index.html"><b>1.1.</b> 介绍</a>
+</li>
+<li class="chapter" data-level="1.2" data-path="../index.html">
+    <a href="../index.html"><b>1.2.</b> Oracle 部署</a>
+</li>
+<li class="chapter" data-level="1.3" data-path="../总结/语法总结.html">
+    <a href="../总结/语法总结.html"><b>1.3.</b> Oracle 语法总结</a>
+</li>
+<li class="chapter" data-level="1.4" data-path="../概念.html">
+    <a href="../概念.html"><b>1.4.</b> Oracle 概念</a>
+    <ul class="articles">
+    <li class="chapter" data-level="1.4.1" data-path="../数据库中的相关术语.html">
+    <a href="../数据库中的相关术语.html"><b>1.4.1.</b> 数据库中的相关术语</a>
+</li>
+<li class="chapter" data-level="1.4.2" data-path="../范式.html">
+    <a href="../范式.html"><b>1.4.2.</b> 范式</a>
+</li>
+<li class="chapter" data-level="1.4.3" data-path="../E-R图.html">
+    <a href="../E-R图.html"><b>1.4.3.</b> E-R图</a>
+</li>
+<li class="chapter" data-level="1.4.4" data-path="../Oracle数据类型.html">
+    <a href="../Oracle数据类型.html"><b>1.4.4.</b> Oracle 数据类型</a>
+</li>
+
+    </ul>
+</li>
+<li class="chapter" data-level="1.5" data-path="function.html">
+    <a href="function.html"><b>1.5.</b> Oracle 常用函数</a>
+    <ul class="articles">
+    <li class="chapter" data-level="1.5.1" data-path="数值型函数.html">
+    <a href="数值型函数.html"><b>1.5.1.</b> 数值型函数</a>
+</li>
+<li class="chapter active" data-level="1.5.2" data-path="字符型函数.html">
+    <a href="字符型函数.html"><b>1.5.2.</b> 字符型函数</a>
+</li>
+<li class="chapter" data-level="1.5.3" data-path="日期型函数.html">
+    <a href="日期型函数.html"><b>1.5.3.</b> 日期型函数</a>
+</li>
+<li class="chapter" data-level="1.5.4" data-path="转换函数.html">
+    <a href="转换函数.html"><b>1.5.4.</b> 转换函数</a>
+</li>
+<li class="chapter" data-level="1.5.5" data-path="NULL函数.html">
+    <a href="NULL函数.html"><b>1.5.5.</b> NULL函数</a>
+</li>
+<li class="chapter" data-level="1.5.6" data-path="聚合函数.html">
+    <a href="聚合函数.html"><b>1.5.6.</b> 聚合函数</a>
+</li>
+<li class="chapter" data-level="1.5.7" data-path="其他函数.html">
+    <a href="其他函数.html"><b>1.5.7.</b> 其他函数</a>
+</li>
+
+    </ul>
+</li>
+<li class="chapter" data-level="1.6" data-path="../exercise/index.html">
+    <a href="../exercise/index.html"><b>1.6.</b> Oracle 练习汇总</a>
+    <ul class="articles">
+    <li class="chapter" data-level="1.6.1" data-path="../exercise/001.html">
+    <a href="../exercise/001.html"><b>1.6.1.</b> Oracle 练习 001</a>
+</li>
+<li class="chapter" data-level="1.6.2" data-path="../exercise/002.html">
+    <a href="../exercise/002.html"><b>1.6.2.</b> Oracle 练习 002</a>
+</li>
+<li class="chapter" data-level="1.6.3" data-path="../exercise/003.html">
+    <a href="../exercise/003.html"><b>1.6.3.</b> Oracle 练习 003</a>
+</li>
+<li class="chapter" data-level="1.6.4" data-path="../exercise/004.html">
+    <a href="../exercise/004.html"><b>1.6.4.</b> Oracle 练习 004</a>
+</li>
+<li class="chapter" data-level="1.6.5" data-path="../exercise/005.html">
+    <a href="../exercise/005.html"><b>1.6.5.</b> Oracle 练习 005</a>
+</li>
+<li class="chapter" data-level="1.6.6" data-path="../exercise/006.html">
+    <a href="../exercise/006.html"><b>1.6.6.</b> Oracle 练习 006</a>
+</li>
+<li class="chapter" data-level="1.6.7" data-path="../exercise/007.html">
+    <a href="../exercise/007.html"><b>1.6.7.</b> Oracle 练习 007</a>
+</li>
+<li class="chapter" data-level="1.6.8" data-path="../exercise/008.html">
+    <a href="../exercise/008.html"><b>1.6.8.</b> Oracle 练习 008</a>
+</li>
+<li class="chapter" data-level="1.6.9" data-path="../exercise/009.html">
+    <a href="../exercise/009.html"><b>1.6.9.</b> Oracle 练习 009</a>
+</li>
+<li class="chapter" data-level="1.6.10" data-path="../exercise/010.html">
+    <a href="../exercise/010.html"><b>1.6.10.</b> Oracle 练习 010</a>
+</li>
+<li class="chapter" data-level="1.6.11" data-path="../exercise/011.html">
+    <a href="../exercise/011.html"><b>1.6.11.</b> Oracle 练习 011</a>
+</li>
+<li class="chapter" data-level="1.6.12" data-path="../exercise/012.html">
+    <a href="../exercise/012.html"><b>1.6.12.</b> Oracle 练习 012</a>
+</li>
+<li class="chapter" data-level="1.6.13" data-path="../exercise/013.html">
+    <a href="../exercise/013.html"><b>1.6.13.</b> Oracle 练习 013</a>
+</li>
+<li class="chapter" data-level="1.6.14" data-path="../exercise/014.html">
+    <a href="../exercise/014.html"><b>1.6.14.</b> Oracle 练习 014</a>
+</li>
+<li class="chapter" data-level="1.6.15" data-path="../exercise/015.html">
+    <a href="../exercise/015.html"><b>1.6.15.</b> Oracle 练习 015</a>
+</li>
+<li class="chapter" data-level="1.6.16" data-path="../exercise/016.html">
+    <a href="../exercise/016.html"><b>1.6.16.</b> Oracle 练习 016</a>
+</li>
+<li class="chapter" data-level="1.6.17" data-path="../exercise/017.html">
+    <a href="../exercise/017.html"><b>1.6.17.</b> Oracle 练习 017</a>
+</li>
+<li class="chapter" data-level="1.6.18" data-path="../exercise/018.html">
+    <a href="../exercise/018.html"><b>1.6.18.</b> Oracle 练习 018</a>
+</li>
+<li class="chapter" data-level="1.6.19" data-path="../exercise/019.html">
+    <a href="../exercise/019.html"><b>1.6.19.</b> Oracle 练习 019</a>
+</li>
+<li class="chapter" data-level="1.6.20" data-path="../exercise/020.html">
+    <a href="../exercise/020.html"><b>1.6.20.</b> Oracle 练习 020</a>
+</li>
+<li class="chapter" data-level="1.6.21" data-path="../exercise/021.html">
+    <a href="../exercise/021.html"><b>1.6.21.</b> Oracle 练习 021</a>
+</li>
+<li class="chapter" data-level="1.6.22" data-path="../exercise/022.html">
+    <a href="../exercise/022.html"><b>1.6.22.</b> Oracle 练习 022</a>
+</li>
+<li class="chapter" data-level="1.6.23" data-path="../exercise/023.html">
+    <a href="../exercise/023.html"><b>1.6.23.</b> Oracle 练习 023</a>
+</li>
+<li class="chapter" data-level="1.6.24" data-path="../exercise/024.html">
+    <a href="../exercise/024.html"><b>1.6.24.</b> Oracle 练习 024</a>
+</li>
+<li class="chapter" data-level="1.6.25" data-path="../exercise/025.html">
+    <a href="../exercise/025.html"><b>1.6.25.</b> Oracle 练习 025</a>
+</li>
+<li class="chapter" data-level="1.6.26" data-path="../exercise/026.html">
+    <a href="../exercise/026.html"><b>1.6.26.</b> Oracle 练习 026</a>
+</li>
+<li class="chapter" data-level="1.6.27" data-path="../exercise/027.html">
+    <a href="../exercise/027.html"><b>1.6.27.</b> Oracle 练习 027</a>
+</li>
+<li class="chapter" data-level="1.6.28" data-path="../exercise/028.html">
+    <a href="../exercise/028.html"><b>1.6.28.</b> Oracle 练习 028</a>
+</li>
+<li class="chapter" data-level="1.6.29" data-path="../exercise/029.html">
+    <a href="../exercise/029.html"><b>1.6.29.</b> Oracle 练习 029</a>
+</li>
+<li class="chapter" data-level="1.6.30" data-path="../exercise/030.html">
+    <a href="../exercise/030.html"><b>1.6.30.</b> Oracle 练习 030</a>
+</li>
+<li class="chapter" data-level="1.6.31" data-path="../exercise/031.html">
+    <a href="../exercise/031.html"><b>1.6.31.</b> Oracle 练习 031</a>
+</li>
+<li class="chapter" data-level="1.6.32" data-path="../exercise/032.html">
+    <a href="../exercise/032.html"><b>1.6.32.</b> Oracle 练习 032</a>
+</li>
+<li class="chapter" data-level="1.6.33" data-path="../exercise/033.html">
+    <a href="../exercise/033.html"><b>1.6.33.</b> Oracle 练习 033</a>
+</li>
+<li class="chapter" data-level="1.6.34" data-path="../exercise/034.html">
+    <a href="../exercise/034.html"><b>1.6.34.</b> Oracle 练习 034</a>
+</li>
+<li class="chapter" data-level="1.6.35" data-path="../exercise/035.html">
+    <a href="../exercise/035.html"><b>1.6.35.</b> Oracle 练习 035</a>
+</li>
+<li class="chapter" data-level="1.6.36" data-path="../exercise/036.html">
+    <a href="../exercise/036.html"><b>1.6.36.</b> Oracle 练习 036</a>
+</li>
+<li class="chapter" data-level="1.6.37" data-path="../exercise/037.html">
+    <a href="../exercise/037.html"><b>1.6.37.</b> Oracle 练习 037</a>
+</li>
+<li class="chapter" data-level="1.6.38" data-path="../exercise/038.html">
+    <a href="../exercise/038.html"><b>1.6.38.</b> Oracle 练习 038</a>
+</li>
+<li class="chapter" data-level="1.6.39" data-path="../exercise/039.html">
+    <a href="../exercise/039.html"><b>1.6.39.</b> Oracle 练习 039</a>
+</li>
+<li class="chapter" data-level="1.6.40" data-path="../exercise/040.html">
+    <a href="../exercise/040.html"><b>1.6.40.</b> Oracle 练习 040</a>
+</li>
+<li class="chapter" data-level="1.6.41" data-path="../exercise/041.html">
+    <a href="../exercise/041.html"><b>1.6.41.</b> Oracle 练习 041</a>
+</li>
+<li class="chapter" data-level="1.6.42" data-path="../exercise/042.html">
+    <a href="../exercise/042.html"><b>1.6.42.</b> Oracle 练习 042</a>
+</li>
+<li class="chapter" data-level="1.6.43" data-path="../exercise/043.html">
+    <a href="../exercise/043.html"><b>1.6.43.</b> Oracle 练习 043</a>
+</li>
+<li class="chapter" data-level="1.6.44" data-path="../exercise/044.html">
+    <a href="../exercise/044.html"><b>1.6.44.</b> Oracle 练习 044</a>
+</li>
+<li class="chapter" data-level="1.6.45" data-path="../exercise/045.html">
+    <a href="../exercise/045.html"><b>1.6.45.</b> Oracle 练习 045</a>
+</li>
+<li class="chapter" data-level="1.6.46" data-path="../exercise/046.html">
+    <a href="../exercise/046.html"><b>1.6.46.</b> Oracle 练习 046</a>
+</li>
+<li class="chapter" data-level="1.6.47" data-path="../exercise/047.html">
+    <a href="../exercise/047.html"><b>1.6.47.</b> Oracle 练习 047</a>
+</li>
+<li class="chapter" data-level="1.6.48" data-path="../exercise/048.html">
+    <a href="../exercise/048.html"><b>1.6.48.</b> Oracle 练习 048</a>
+</li>
+<li class="chapter" data-level="1.6.49" data-path="../exercise/049.html">
+    <a href="../exercise/049.html"><b>1.6.49.</b> Oracle 练习 049</a>
+</li>
+<li class="chapter" data-level="1.6.50" data-path="../exercise/050.html">
+    <a href="../exercise/050.html"><b>1.6.50.</b> Oracle 练习 050</a>
+</li>
+<li class="chapter" data-level="1.6.51" data-path="../exercise/051.html">
+    <a href="../exercise/051.html"><b>1.6.51.</b> Oracle 练习 051</a>
+</li>
+<li class="chapter" data-level="1.6.52" data-path="../exercise/052.html">
+    <a href="../exercise/052.html"><b>1.6.52.</b> Oracle 练习 052</a>
+</li>
+<li class="chapter" data-level="1.6.53" data-path="../exercise/053.html">
+    <a href="../exercise/053.html"><b>1.6.53.</b> Oracle 练习 053</a>
+</li>
+<li class="chapter" data-level="1.6.54" data-path="../exercise/选择题.html">
+    <a href="../exercise/选择题.html"><b>1.6.54.</b> Oracle 选择题</a>
+</li>
+
+    </ul>
+</li>
+
+            <li class="divider"></li>
+            <li>
+                <a class="lsbook-link" href="https://github.com/liushilive/lsbook" target="blank">
+                    本书使用 LsBook 发布
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<div class="book-body">
+    <div class="body-inner">
+    <div class="book-header" role="navigation">
+        <!-- Title -->
+        <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i>
+            <a href="../..">字符型函数</a>
+        </h1>
+    </div>
+
+    <div class="page-wrapper" role="main" tabindex="-1">
+        <div class="page-inner">
+            <div class="search-plus" id="book-search-results">
+                <div class="search-noresults">
+                    <section class="normal markdown-section">
+                        <div id='anchor-navigation-ex-navbar'><i class='fa fa-anchor'></i><ul><li><span class='title-icon fa fa-hand-o-right'></span><a aria-label class='on-toolbar-action' href='' onclick="$('.fa.fa-align-justify').parent()[0].click();">目录</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_1'><b></b>字符型函数</a></li><ul><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_2'><b>1. </b>SUBSTR 函数。</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_3'><b>2. </b>LENGTH 函数。</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_4'><b>3. </b>CONCAT(char1,char2) 函数。</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_5'><b>4. </b>INSTR 函数。</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_6'><b>5. </b>UPPER(char) 函数。</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_7'><b>6. </b>LOWER(char) 函数。</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_8'><b>7. </b>INITCAP(char) 函数。</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_9'><b>8. </b>REPLACE 函数。</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_10'><b>9. </b>TRIM 函数。</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_11'><b>10. </b>RTRIM(char[,set]) 函数。</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_12'><b>11. </b>LTRIM(char[,set]) 函数。</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_13'><b>12. </b>CHR(n[USING NCHAR_CS]) 函数。</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_14'><b>13. </b>ASCII(char) 函数。</a></li></ul></ul></div><a href='#anchor_1' id='anchorNavigationExGoTop'><i class='fa fa-arrow-up'></i></a>
+                        <h1 id="anchor_1"><a name="anchor_1" class="anchor-navigation-ex-anchor" href="#anchor_1"><i class="fa fa-link" aria-hidden="true"></i></a>字符型函数</h1><p>以下函数全都接收的是字符族类型的参数 (CHR 除外），其中大部分返回字符类型数据，小部分返回数字类型数据。</p>
+<h2 id="anchor_2"><a name="anchor_2" class="anchor-navigation-ex-anchor" href="#anchor_2"><i class="fa fa-link" aria-hidden="true"></i></a>1. SUBSTR 函数。</h2><p>该函数提供截取字符串的功能，而且该函数有很多的扩展形式，其具体语句结构是 <code class="language-markup">{[SUBSTR]|[SUBSTRB]|[SUBSTRC]|[SUBSTR2]|[SUBSTR4]}(char,position[,substring_length])</code> 。</p>
+<p>各参数表示含义如下：</p>
+<ul>
+<li><p>SUBSTR：以字符为单位。</p>
+</li>
+<li><p>SUBSTRB：以字节为单位。</p>
+</li>
+<li><p>SUBSTRC：以 unicode 字符为单位。</p>
+</li>
+<li><p>SUBSTR2：以 UCS2 代码点为单位。</p>
+</li>
+<li><p>SUBSTR4：以 UCS4 代码点为单位。</p>
+</li>
+<li><p>char：原始字符串。</p>
+</li>
+<li><p>position：要截取字符串的开始位置。初始为 1，如果该值为负数，则表示从 char 的右边算起。</p>
+</li>
+<li><p>substring_length：截取的长度。</p>
+</li>
+</ul>
+<p>具体的示例脚本如下，这里仅以  <code class="language-markup">SUBSTR</code>  操作为例。</p>
+<pre class="line-numbers"><code class="lang-sql">select substr(&#39;ABCDE我FGHI&#39;, 5, 2), substr(&#39;ABCDE我FGHI&#39;, -5, 2)
+from dual;
+</code></pre>
+<h2 id="anchor_3"><a name="anchor_3" class="anchor-navigation-ex-anchor" href="#anchor_3"><i class="fa fa-link" aria-hidden="true"></i></a>2. LENGTH 函数。</h2><p>该函数可以得到指定字符串的长度，返回类型是数字。</p>
+<p>同样的，LENGTH 函数也具有扩展形式，具体结构是 <code class="language-markup">{[LENGTH]|[LENGTHB]|[LENGTHC]|[LENGTH2]|[LENGTH4]}(char)</code> ，各项参数含义可以参考前面介绍过的函数，这里不再过多解释，其中 char 是参数。</p>
+<p>具体的示例脚本如下，这里仅以  <code class="language-markup">LENGTH</code>  操作为例。</p>
+<pre class="line-numbers"><code class="lang-sql">select length(&#39;ABCDE我FGHI&#39;)
+from dual;
+</code></pre>
+<h2 id="anchor_4"><a name="anchor_4" class="anchor-navigation-ex-anchor" href="#anchor_4"><i class="fa fa-link" aria-hidden="true"></i></a>3. CONCAT(char1,char2) 函数。</h2><p>该函数连接两个参数并返回。char2 将连接到 char1 的尾部。效果和连接符 <code class="language-markup">||</code> 相似。</p>
+<p>参数类型可以是  <code class="language-markup">CHAR</code> 、 <code class="language-markup">VARCHAR2</code> 、 <code class="language-markup">NCHAR</code> 、 <code class="language-markup">NVARCHAR2</code> 、 <code class="language-markup">CLOB</code> 、 <code class="language-markup">NCLOB</code> 。</p>
+<p>示例脚本如下：</p>
+<pre class="line-numbers"><code class="lang-sql">select concat(&#39;我的&#39;, &#39;测试！&#39;), &#39;我的&#39; || &#39;测试！&#39;
+from dual;
+</code></pre>
+<h2 id="anchor_5"><a name="anchor_5" class="anchor-navigation-ex-anchor" href="#anchor_5"><i class="fa fa-link" aria-hidden="true"></i></a>4. INSTR 函数。</h2><p>该函数可以让我们在指定的字符串中搜索是否存在另一个字符串。</p>
+<p>其具体语句结构是 <code class="language-markup">{[INSTR]|[INSTRB]|[INSTRC]|[INSTR2]|[INSTR4]}(string,substring[,position[,occurrence]])</code> 。</p>
+<p>该函数也具有扩展形式，各项参数表示含义如下：</p>
+<ul>
+<li><p>INSTR：以字符为单位。</p>
+</li>
+<li><p>INSTRB：以字节为单位。</p>
+</li>
+<li><p>INSTRC：以 unicode 字符为单位。</p>
+</li>
+<li><p>INSTR2：以 UCS2 代码点为单位。</p>
+</li>
+<li><p>INSTR4：以 UCS4 代码点为单位。</p>
+</li>
+<li><p>string：待搜索的字符串。</p>
+</li>
+<li><p>substring：要搜索的字符串。</p>
+</li>
+<li><p>position：搜索的开始位置，默认为 1，表示字符串左边第一个位置；如果为负数，则表示字符串的右边位置为起始位置。</p>
+</li>
+<li><p>occurrence：substring 第几次出现，默认是 1。</p>
+</li>
+</ul>
+<p>具体的示例脚本如下，这里仅以  <code class="language-markup">INSTR</code>  操作为例。</p>
+<pre class="line-numbers"><code class="lang-sql">select instr(&#39;this is a 测试！&#39;, &#39;测&#39;), instr(&#39;this is a 测试！&#39;, &#39;s&#39;, -1)
+from dual;
+</code></pre>
+<h2 id="anchor_6"><a name="anchor_6" class="anchor-navigation-ex-anchor" href="#anchor_6"><i class="fa fa-link" aria-hidden="true"></i></a>5. UPPER(char) 函数。</h2><p>该函数将指定的参数全部转换成大写字母。</p>
+<p>参数类型可以是  <code class="language-markup">CHAR</code> 、 <code class="language-markup">VARCHAR2</code> 、 <code class="language-markup">NCHAR</code> 、 <code class="language-markup">NVARCHAR2</code> 、 <code class="language-markup">CLOB</code> 、 <code class="language-markup">NCLOB</code> 。</p>
+<p>示例脚本如下：</p>
+<pre class="line-numbers"><code class="lang-sql">select upper(&#39;c&#39;), upper(&#39;abcd&#39;), upper(&#39;this is a test&#39;)
+from dual;
+</code></pre>
+<h2 id="anchor_7"><a name="anchor_7" class="anchor-navigation-ex-anchor" href="#anchor_7"><i class="fa fa-link" aria-hidden="true"></i></a>6. LOWER(char) 函数。</h2><p>该函数将指定的参数全部转换成小写字母。</p>
+<p>参数类型可以是  <code class="language-markup">CHAR</code> 、 <code class="language-markup">VARCHAR2</code> 、 <code class="language-markup">NCHAR</code> 、 <code class="language-markup">NVARCHAR2</code> 、 <code class="language-markup">CLOB</code> 、 <code class="language-markup">NCLOB</code> 。</p>
+<p>示例脚本如下：</p>
+<pre class="line-numbers"><code class="lang-sql">select lower(&#39;A&#39;), lower(&#39;ABCD&#39;), lower(&#39;THIS IS A TEST&#39;)
+from dual;
+</code></pre>
+<h2 id="anchor_8"><a name="anchor_8" class="anchor-navigation-ex-anchor" href="#anchor_8"><i class="fa fa-link" aria-hidden="true"></i></a>7. INITCAP(char) 函数。</h2><p>该函数参数的所有单词首字母转换成大写字母。</p>
+<p>参数类型可以是  <code class="language-markup">CHAR</code> 、 <code class="language-markup">VARCHAR2</code> 、 <code class="language-markup">NCHAR</code> 、 <code class="language-markup">NVARCHAR2</code> 。</p>
+<p>示例脚本如下：</p>
+<pre class="line-numbers"><code class="lang-sql">select initcap(&#39;this is a test&#39;)
+from dual;
+</code></pre>
+<h2 id="anchor_9"><a name="anchor_9" class="anchor-navigation-ex-anchor" href="#anchor_9"><i class="fa fa-link" aria-hidden="true"></i></a>8. REPLACE 函数。</h2><p>函数具体语法结构是 <code class="language-markup">REPLACE(char,search_string[,replacement_string])</code> ，是一个替换字符串的函数。</p>
+<p>函数中有三个参数，具体代表的含义如下：</p>
+<ul>
+<li><p>char：表示搜索的目标字符串。</p>
+</li>
+<li><p>search_string：在目标字符串中要搜索的字符串。</p>
+</li>
+<li><p>replacement_string：该参数可选，用它可替代被搜索到的字符串，如果该参数不用，则表示从 char 参数中删除 search_string 字符串。</p>
+</li>
+</ul>
+<p>具体的示例脚本如下：</p>
+<pre class="line-numbers"><code class="lang-sql">select replace(&#39;this is a test&#39;, &#39;tes&#39;, &#39;resul&#39;)
+from dual;
+</code></pre>
+<h2 id="anchor_10"><a name="anchor_10" class="anchor-navigation-ex-anchor" href="#anchor_10"><i class="fa fa-link" aria-hidden="true"></i></a>9. TRIM 函数。</h2><p>该函数将删除指定的前缀或尾随的字符，默认删除空格。</p>
+<p>其具体语法结构是 <code class="language-markup">TRIM([LEADING|TRAILING|BOTH](trim_character FROM)trim_source)</code> ，各参数介绍如下：</p>
+<ul>
+<li><p>LEADING：删除 trim_source 的前缀字符。</p>
+</li>
+<li><p>TRAILING：删除 trim_source 的后缀字符。</p>
+</li>
+<li><p>BOTH：删除 trim_source 的前缀和后缀字符。</p>
+</li>
+<li><p>trim_character：删除的指定字符，默认删除空格。</p>
+</li>
+<li><p>trim_source：被操作的字符串。</p>
+</li>
+</ul>
+<p>具体的示例脚本如下：</p>
+<pre class="line-numbers"><code class="lang-sql">select trim(trailing &#39;t&#39; from &#39;test&#39;), trim(&#39;test&#39;)
+from dual;
+</code></pre>
+<h2 id="anchor_11"><a name="anchor_11" class="anchor-navigation-ex-anchor" href="#anchor_11"><i class="fa fa-link" aria-hidden="true"></i></a>10. RTRIM(char[,set]) 函数。</h2><p>与  <code class="language-markup">RPAD</code>  函数相反，该函数会提供将  <code class="language-markup">char</code>  右边出现在  <code class="language-markup">set</code>  中的字符删除掉。</p>
+<p>如果  <code class="language-markup">set</code>  没有，则默认删除空格。</p>
+<p>具体的示例脚本如下：</p>
+<pre class="line-numbers"><code class="lang-sql">select rtrim(&#39;test&#39;), rtrim(&#39;test*ffs&#39;, &#39;fs*&#39;)
+from dual;
+</code></pre>
+<h2 id="anchor_12"><a name="anchor_12" class="anchor-navigation-ex-anchor" href="#anchor_12"><i class="fa fa-link" aria-hidden="true"></i></a>11. LTRIM(char[,set]) 函数。</h2><p>与  <code class="language-markup">RTRIM</code>  函数相似，该函数会提供将  <code class="language-markup">char</code>  左边出现在  <code class="language-markup">set</code>  中的字符删除掉。</p>
+<p>如果  <code class="language-markup">set</code>  没有，则默认删除空格。</p>
+<p>具体的示例脚本如下：</p>
+<pre class="line-numbers"><code class="lang-sql">select ltrim(&#39;ftest&#39;, &#39;f&#39;)
+from dual;
+</code></pre>
+<hr>
+<h2 id="anchor_13"><a name="anchor_13" class="anchor-navigation-ex-anchor" href="#anchor_13"><i class="fa fa-link" aria-hidden="true"></i></a>12. CHR(n[USING NCHAR_CS]) 函数。</h2><p>根据相应的字符集，把给定的  <code class="language-markup">ASCII</code>  码转换为字符。 <code class="language-markup">USING NCHAR_CS</code>  指明字符集。</p>
+<p>以下示例用默认字符集，示例脚本如下：</p>
+<pre class="line-numbers"><code class="lang-sql">select chr(65) || chr(66) || chr(67) abc, chr(54678)
+from dual;
+</code></pre>
+<h2 id="anchor_14"><a name="anchor_14" class="anchor-navigation-ex-anchor" href="#anchor_14"><i class="fa fa-link" aria-hidden="true"></i></a>13. ASCII(char) 函数。</h2><p>返回参数首字母的  <code class="language-markup">ASCII</code>  码值。与  <code class="language-markup">CHR</code>  函数相反。参数  <code class="language-markup">char</code>  的类型可以是  <code class="language-markup">CHAR</code> 、 <code class="language-markup">VARCHAR2</code> 、 <code class="language-markup">NCHAR</code>  或  <code class="language-markup">NVARCHAR2</code> 。</p>
+<p>该返回值总是以用户使用的字符集为基础的，如果用户的数据库字符集是 7 位的  <code class="language-markup">ASCII</code>  值，那就得到一  <code class="language-markup">ASCII</code>  码值。</p>
+<p>示例脚本如下：</p>
+<pre class="line-numbers"><code class="lang-sql">select ascii(&#39;明&#39;), ascii(&#39;Adb&#39;), ascii(&#39;ABC&#39;)
+from dual;
+</code></pre>
+
+                        <footer class="page-footer"><span class="copyright">© 2019 刘士. 
+All rights reserved.</span><span class="footer-modification">
+<span id="busuanzi_container_site_uv" style="display:none">本站访客数 <span id="busuanzi_value_site_uv">
+</span> 人次</span></span></footer>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+var _hmt = _hmt || [];
+(function () {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?921ac157b25b6c9fd562a97abf2806a7";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+(function () {
+  var bp = document.createElement('script');
+  var curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else {
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+                    </section>
+                </div>
+                <div class="search-results">
+                    <div class="has-results">
+                        <h1 class="search-results-title"><span class='search-results-count'></span> 结果匹配 "<span class='search-query'></span>"</h1>
+                        <ul class="search-results-list"></ul>
+                    </div>
+                    <div class="no-results">
+                        <h1 class="search-results-title">没有匹配的结果 "<span class='search-query'></span>"</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<a aria-label="Previous page: 数值型函数" class="navigation navigation-prev" href="数值型函数.html">
+    <i class="fa fa-angle-left"></i>
+</a>
+
+
+<a aria-label="Next page: 日期型函数" class="navigation navigation-next" href="日期型函数.html">
+    <i class="fa fa-angle-right"></i>
+</a>
+
+
+</div>
+<script>
+    var lsbook = lsbook || [];
+    lsbook.push(function () {
+        lsbook.page.hasChanged({
+            "config": {
+                "github_url":"https://liushilive.github.io/",
+                "language": "zh-cn"
+            },
+            "basePath": "../..",
+            "js": {'prism': ['../..\\../asserts/lsbook/prismjs/clipboard.min.js', '../..\\../asserts/lsbook/prismjs/prism.js']}
+        });
+    });
+</script>
+</div>
+
+<script src="../..\../asserts/lsbook/jquery-3.3.1.min.js"></script>
+<script charset="UTF-8" src="../..\../asserts/lsbook/jquery_mar/jquery.mark.js"></script>
+<script src="../..\../asserts/lsbook/lightbox/js/lightbox.min.js"></script>
+<script src="../..\../asserts/lsbook/lsbook.min.js"></script>
+
+</body>
+</html>

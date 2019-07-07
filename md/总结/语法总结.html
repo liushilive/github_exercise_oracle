@@ -1,0 +1,511 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+<meta charset="UTF-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Oracle 相关 - Oracle 语法总结</title>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="" name="description">
+<meta content="刘士" name="author">
+
+<link href="../..\../asserts/lsbook/less/website.css" rel="stylesheet">
+<link href="../..\../asserts/lsbook/katex/katex.min.css" rel="stylesheet">
+<link href="../..\../asserts/lsbook/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+<meta content="true" name="HandheldFriendly"/>
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<link href="../..\../asserts/lsbook/images/apple-touch-icon-precomposed-152.png"
+      rel="apple-touch-icon-precomposed" sizes="152x152">
+<link href="../..\../asserts/lsbook/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<!--分页-->
+<link href="../概念.html" rel="next"/>
+</head>
+<body>
+<div class="book"><div class="book-summary">
+    <div id="book-search-input" role="search">
+        <input placeholder="输入并搜索" type="text"/>
+    </div>
+    <nav role="navigation">
+        <ul class="summary">
+            <li class="header">Summary</li><li class="chapter" data-level="1.1" data-path="../../index.html">
+    <a href="../../index.html"><b>1.1.</b> 介绍</a>
+</li>
+<li class="chapter" data-level="1.2" data-path="../index.html">
+    <a href="../index.html"><b>1.2.</b> Oracle 部署</a>
+</li>
+<li class="chapter active" data-level="1.3" data-path="语法总结.html">
+    <a href="语法总结.html"><b>1.3.</b> Oracle 语法总结</a>
+</li>
+<li class="chapter" data-level="1.4" data-path="../概念.html">
+    <a href="../概念.html"><b>1.4.</b> Oracle 概念</a>
+    <ul class="articles">
+    <li class="chapter" data-level="1.4.1" data-path="../数据库中的相关术语.html">
+    <a href="../数据库中的相关术语.html"><b>1.4.1.</b> 数据库中的相关术语</a>
+</li>
+<li class="chapter" data-level="1.4.2" data-path="../范式.html">
+    <a href="../范式.html"><b>1.4.2.</b> 范式</a>
+</li>
+<li class="chapter" data-level="1.4.3" data-path="../E-R图.html">
+    <a href="../E-R图.html"><b>1.4.3.</b> E-R图</a>
+</li>
+<li class="chapter" data-level="1.4.4" data-path="../Oracle数据类型.html">
+    <a href="../Oracle数据类型.html"><b>1.4.4.</b> Oracle 数据类型</a>
+</li>
+
+    </ul>
+</li>
+<li class="chapter" data-level="1.5" data-path="../function/function.html">
+    <a href="../function/function.html"><b>1.5.</b> Oracle 常用函数</a>
+    <ul class="articles">
+    <li class="chapter" data-level="1.5.1" data-path="../function/数值型函数.html">
+    <a href="../function/数值型函数.html"><b>1.5.1.</b> 数值型函数</a>
+</li>
+<li class="chapter" data-level="1.5.2" data-path="../function/字符型函数.html">
+    <a href="../function/字符型函数.html"><b>1.5.2.</b> 字符型函数</a>
+</li>
+<li class="chapter" data-level="1.5.3" data-path="../function/日期型函数.html">
+    <a href="../function/日期型函数.html"><b>1.5.3.</b> 日期型函数</a>
+</li>
+<li class="chapter" data-level="1.5.4" data-path="../function/转换函数.html">
+    <a href="../function/转换函数.html"><b>1.5.4.</b> 转换函数</a>
+</li>
+<li class="chapter" data-level="1.5.5" data-path="../function/NULL函数.html">
+    <a href="../function/NULL函数.html"><b>1.5.5.</b> NULL函数</a>
+</li>
+<li class="chapter" data-level="1.5.6" data-path="../function/聚合函数.html">
+    <a href="../function/聚合函数.html"><b>1.5.6.</b> 聚合函数</a>
+</li>
+<li class="chapter" data-level="1.5.7" data-path="../function/其他函数.html">
+    <a href="../function/其他函数.html"><b>1.5.7.</b> 其他函数</a>
+</li>
+
+    </ul>
+</li>
+<li class="chapter" data-level="1.6" data-path="../exercise/index.html">
+    <a href="../exercise/index.html"><b>1.6.</b> Oracle 练习汇总</a>
+    <ul class="articles">
+    <li class="chapter" data-level="1.6.1" data-path="../exercise/001.html">
+    <a href="../exercise/001.html"><b>1.6.1.</b> Oracle 练习 001</a>
+</li>
+<li class="chapter" data-level="1.6.2" data-path="../exercise/002.html">
+    <a href="../exercise/002.html"><b>1.6.2.</b> Oracle 练习 002</a>
+</li>
+<li class="chapter" data-level="1.6.3" data-path="../exercise/003.html">
+    <a href="../exercise/003.html"><b>1.6.3.</b> Oracle 练习 003</a>
+</li>
+<li class="chapter" data-level="1.6.4" data-path="../exercise/004.html">
+    <a href="../exercise/004.html"><b>1.6.4.</b> Oracle 练习 004</a>
+</li>
+<li class="chapter" data-level="1.6.5" data-path="../exercise/005.html">
+    <a href="../exercise/005.html"><b>1.6.5.</b> Oracle 练习 005</a>
+</li>
+<li class="chapter" data-level="1.6.6" data-path="../exercise/006.html">
+    <a href="../exercise/006.html"><b>1.6.6.</b> Oracle 练习 006</a>
+</li>
+<li class="chapter" data-level="1.6.7" data-path="../exercise/007.html">
+    <a href="../exercise/007.html"><b>1.6.7.</b> Oracle 练习 007</a>
+</li>
+<li class="chapter" data-level="1.6.8" data-path="../exercise/008.html">
+    <a href="../exercise/008.html"><b>1.6.8.</b> Oracle 练习 008</a>
+</li>
+<li class="chapter" data-level="1.6.9" data-path="../exercise/009.html">
+    <a href="../exercise/009.html"><b>1.6.9.</b> Oracle 练习 009</a>
+</li>
+<li class="chapter" data-level="1.6.10" data-path="../exercise/010.html">
+    <a href="../exercise/010.html"><b>1.6.10.</b> Oracle 练习 010</a>
+</li>
+<li class="chapter" data-level="1.6.11" data-path="../exercise/011.html">
+    <a href="../exercise/011.html"><b>1.6.11.</b> Oracle 练习 011</a>
+</li>
+<li class="chapter" data-level="1.6.12" data-path="../exercise/012.html">
+    <a href="../exercise/012.html"><b>1.6.12.</b> Oracle 练习 012</a>
+</li>
+<li class="chapter" data-level="1.6.13" data-path="../exercise/013.html">
+    <a href="../exercise/013.html"><b>1.6.13.</b> Oracle 练习 013</a>
+</li>
+<li class="chapter" data-level="1.6.14" data-path="../exercise/014.html">
+    <a href="../exercise/014.html"><b>1.6.14.</b> Oracle 练习 014</a>
+</li>
+<li class="chapter" data-level="1.6.15" data-path="../exercise/015.html">
+    <a href="../exercise/015.html"><b>1.6.15.</b> Oracle 练习 015</a>
+</li>
+<li class="chapter" data-level="1.6.16" data-path="../exercise/016.html">
+    <a href="../exercise/016.html"><b>1.6.16.</b> Oracle 练习 016</a>
+</li>
+<li class="chapter" data-level="1.6.17" data-path="../exercise/017.html">
+    <a href="../exercise/017.html"><b>1.6.17.</b> Oracle 练习 017</a>
+</li>
+<li class="chapter" data-level="1.6.18" data-path="../exercise/018.html">
+    <a href="../exercise/018.html"><b>1.6.18.</b> Oracle 练习 018</a>
+</li>
+<li class="chapter" data-level="1.6.19" data-path="../exercise/019.html">
+    <a href="../exercise/019.html"><b>1.6.19.</b> Oracle 练习 019</a>
+</li>
+<li class="chapter" data-level="1.6.20" data-path="../exercise/020.html">
+    <a href="../exercise/020.html"><b>1.6.20.</b> Oracle 练习 020</a>
+</li>
+<li class="chapter" data-level="1.6.21" data-path="../exercise/021.html">
+    <a href="../exercise/021.html"><b>1.6.21.</b> Oracle 练习 021</a>
+</li>
+<li class="chapter" data-level="1.6.22" data-path="../exercise/022.html">
+    <a href="../exercise/022.html"><b>1.6.22.</b> Oracle 练习 022</a>
+</li>
+<li class="chapter" data-level="1.6.23" data-path="../exercise/023.html">
+    <a href="../exercise/023.html"><b>1.6.23.</b> Oracle 练习 023</a>
+</li>
+<li class="chapter" data-level="1.6.24" data-path="../exercise/024.html">
+    <a href="../exercise/024.html"><b>1.6.24.</b> Oracle 练习 024</a>
+</li>
+<li class="chapter" data-level="1.6.25" data-path="../exercise/025.html">
+    <a href="../exercise/025.html"><b>1.6.25.</b> Oracle 练习 025</a>
+</li>
+<li class="chapter" data-level="1.6.26" data-path="../exercise/026.html">
+    <a href="../exercise/026.html"><b>1.6.26.</b> Oracle 练习 026</a>
+</li>
+<li class="chapter" data-level="1.6.27" data-path="../exercise/027.html">
+    <a href="../exercise/027.html"><b>1.6.27.</b> Oracle 练习 027</a>
+</li>
+<li class="chapter" data-level="1.6.28" data-path="../exercise/028.html">
+    <a href="../exercise/028.html"><b>1.6.28.</b> Oracle 练习 028</a>
+</li>
+<li class="chapter" data-level="1.6.29" data-path="../exercise/029.html">
+    <a href="../exercise/029.html"><b>1.6.29.</b> Oracle 练习 029</a>
+</li>
+<li class="chapter" data-level="1.6.30" data-path="../exercise/030.html">
+    <a href="../exercise/030.html"><b>1.6.30.</b> Oracle 练习 030</a>
+</li>
+<li class="chapter" data-level="1.6.31" data-path="../exercise/031.html">
+    <a href="../exercise/031.html"><b>1.6.31.</b> Oracle 练习 031</a>
+</li>
+<li class="chapter" data-level="1.6.32" data-path="../exercise/032.html">
+    <a href="../exercise/032.html"><b>1.6.32.</b> Oracle 练习 032</a>
+</li>
+<li class="chapter" data-level="1.6.33" data-path="../exercise/033.html">
+    <a href="../exercise/033.html"><b>1.6.33.</b> Oracle 练习 033</a>
+</li>
+<li class="chapter" data-level="1.6.34" data-path="../exercise/034.html">
+    <a href="../exercise/034.html"><b>1.6.34.</b> Oracle 练习 034</a>
+</li>
+<li class="chapter" data-level="1.6.35" data-path="../exercise/035.html">
+    <a href="../exercise/035.html"><b>1.6.35.</b> Oracle 练习 035</a>
+</li>
+<li class="chapter" data-level="1.6.36" data-path="../exercise/036.html">
+    <a href="../exercise/036.html"><b>1.6.36.</b> Oracle 练习 036</a>
+</li>
+<li class="chapter" data-level="1.6.37" data-path="../exercise/037.html">
+    <a href="../exercise/037.html"><b>1.6.37.</b> Oracle 练习 037</a>
+</li>
+<li class="chapter" data-level="1.6.38" data-path="../exercise/038.html">
+    <a href="../exercise/038.html"><b>1.6.38.</b> Oracle 练习 038</a>
+</li>
+<li class="chapter" data-level="1.6.39" data-path="../exercise/039.html">
+    <a href="../exercise/039.html"><b>1.6.39.</b> Oracle 练习 039</a>
+</li>
+<li class="chapter" data-level="1.6.40" data-path="../exercise/040.html">
+    <a href="../exercise/040.html"><b>1.6.40.</b> Oracle 练习 040</a>
+</li>
+<li class="chapter" data-level="1.6.41" data-path="../exercise/041.html">
+    <a href="../exercise/041.html"><b>1.6.41.</b> Oracle 练习 041</a>
+</li>
+<li class="chapter" data-level="1.6.42" data-path="../exercise/042.html">
+    <a href="../exercise/042.html"><b>1.6.42.</b> Oracle 练习 042</a>
+</li>
+<li class="chapter" data-level="1.6.43" data-path="../exercise/043.html">
+    <a href="../exercise/043.html"><b>1.6.43.</b> Oracle 练习 043</a>
+</li>
+<li class="chapter" data-level="1.6.44" data-path="../exercise/044.html">
+    <a href="../exercise/044.html"><b>1.6.44.</b> Oracle 练习 044</a>
+</li>
+<li class="chapter" data-level="1.6.45" data-path="../exercise/045.html">
+    <a href="../exercise/045.html"><b>1.6.45.</b> Oracle 练习 045</a>
+</li>
+<li class="chapter" data-level="1.6.46" data-path="../exercise/046.html">
+    <a href="../exercise/046.html"><b>1.6.46.</b> Oracle 练习 046</a>
+</li>
+<li class="chapter" data-level="1.6.47" data-path="../exercise/047.html">
+    <a href="../exercise/047.html"><b>1.6.47.</b> Oracle 练习 047</a>
+</li>
+<li class="chapter" data-level="1.6.48" data-path="../exercise/048.html">
+    <a href="../exercise/048.html"><b>1.6.48.</b> Oracle 练习 048</a>
+</li>
+<li class="chapter" data-level="1.6.49" data-path="../exercise/049.html">
+    <a href="../exercise/049.html"><b>1.6.49.</b> Oracle 练习 049</a>
+</li>
+<li class="chapter" data-level="1.6.50" data-path="../exercise/050.html">
+    <a href="../exercise/050.html"><b>1.6.50.</b> Oracle 练习 050</a>
+</li>
+<li class="chapter" data-level="1.6.51" data-path="../exercise/051.html">
+    <a href="../exercise/051.html"><b>1.6.51.</b> Oracle 练习 051</a>
+</li>
+<li class="chapter" data-level="1.6.52" data-path="../exercise/052.html">
+    <a href="../exercise/052.html"><b>1.6.52.</b> Oracle 练习 052</a>
+</li>
+<li class="chapter" data-level="1.6.53" data-path="../exercise/053.html">
+    <a href="../exercise/053.html"><b>1.6.53.</b> Oracle 练习 053</a>
+</li>
+<li class="chapter" data-level="1.6.54" data-path="../exercise/选择题.html">
+    <a href="../exercise/选择题.html"><b>1.6.54.</b> Oracle 选择题</a>
+</li>
+
+    </ul>
+</li>
+
+            <li class="divider"></li>
+            <li>
+                <a class="lsbook-link" href="https://github.com/liushilive/lsbook" target="blank">
+                    本书使用 LsBook 发布
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<div class="book-body">
+    <div class="body-inner">
+    <div class="book-header" role="navigation">
+        <!-- Title -->
+        <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i>
+            <a href="../..">Oracle 语法总结</a>
+        </h1>
+    </div>
+
+    <div class="page-wrapper" role="main" tabindex="-1">
+        <div class="page-inner">
+            <div class="search-plus" id="book-search-results">
+                <div class="search-noresults">
+                    <section class="normal markdown-section">
+                        <div id='anchor-navigation-ex-navbar'><i class='fa fa-anchor'></i><ul><li><span class='title-icon fa fa-hand-o-right'></span><a aria-label class='on-toolbar-action' href='' onclick="$('.fa.fa-align-justify').parent()[0].click();">目录</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_1'><b></b>Oracle 语法总结</a></li></ul></div><a href='#anchor_1' id='anchorNavigationExGoTop'><i class='fa fa-arrow-up'></i></a>
+                        <h1 id="anchor_1"><a name="anchor_1" class="anchor-navigation-ex-anchor" href="#anchor_1"><i class="fa fa-link" aria-hidden="true"></i></a>Oracle 语法总结</h1><ul>
+<li><p>create</p>
+<p>\(
+\textcolor{#228B22}{create}
+\begin{cases}
+  \textcolor{#228B22}{user} \space 用户名 \space \textcolor{#228B22}{identified \space by \space} 密码 \space[\textcolor{#228B22}{account \space lock}|\textcolor{#228B22}{unlock}] ; \\
+  \textcolor{#228B22}{table} \space 表名 ( 列名 \space 类型 \space [\textcolor{#228B22}{null}|\textcolor{#228B22}{not \space null}] \space [\textcolor{#228B22}{constraint}]) ; \\
+  [\textcolor{#228B22}{or \space replace}] \space [\textcolor{#228B22}{noforce} | \textcolor{#228B22}{force}] \space \textcolor{#228B22}{view} \space 视图名 \space \textcolor{#228B22}{as} \space select 查询 \space [\textcolor{#228B22}{with \space read \space only}] ; \\
+  [\textcolor{#228B22}{unique}] \space \textcolor{#228B22}{index} \space 索引名 \space \textcolor{#228B22}{on} \space 表名 ( 列名 \space [ , \space 列名 …]) ;\\
+\end{cases}
+\)</p>
+</li>
+<li><p>alter</p>
+<p>\(
+\textcolor{#228B22}{alter}
+\begin{cases}
+  \textcolor{#228B22}{user} \space 用户名 \space{
+    \begin{cases}
+      \textcolor{#228B22}{identified \space by} \space 新密码 ; \\
+      \textcolor{#228B22}{account \space lock}|\textcolor{#228B22}{unlock};
+    \end{cases}
+  } \\
+  \textcolor{#228B22}{table} \space 表名 \space{
+    \begin{cases}
+      \textcolor{#228B22}{add} \space {
+        \begin{cases}
+          列名 \space 列类型 \space 列约束 ; \\
+          \textcolor{#228B22}{constraint} \space 约束名 \space {
+            \begin{cases}
+              \textcolor{#228B22}{primary \space key}( 列 ) ; \\
+              \textcolor{#228B22}{foreign \space key}( 列 ) \space \textcolor{#228B22}{references} \space 参照表 ( 参照列 ) ; \\
+              \textcolor{#228B22}{unique} ( 列 ) ; \\
+              \textcolor{#228B22}{check} ( 条件 ) ; \\
+            \end{cases}
+          }
+        \end{cases}
+      } \\
+      \textcolor{#228B22}{drop} \space {
+        \begin{cases}
+          \textcolor{#228B22}{column} \space 列名 ; \\
+          \textcolor{#228B22}{constraint} \space 约束名 ;
+        \end{cases}
+      } \\
+      \textcolor{#228B22}{modify} \space 列 \space {
+        \begin{cases}
+          \textcolor{#228B22}{not \space null} | \textcolor{#228B22}{null} ; \\
+          \textcolor{#228B22}{default} \space 默认值 | \textcolor{#228B22}{null};
+        \end{cases}
+      }
+    \end{cases}
+  }
+\end{cases}
+\)</p>
+</li>
+<li><p>drop</p>
+<p>\(
+\textcolor{#228B22}{alter}
+\begin{cases}
+  \textcolor{#228B22}{user} \space 用户名 \space [\textcolor{#228B22}{cascade}] ; \\
+  \textcolor{#228B22}{table} \space 表名 ; \\
+  \textcolor{#228B22}{view} \space 视图名 ; \\
+  \textcolor{#228B22}{index} \space 索引名 ; \\
+\end{cases}
+\)</p>
+</li>
+<li><p><strong>语法结构</strong>：查询</p>
+<pre class="line-numbers"><code class="lang-sql">select [distinct] *|列|表达式
+from A
+join B              --内连接
+  on 表之间关联的条件
+right join C        --右外连接
+  on 表之间关联的条件
+left join D         --左外连接
+  on 表之间关联的条件
+full join E         --全连接
+  on 表之间关联的条件
+where 结果筛选条件
+group by 分组列
+  having 分组后结果筛选
+order by 排序列 [asc|desc];
+</code></pre>
+</li>
+<li><p><strong>语法结构</strong>：创建用户</p>
+<pre class="line-numbers"><code class="lang-sql">create user 用户名 identified by 口令 [account lock|unlock];
+</code></pre>
+</li>
+<li><p><strong>语法结构</strong>：修改用户的密码</p>
+<pre class="line-numbers"><code class="lang-sql">alter user 用户名 identified by 新密码;
+</code></pre>
+</li>
+<li><p><strong>语法结构</strong>：修改用户处于锁定（非锁定）状态</p>
+<pre class="line-numbers"><code class="lang-sql">alter user 用户名 account lock|unlock;
+</code></pre>
+</li>
+<li><p><strong>语法结构</strong>：删除用户</p>
+<pre class="line-numbers"><code class="lang-sql">drop user 用户名 cascade;
+</code></pre>
+</li>
+<li><p><strong>语法结构</strong>：授予权限</p>
+<pre class="line-numbers"><code class="lang-sql">grant 角色|权限 to 用户|角色;
+</code></pre>
+</li>
+<li><p><strong>语法结构</strong>：回收权限</p>
+<pre class="line-numbers"><code class="lang-sql">revoke 角色|权限 from 用户|角色;
+</code></pre>
+</li>
+<li><p><strong>语法结构</strong>：创建表</p>
+<pre class="line-numbers"><code class="lang-sql">create table 表名(
+  列名1 类型 [null | not null] [constraint],
+  类名2 类型
+);
+</code></pre>
+</li>
+<li><p><strong>语法结构</strong>：修改表名</p>
+<pre class="line-numbers"><code class="lang-sql">rename 原表名 to 新表名;
+</code></pre>
+</li>
+<li><p><strong>语法结构</strong>：添加列</p>
+<pre class="line-numbers"><code class="lang-sql">alter table 表名 add 列名 列类型 列约束;
+</code></pre>
+</li>
+<li><p><strong>语法结构</strong>：删除列</p>
+<pre class="line-numbers"><code class="lang-sql">alter table 表名 drop column 列名;
+</code></pre>
+</li>
+<li><p><strong>语法结构</strong>： 删除表</p>
+<pre class="line-numbers"><code class="lang-sql">drop table 表名;
+</code></pre>
+</li>
+<li><p><strong>语法结构</strong>：添加约束</p>
+<pre class="line-numbers"><code class="lang-sql">alter table 表名 add constraint 约束名 约束内容;
+</code></pre>
+</li>
+<li><p><strong>语法结构</strong>：删除约束</p>
+<pre class="line-numbers"><code class="lang-sql">alter table 表名 drop constraint 约束名;
+</code></pre>
+</li>
+<li><p><strong>语法结构：</strong>：数据插入</p>
+<pre class="line-numbers"><code class="lang-sql">insert into 表名(列名 1，列名 2……) VALUES (值 1，值 2……)
+</code></pre>
+</li>
+<li><p><strong>语法结构：</strong>：更新数据</p>
+<pre class="line-numbers"><code class="lang-sql">update 表名 set 列名1=值,列名2=值 where 条件;
+</code></pre>
+</li>
+<li><p><strong>语法结构：</strong>：删除数据</p>
+<pre class="line-numbers"><code class="lang-sql">delete from 表名 where 条件;
+</code></pre>
+</li>
+<li><p><strong>语法结构：</strong>：删除全部数据！! 无法回滚，高危！</p>
+<pre class="line-numbers"><code class="lang-sql">truncate table 表名;
+</code></pre>
+</li>
+</ul>
+
+                        <footer class="page-footer"><span class="copyright">© 2019 刘士. 
+All rights reserved.</span><span class="footer-modification">
+<span id="busuanzi_container_site_uv" style="display:none">本站访客数 <span id="busuanzi_value_site_uv">
+</span> 人次</span></span></footer>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+var _hmt = _hmt || [];
+(function () {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?921ac157b25b6c9fd562a97abf2806a7";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+(function () {
+  var bp = document.createElement('script');
+  var curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else {
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+                    </section>
+                </div>
+                <div class="search-results">
+                    <div class="has-results">
+                        <h1 class="search-results-title"><span class='search-results-count'></span> 结果匹配 "<span class='search-query'></span>"</h1>
+                        <ul class="search-results-list"></ul>
+                    </div>
+                    <div class="no-results">
+                        <h1 class="search-results-title">没有匹配的结果 "<span class='search-query'></span>"</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<a aria-label="Previous page: Oracle 部署" class="navigation navigation-prev" href="../index.html">
+    <i class="fa fa-angle-left"></i>
+</a>
+
+
+<a aria-label="Next page: Oracle 概念" class="navigation navigation-next" href="../概念.html">
+    <i class="fa fa-angle-right"></i>
+</a>
+
+
+</div>
+<script>
+    var lsbook = lsbook || [];
+    lsbook.push(function () {
+        lsbook.page.hasChanged({
+            "config": {
+                "github_url":"https://liushilive.github.io/",
+                "language": "zh-cn"
+            },
+            "basePath": "../..",
+            "js": {'katex': ['../..\\../asserts/lsbook/katex/katex.min.js', '../..\\../asserts/lsbook/katex/contrib/auto-render.min.js'], 'prism': ['../..\\../asserts/lsbook/prismjs/clipboard.min.js', '../..\\../asserts/lsbook/prismjs/prism.js']}
+        });
+    });
+</script>
+</div>
+
+<script src="../..\../asserts/lsbook/jquery-3.3.1.min.js"></script>
+<script charset="UTF-8" src="../..\../asserts/lsbook/jquery_mar/jquery.mark.js"></script>
+<script src="../..\../asserts/lsbook/lightbox/js/lightbox.min.js"></script>
+<script src="../..\../asserts/lsbook/lsbook.min.js"></script>
+
+</body>
+</html>
