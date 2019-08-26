@@ -284,7 +284,7 @@
 <p>虚拟机还原到 <code class="language-markup">系统安装完毕</code> 快照</p>
 <h2 id="anchor_2"><a name="anchor_2" class="anchor-navigation-ex-anchor" href="#anchor_2"><i class="fa fa-link" aria-hidden="true"></i></a>1. 部署本地 yum 源</h2><pre class="line-numbers"><code class="lang-bash">rm -rf /etc/yum.repos.d/*
 
-curl -o /etc/yum.repos.d/CentOS-Base.repo http://192.168.2.251/Centos/CentOS7.repo
+curl -o /etc/yum.repos.d/CentOS-7.repo http://192.168.2.251/Centos/CentOS7.repo
 
 yum clean all
 
@@ -329,7 +329,7 @@ systemctl disable firewalld
 密码： <code class="language-markup">123456</code></p>
 </blockquote>
 <h2 id="anchor_9"><a name="anchor_9" class="anchor-navigation-ex-anchor" href="#anchor_9"><i class="fa fa-link" aria-hidden="true"></i></a>8. 一键部署</h2><pre class="line-numbers"><code class="lang-bash">rm -rf /etc/yum.repos.d/*
-curl -o /etc/yum.repos.d/CentOS-Base.repo http://192.168.2.251/Centos/CentOS7.repo
+curl -o /etc/yum.repos.d/CentOS-7.repo http://192.168.2.251/Centos/CentOS7.repo
 yum clean all
 yum makecache
 yum install -y libaio bc flex net-tools

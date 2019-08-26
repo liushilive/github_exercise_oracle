@@ -14,7 +14,7 @@ grant unlimited tablespace to SCOTT;
 create table SCOTT.BONUS
 (
   ENAME VARCHAR2(50),
-  JOB   VARCHAR2(9),
+  JOB   VARCHAR2(20),
   SAL   NUMBER,
   COMM  NUMBER
 );
