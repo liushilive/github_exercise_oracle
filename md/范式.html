@@ -255,8 +255,8 @@
 <h2 id="anchor_2"><a name="anchor_2" class="anchor-navigation-ex-anchor" href="#anchor_2"><i class="fa fa-link" aria-hidden="true"></i></a>1. 　第一范式—关系型数据库设计的第一步</h2><p>目前，只要是使用关系型数据库来设计数据库，都能够满足数据库设计的第一范式。</p>
 <p>第一范式（1NF）就是数据库表中的字段都是单一属性的，不可再分。这个单一属性可以是数据库中任何一种基本数据类型，如整型、字符型、日期型等。只要是关系型数据库都会满足第一范式。</p>
 <p>例如，一个产品信息表 (product)，描述产品信息的字段有产品编号、产品名称、产品数量、产品价格、产品描述，如表 3.4 所示，那么这个产品信息表就满足第一范式的要求：每一个字段都是不可再分的单一属性。</p>
-<p><a data-lightbox="1" href="../screenshot/2018-06-11-15-27-25.png">
-  <img alt="表" src="../screenshot/2018-06-11-15-27-25.png" title="表">
+<p><a data-lightbox="1" href="..\lsbook_import_img\2018-06-11-15-27-25.png">
+  <img alt="表 3.4" src="..\lsbook_import_img\2018-06-11-15-27-25.png" title="表 3.4">
 </a></p>
 <h2 id="anchor_3"><a name="anchor_3" class="anchor-navigation-ex-anchor" href="#anchor_3"><i class="fa fa-link" aria-hidden="true"></i></a>2. 　第二范式—关系型数据库设计的第二步</h2><p>第二范式是在第一范式的基础上进一步对关系型数据库进行规范，官方给出第二范式的定义是要求在数据库表中不存在非关键字段对任一候选关键字段的部分函数依赖。意思就是说在第二范式中组合主键（AB）里面的 A 或者 B 与其他字段不能存在组合重复。</p>
 <p>为解决这个问题，通常的做法是不用组合主键，添加一个编号列，作为单一主键即可满足第二范式。</p>

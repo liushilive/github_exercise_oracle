@@ -251,84 +251,27 @@
                 <div class="search-noresults">
                     <section class="normal markdown-section">
                         <div id='anchor-navigation-ex-navbar'><i class='fa fa-anchor'></i><ul><li><span class='title-icon fa fa-hand-o-right'></span><a aria-label class='on-toolbar-action' href='' onclick="$('.fa.fa-align-justify').parent()[0].click();">目录</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_1'><b></b>Oracle 数据类型</a></li><ul><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_2'><b>1. </b>字符型</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_3'><b>2. </b>数字型</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_4'><b>3. </b>日期类型</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_5'><b>4. </b>其他数据类型</a></li></ul></ul></div><a href='#anchor_1' id='anchorNavigationExGoTop'><i class='fa fa-arrow-up'></i></a>
-                        <h1 id="anchor_1"><a name="anchor_1" class="anchor-navigation-ex-anchor" href="#anchor_1"><i class="fa fa-link" aria-hidden="true"></i></a>Oracle 数据类型</h1><p><a href="https://docs.oracle.com/en/database/oracle/oracle-database/18/sqlrf/Data-Types.html#GUID-7B72E154-677A-4342-A1EA-C74C1EA928E6">官网文档</a></p>
-<p>要使用数据库来存储数据，首先就要知道这个数据库都能存储什么类型的数据。</p>
+                        <h1 id="anchor_1"><a name="anchor_1" class="anchor-navigation-ex-anchor" href="#anchor_1"><i class="fa fa-link" aria-hidden="true"></i></a>Oracle 数据类型</h1><p>要使用数据库来存储数据，首先就要知道这个数据库都能存储什么类型的数据。</p>
 <p>数据类型是在向数据表中存储数据前必须设定好的，就像如果要使用记事本查看文件内容，那么文件就要是文本的，不能有图片，否则图片是查看不了的，因为记事本中只能查看文本文件。</p>
-<p>在 Oracle 中提供的数据类型非常多，下面介绍常用的数据类型，并把数据类型分为字符型、数字型、日期类型和其他数据类型 4 类进行讲解。</p>
-<h2 id="anchor_2"><a name="anchor_2" class="anchor-navigation-ex-anchor" href="#anchor_2"><i class="fa fa-link" aria-hidden="true"></i></a>1. 字符型</h2><p>字符型在 Oracle 中有 varchar2、char、nchar、nvarchar2 和 long 五种，它们在数据库中是以 ASCII 码的格式存储的。</p>
-<ul>
-<li><p><code class="language-markup">VARCHAR2(size [BYTE | CHAR])</code></p>
-<p>具有最大长度 size 字节或字符的可变长度字符串。您必须指定 size 的 VARCHAR2。最小值 size 为 1 个字节或 1 个字符。最大尺寸为：</p>
-<ul>
-<li><p>32767 字节或字符 if MAX_STRING_SIZE = EXTENDED</p>
-</li>
-<li><p>如果是 4000 字节或字符 MAX_STRING_SIZE = STANDARD</p>
-</li>
-</ul>
-<p>有关初始化参数的更多信息，请参阅<a href="https://docs.oracle.com/en/database/oracle/oracle-database/18/sqlrf/Data-Types.html#GUID-8EFA29E9-E8D8-40A6-A43E-954908C954A4">扩展数据类型</a> MAX_STRING_SIZE。</p>
-<p>BYTE 表示该列将具有字节长度语义。CHAR 表示该列将具有字符语义。</p>
-</li>
-<li><p><code class="language-markup">NVARCHAR2(size)</code> 
-具有最大长度 size 字符的可变长度 Unicode 字符串。您必须指定 size 的 NVARCHAR2。字节数可以是最多两次 size 用于 AL16UTF16 编码和三次 size 用于 UTF8 编码。最大值 size 由国家字符集定义决定，上限为：</p>
-<ul>
-<li><p>32767 字节如果 MAX_STRING_SIZE = EXTENDED</p>
-</li>
-<li><p>如果是 4000 字节 MAX_STRING_SIZE = STANDARD</p>
-</li>
-</ul>
-<p>有关初始化参数的更多信息，请参阅<a href="https://docs.oracle.com/en/database/oracle/oracle-database/18/sqlrf/Data-Types.html#GUID-8EFA29E9-E8D8-40A6-A43E-954908C954A4">扩展数据类型</a> MAX_STRING_SIZE。</p>
-</li>
-<li><p><code class="language-markup">CHAR [(size [BYTE | CHAR])]</code></p>
-<p>长度 size 字节或字符的定长字符数据。最大值 size 为 2000 个字节或字符。默认值和最小值 size 为 1 个字节。</p>
-<p>BYTE 并 CHAR 具有相同的语义 VARCHAR2。</p>
-</li>
-<li><p><code class="language-markup">NCHAR[(size)]</code></p>
-<p>长度字符的定长字符数据 size。字节数可以是最多两次 size 用于 AL16UTF16 编码和三次 size 用于 UTF8 编码。最大值 size 由国家字符集定义决定，上限为 2000 字节。默认值和最小值 size 为 1 个字符。</p>
-</li>
-<li><p><code class="language-markup">LONG</code></p>
-<p>可变长度的字符数据最多 2 千兆字节，或 \(2^31-1\) 字节。提供向后兼容性。</p>
-</li>
-</ul>
-<p><a data-lightbox="1" href="../screenshot/2018-06-11-09-46-53.png">
-  <img alt="字符型" src="../screenshot/2018-06-11-09-46-53.png" title="字符型">
+<p><a href="https://docs.Oracle.com/en/database/Oracle/Oracle-database/18/sqlrf/Data-Types.html#GUID-7B72E154-677A-4342-A1EA-C74C1EA928E6">官网文档</a></p>
+<!-- <http://192.168.2.50:8080/apex/f?p=4950:1> -->
+
+<p>在 Oracle 11g 中提供的数据类型有 23 种，下面介绍常用的数据类型，并把数据类型分为字符型、数字型、日期类型和其他数据类型 4 类进行讲解。</p>
+<h2 id="anchor_2"><a name="anchor_2" class="anchor-navigation-ex-anchor" href="#anchor_2"><i class="fa fa-link" aria-hidden="true"></i></a>1. 字符型</h2><p>字符型在 Oracle 11g 中有 varchar2、char、nchar、nvarchar2 和 long 五种，它们在数据库中是以 ASCII 码的格式存储的。下面用一个表格来讲解每种数据类型的作用。</p>
+<p><a data-lightbox="1" href="..\lsbook_import_img\2018-06-11-09-46-53.png">
+  <img alt="字符型" src="..\lsbook_import_img\2018-06-11-09-46-53.png" title="字符型">
 </a></p>
-<h2 id="anchor_3"><a name="anchor_3" class="anchor-navigation-ex-anchor" href="#anchor_3"><i class="fa fa-link" aria-hidden="true"></i></a>2. 数字型</h2><p>数字型在 Oracle 11g 中常用的有 number 和 float 类型两种。</p>
-<ul>
-<li><p><code class="language-markup">NUMBER [ (p [, s]) ]</code></p>
-<p>具有精度 p 和 保留小数位数 s。</p>
-<p>精度 p 范围为 1 到 38。</p>
-<p>小数位数 s 范围为 -84 到 127。
-精度和小数位数都是十进制数字。</p>
-</li>
-<li><p><code class="language-markup">FLOAT [(p)]</code></p>
-<p>存储的精度是按二进制计算的。</p>
-<p>精度范围为二进制的 1~126</p>
-</li>
-</ul>
-<p><a data-lightbox="2" href="../screenshot/2018-06-11-09-48-13.png">
-  <img alt="数字型" src="../screenshot/2018-06-11-09-48-13.png" title="数字型">
+<h2 id="anchor_3"><a name="anchor_3" class="anchor-navigation-ex-anchor" href="#anchor_3"><i class="fa fa-link" aria-hidden="true"></i></a>2. 数字型</h2><p>数字型在 Oracle 11g 中常用的有 number 和 float 类型两种，可以用它们来表示整数和小数。</p>
+<p><a data-lightbox="2" href="..\lsbook_import_img\2018-06-11-09-48-13.png">
+  <img alt="数字型" src="..\lsbook_import_img\2018-06-11-09-48-13.png" title="数字型">
 </a></p>
 <h2 id="anchor_4"><a name="anchor_4" class="anchor-navigation-ex-anchor" href="#anchor_4"><i class="fa fa-link" aria-hidden="true"></i></a>3. 日期类型</h2><p>日期类型在 Oracle 11g 中常用的有 date 和 timestamp 两种类型，可以用它们来存放日期和时间。</p>
-<ul>
-<li><p>DATE</p>
-<p>有效日期范围从公元前 4712 年 1 月 1 日到公元 9999 年 12 月 31 日。默认格式由 NLS_DATE_FORMAT 参数显式确定或由 NLS_TERRITORY 参数隐式确定。大小固定为 7 个字节。此数据类型包含日期时间字段 YEAR，MONTH，DAY，HOUR，MINUTE，和 SECOND。它没有小数秒或时区。</p>
-</li>
-<li><p>TIMESTAMP [(fractional_seconds_precision)]</p>
-<p>日期的年，月和日值，以及小时，分钟和秒的时间值，其中 fractional_seconds_precision 是 SECOND 日期时间字段的小数部分中的位数。可接受的值为 fractional_seconds_precision 0 到 9. 默认值为 6. 默认格式由 NLS_TIMESTAMP_FORMAT 参数显式确定或由 NLS_TERRITORY 参数隐式确定。大小为 7 或 11 个字节，具体取决于精度。此数据类型包含日期时间字段 YEAR，MONTH，DAY，HOUR，MINUTE，和 SECOND。它包含小数秒但没有时区。</p>
-</li>
-</ul>
-<p><a data-lightbox="3" href="../screenshot/2018-06-11-10-04-49.png">
-  <img alt="日期类型" src="../screenshot/2018-06-11-10-04-49.png" title="日期类型">
+<p><a data-lightbox="3" href="..\lsbook_import_img\2018-06-11-10-04-49.png">
+  <img alt="日期类型" src="..\lsbook_import_img\2018-06-11-10-04-49.png" title="日期类型">
 </a></p>
 <h2 id="anchor_5"><a name="anchor_5" class="anchor-navigation-ex-anchor" href="#anchor_5"><i class="fa fa-link" aria-hidden="true"></i></a>4. 其他数据类型</h2><p>除了上面讲过的字符型、数字型、日期类型之外，在 Oracle 11g 中还有存放大数据的数据类型以及存放二进制文件的数据类型。</p>
-<ul>
-<li><p>BLOB</p>
-<p>二进制大对象。</p>
-<p>最大大小为（4 千兆字节 -1）*（数据库块大小）</p>
-</li>
-</ul>
-<p><a data-lightbox="4" href="../screenshot/2018-06-11-10-05-16.png">
-  <img alt="其他数据类型" src="../screenshot/2018-06-11-10-05-16.png" title="其他数据类型">
+<p><a data-lightbox="4" href="..\lsbook_import_img\2018-06-11-10-05-16.png">
+  <img alt="其他数据类型" src="..\lsbook_import_img\2018-06-11-10-05-16.png" title="其他数据类型">
 </a></p>
 
                         <footer class="page-footer"><span class="copyright">© 2019 刘士. 
@@ -376,7 +319,7 @@ All rights reserved.</span><span class="footer-modification">
                 "language": "zh-cn"
             },
             "basePath": "..",
-            "js": {'katex': ['..\\../asserts/lsbook/katex/katex.min.js', '..\\../asserts/lsbook/katex/contrib/auto-render.min.js'], 'prism': ['..\\../asserts/lsbook/prismjs/clipboard.min.js', '..\\../asserts/lsbook/prismjs/prism.js']}
+            "js": {}
         });
     });
 </script>

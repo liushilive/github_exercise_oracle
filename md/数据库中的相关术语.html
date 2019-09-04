@@ -250,63 +250,142 @@
             <div class="search-plus" id="book-search-results">
                 <div class="search-noresults">
                     <section class="normal markdown-section">
-                        <div id='anchor-navigation-ex-navbar'><i class='fa fa-anchor'></i><ul><li><span class='title-icon fa fa-hand-o-right'></span><a aria-label class='on-toolbar-action' href='' onclick="$('.fa.fa-align-justify').parent()[0].click();">目录</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_1'><b></b>数据库中的相关术语</a></li><ul><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_2'><b>1. </b>表</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_3'><b>2. </b>视图</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_4'><b>3. </b>存储过程</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_5'><b>4. </b>触发器</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_6'><b>5. </b>约束</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_7'><b>6. </b>事务</a></li><ul><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_8'><b>6.1. </b>事务的 ACID 特性</a></li></ul></ul></ul></div><a href='#anchor_1' id='anchorNavigationExGoTop'><i class='fa fa-arrow-up'></i></a>
+                        <div id='anchor-navigation-ex-navbar'><i class='fa fa-anchor'></i><ul><li><span class='title-icon fa fa-hand-o-right'></span><a aria-label class='on-toolbar-action' href='' onclick="$('.fa.fa-align-justify').parent()[0].click();">目录</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_1'><b></b>数据库中的相关术语</a></li><ul><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_2'><b>1. </b>数据库</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_3'><b>2. </b>表</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_4'><b>3. </b>列和数据类型</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_5'><b>4. </b>行</a></li></ul><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_6'><b></b>约束</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_7'><b></b>事务和锁</a></li><ul><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_8'><b>1. </b>什么是事务</a></li><ul><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_9'><b>1.1. </b>事务的 ACID 特性</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_10'><b>1.2. </b>控制事务</a></li></ul><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_11'><b>2. </b>什么是锁</a></li><ul><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_12'><b>2.1. </b>认识锁</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_13'><b>2.2. </b>锁的分类</a></li></ul></ul><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_14'><b></b>视图</a></li><ul><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_15'><b>1. </b>什么是视图</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_16'><b>2. </b>视图的作用</a></li></ul><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_17'><b></b>存储过程</a></li><ul><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_18'><b>1. </b>为什么要使用存储过程</a></li></ul><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_19'><b></b>触发器</a></li></ul></div><a href='#anchor_1' id='anchorNavigationExGoTop'><i class='fa fa-arrow-up'></i></a>
                         <h1 id="anchor_1"><a name="anchor_1" class="anchor-navigation-ex-anchor" href="#anchor_1"><i class="fa fa-link" aria-hidden="true"></i></a>数据库中的相关术语</h1><p>在 Oracle 数据库中每个数据库里面都包含很多对象，主要包括表、视图、存储过程、触发器以及约束。在这儿只简单介绍一下每一个术语的含义，在后面会详细地讲解这些术语的使用。</p>
-<h2 id="anchor_2"><a name="anchor_2" class="anchor-navigation-ex-anchor" href="#anchor_2"><i class="fa fa-link" aria-hidden="true"></i></a>1. 表</h2><p>表，即在数据库中存放数据用的数据表。每一个数据库中都可以包含多张数据表，但是每一个数据表的名字都是不能重复的。表的一行代表一条记录，每一列都有一个列名，列名是唯一的，行与列的交叉点称为字段。</p>
-<p>例如，创建一个存放图书信息的表，表中信息包括图书编号、图书名称、图书作者、图书出版社、图书价格、备注。</p>
-<table>
-<thead><tr>
-<th>图书编号</th>
-<th>图书名称</th>
-<th>图书作者</th>
-<th>图书出版社</th>
-<th>图书价格</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0001</td>
-<td>Oracle 10g</td>
-<td>刘一</td>
-<td>XX 出版社</td>
-<td>20</td>
-<td></td>
-</tr>
-<tr>
-<td>0002</td>
-<td>Oracle 11g</td>
-<td>王五</td>
-<td>XX 出版社</td>
-<td>30</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>在表中，第一行是表中每一列的列名，后两行每一行都是表中的一条记录。</p>
-<h2 id="anchor_3"><a name="anchor_3" class="anchor-navigation-ex-anchor" href="#anchor_3"><i class="fa fa-link" aria-hidden="true"></i></a>2. 视图</h2><p>视图是数据库中的虚拟表。在视图中存放的是从数据库表中查询出来的记录，使用视图主要是为了方便信息查询，同时也能够缩短查询数据的时间。</p>
-<h2 id="anchor_4"><a name="anchor_4" class="anchor-navigation-ex-anchor" href="#anchor_4"><i class="fa fa-link" aria-hidden="true"></i></a>3. 存储过程</h2><p>存储过程是由 SQL 语句和控制流语句组成的语句块。存储过程存储在数据库内，可由应用程序通过存储过程的名称调用执行。</p>
-<p>存储过程在开发软件时，可以把大量的数据操作放在服务器端的存储过程中，而只返回需要的数据，这样就减少了数据的传输量，速度也可以大大地提高。</p>
-<h2 id="anchor_5"><a name="anchor_5" class="anchor-navigation-ex-anchor" href="#anchor_5"><i class="fa fa-link" aria-hidden="true"></i></a>4. 触发器</h2><p>触发器是特殊的存储过程，也是由 SQL 语句和程序控制语句组成的。但是，触发器在数据库中是不需调用而自动执行的。例如，在触发器中可以定义在修改某张表记录后执行触发器中的内容。</p>
-<h2 id="anchor_6"><a name="anchor_6" class="anchor-navigation-ex-anchor" href="#anchor_6"><i class="fa fa-link" aria-hidden="true"></i></a>5. 约束</h2><p>约束是在数据库中保证数据库里表中数据完整性的手段。在 Oracle 中使用的约束有主键约束、外键约束、唯一约束、检查约束、非空约束、默认约束 6 个，其中主键约束和唯一约束都被认为是唯一约束，而外键约束被认为是参照约束。</p>
+<h2 id="anchor_2"><a name="anchor_2" class="anchor-navigation-ex-anchor" href="#anchor_2"><i class="fa fa-link" aria-hidden="true"></i></a>1. 数据库</h2><p><strong>数据库</strong>这个术语的用法很多，但就从 SQL 的角度来看，数据库是一个以某种有组织的方式存储的数据集合。</p>
+<p>最简单的办法是将数据库想象为一个文件柜。这个文件柜是一个存放数据的物理位置，不管数据是什么，也不管数据是如何组织的。</p>
+<ul>
+<li><p>数据库（database）</p>
+<p>保存有组织的数据的容器（通常是一个文件或一组文件）。</p>
+</li>
+</ul>
+<blockquote><p><strong>注意：误用导致混淆</strong></p>
+<p>人们通常用数据库这个术语来代表他们使用的数据库软件，这是不正确的，也因此产生了许多混淆。确切地说，数据库软件应称为<strong>数据库管理系统</strong>（即 DBMS）。数据库是通过 DBMS 创建和操纵的容器，而具体它究竟是什么，形式如何，各种数据库都不一样。</p>
+</blockquote>
+<h2 id="anchor_3"><a name="anchor_3" class="anchor-navigation-ex-anchor" href="#anchor_3"><i class="fa fa-link" aria-hidden="true"></i></a>2. 表</h2><p>你往文件柜里放资料时，并不是随便将它们扔进某个抽屉就完事了，而是在文件柜中创建文件，然后将相关的资料放入特定的文件中。</p>
+<p>在数据库领域中，这种文件称为表。表是一种结构化的文件，可用来存储某种特定类型的数据。表可以保存顾客清单、产品目录，或者其他信息清单。</p>
+<ul>
+<li><p>表（table）</p>
+<p>某种特定类型数据的结构化清单。</p>
+</li>
+</ul>
+<p>这里的关键一点在于，存储在表中的数据是同一种类型的数据或清单。决不应该将顾客的清单与订单的清单存储在同一个数据库表中，否则以后的检索和访问会很困难。应该创建两个表，每个清单一个表。</p>
+<p>数据库中的每个表都有一个名字来标识自己。这个名字是唯一的，即数据库中没有其他表具有相同的名字。</p>
+<blockquote><p><strong>说明：表名</strong></p>
+<p>使表名成为唯一的，实际上是数据库名和表名等的组合。有的数据库还使用数据库拥有者的名字作为唯一名的一部分。也就是说，虽然在相同数据库中不能两次使用相同的表名，但在不同的数据库中完全可以使用相同的表名。</p>
+</blockquote>
+<p>表具有一些特性，这些特性定义了数据在表中如何存储，包含存储什么样的数据，数据如何分解，各部分信息如何命名等信息。描述表的这组信息就是所谓的<strong>模式</strong>（schema），模式可以用来描述数据库中特定的表，也可以用来描述整个数据库（和其中表的关系）。</p>
+<ul>
+<li><p>模式</p>
+<p>关于数据库和表的布局及特性的信息。</p>
+</li>
+</ul>
+<h2 id="anchor_4"><a name="anchor_4" class="anchor-navigation-ex-anchor" href="#anchor_4"><i class="fa fa-link" aria-hidden="true"></i></a>3. 列和数据类型</h2><p>表由列组成。列存储表中某部分的信息。</p>
+<ul>
+<li><p>列（column）</p>
+<p>表中的一个字段。所有表都是由一个或多个列组成的。</p>
+</li>
+</ul>
+<p>理解列的最好办法是将数据库表想象为一个网格，就像个电子表格那样。网格中每一列存储着某种特定的信息。例如，在顾客表中，一列存储顾客编号，另一列存储顾客姓名，而地址、城市、县以及邮政编码全都存储在各自的列中。</p>
+<blockquote><p><strong>提示：分解数据</strong></p>
+<p>正确地将数据分解为多个列极为重要。例如，城市、县、邮政编码应该总是彼此独立的列。通过分解这些数据，才有可能利用特定的列对数据进行分类和过滤（如找出特定县或特定城市的所有顾客）。如果城市和县组合在一个列中，则按县进行分类或过滤就会很困难。</p>
+<p>你可以根据自己的具体需求来决定把数据分解到何种程度。例如，一般可以把门牌号和街道名一起存储在地址里。这没有问题，除非你哪天想用街道名来排序，这时，最好将门牌号和街道名分开。</p>
+</blockquote>
+<p>数据库中每个列都有相应的数据类型。数据类型（datatype）定义了列可以存储哪些数据种类。例如，如果列中存储的是数字（或许是订单中的物品数），则相应的数据类型应该为数值类型。如果列中存储的是日期、文本、注释、金额等，则应该规定好恰当的数据类型。</p>
+<ul>
+<li><p>数据类型</p>
+<p>所允许的数据的类型。每个表列都有相应的数据类型，它限制（或允许）该列中存储的数据。</p>
+</li>
+</ul>
+<p>数据类型限定了可存储在列中的数据种类（例如，防止在数值字段中录入字符值）。数据类型还帮助正确地分类数据，并在优化磁盘使用方面起重要的作用。因此，在创建表时必须特别关注所用的数据类型。</p>
+<blockquote><p><strong>注意：数据类型兼容</strong></p>
+<p>数据类型及其名称是 SQL 不兼容的一个主要原因。虽然大多数基本数据类型得到了一致的支持，但许多高级的数据类型却没有。更糟的是，偶然会有相同的数据类型在不同的 DBMS 中具有不同的名称。对此用户毫无办法，重要的是在创建表结构时要记住这些差异。</p>
+</blockquote>
+<h2 id="anchor_5"><a name="anchor_5" class="anchor-navigation-ex-anchor" href="#anchor_5"><i class="fa fa-link" aria-hidden="true"></i></a>4. 行</h2><p>表中的数据是按行存储的，所保存的每个记录存储在自己的行内。如果将表想象为网格，网格中垂直的列为表列，水平行为表行。</p>
+<p>例如，顾客表可以每行存储一个顾客。表中的行编号为记录的编号。</p>
+<ul>
+<li><p>行（row）</p>
+<p>表中的一个记录。</p>
+</li>
+</ul>
+<blockquote><p>说明：是记录还是行？</p>
+<p>你可能听到用户在提到行时称其为数据库记录（record）。这两个术语多半是可以交替使用的，但从技术上说，行才是正确的术语。</p>
+</blockquote>
+<hr>
+<h1 id="anchor_6"><a name="anchor_6" class="anchor-navigation-ex-anchor" href="#anchor_6"><i class="fa fa-link" aria-hidden="true"></i></a>约束</h1><p>SQL 已经改进过多个版本，成为非常完善和强大的语言。许多强有力的特性给用户提供了高级的数据处理技术，如约束。</p>
+<p>关系数据库存储分解为多个表的数据，每个表存储相应的数据。利用键来建立从一个表到另一个表的引用（由此产生了术语<strong>引用完整性</strong>（referential integrity））。</p>
+<p>正确地进行关系数据库设计，需要一种方法保证只在表中插入合法数据。例如，如果 Orders 表存储订单信息，OrderItems 表存储订单详细内容，应该保证 OrderItems 中引用的任何订单 ID 都存在于 Orders 中。类似地，在 Orders 表中引用的任意顾客必须存在于 Customers 表中。</p>
+<p>虽然可以在插入新行时进行检查（在另一个表上执行 SELECT，以保证所有值合法并存在），但最好不要这样做，原因如下：</p>
+<ul>
+<li><p>如果在客户端层面上实施数据库完整性规则，则每个客户端都要被迫实施这些规则，一定会有一些客户端不实施这些规则。</p>
+</li>
+<li><p>在执行 UPDATE 和 DELETE 操作时，也必须实施这些规则。</p>
+</li>
+<li><p>执行客户端检查是非常耗时的，而 DBMS 执行这些检查会相对高效。</p>
+</li>
+<li><p>约束（constraint）</p>
+<p>管理如何插入或处理数据库数据的规则。</p>
+</li>
+</ul>
+<p>DBMS 通过在数据库表上施加约束来实施引用完整性。大多数约束是在表定义中定义的，</p>
+<blockquote><p>注意：具体 DBMS 的约束</p>
+<p>有几种不同类型的约束，每个 DBMS 都提供自己的支持。因此，这里给出的例子在不同的 DBMS 上可能有不同的反应。在进行试验之前，请参阅具体的 DBMS 文档。</p>
+</blockquote>
+<hr>
+<p>约束是在数据库中保证数据库里表中数据完整性的手段。在 Oracle 中使用的约束有主键约束、外键约束、唯一约束、检查约束、非空约束、默认约束 6 个，其中主键约束和唯一约束都被认为是唯一约束，而外键约束被认为是参照约束。</p>
 <ul>
 <li><p>主键（Primary Key）约束</p>
-<p>主键约束在每个数据表中只能有一个，但是一个主键约束可以由多个列组成，通常把由多个列组成的主键又叫做复合主键或组合主键。</p>
-<p>主键约束可以保证主键列的数据没有重复值且值不为空，也可以说是唯一地标识表中的一条记录。</p>
+<p>主键是一种特殊的约束，用来保证一列（或一组列）中的值是唯一的，而且永不改动。换句话说，表中的一列（或多个列）的值唯一标识表中的每一行。这方便了直接或交互地处理表中的行。没有主键，要安全地 UPDATE 或 DELETE 特定行而不影响其他行会非常困难。</p>
+<p>表中任意列只要满足以下条件，都可以用于主键：</p>
+<ul>
+<li><p>任意两行的主键值都不相同。</p>
+</li>
+<li><p>每行都具有一个主键值（即列中不允许 NULL 值）。</p>
+</li>
+<li><p>包含主键值的列从不修改或更新。（大多数 DBMS 不允许这么做，但如果你使用的 DBMS 允许这样做，好吧，千万别！）</p>
+</li>
+<li><p>主键值不能重用。如果从表中删除某一行，其主键值不分配给新行。</p>
+</li>
+</ul>
 </li>
 <li><p>外键（Foreign Key）约束</p>
-<p>外键约束之所以被认为是参照约束，是因为它主要用作把一个表中的数据和另一个表中的数据进行关联，表和表之间的关联是为了保证数据库中数据的完整性，使用外键保证数据的完整性，也叫参照完整性。</p>
-<p>下面就创建商品信息表和商品类型信息表，并建立两个表之间的外键约束。</p>
-<p><a data-lightbox="1" href="../screenshot/2018-06-08-16-20-02.png">
-  <img alt="外键约束" src="../screenshot/2018-06-08-16-20-02.png" title="外键约束">
-</a></p>
-<p>在商品信息表中“商品编号”是主键，而在商品类型信息表中“类型编号”是主键，当把商品信息表中的“商品编号”与商品类型信息表中的“类型编号”设置为外键约束后，在商品信息表中的类型信息就可以用商品类型信息表中的类型编号代替。设置完外键约束后，商品信息表中类型字段值必须是在商品类型信息表中存在的，同时当在商品类型信息表中删除一个类型时，如果商品信息表已经使用过该类型，那么商品类型信息表中的数据就无法被删除。这样就保证了数据库中数据的完整性。</p>
+<p>外键是表中的一列，其值必须列在另一表的主键中。外键是保证引用完整性的极其重要部分。我们举个例子来理解外键。</p>
+<p>Orders 表将录入到系统的每个订单作为一行包含其中。顾客信息存储在 Customers 表中。Orders 表中的订单通过顾客 ID 与 Customers 表中的特定行相关联。顾客 ID 为 Customers 表的主键，每个顾客都有唯一的 ID。订单号为 Orders 表的主键，每个订单都有唯一的订单号。</p>
+<p>Orders 表中顾客 ID 列的值不一定是唯一的。如果某个顾客有多个订单，则有多个行具有相同的顾客 ID（虽然每个订单都有不同的订单号）。同时，Orders 表中顾客 ID 列的合法值为 Customers 表中顾客的 ID。</p>
+<p>这就是外键的作用。在这个例子中，在 Orders 的顾客 ID 列上定义了一个外键，因此该列只能接受 Customers 表的主键值。</p>
+<blockquote><p><strong>提示：外键有助防止意外删除</strong></p>
+<p>除帮助保证引用完整性外，外键还有另一个重要作用。在定义外键后，DBMS 不允许删除在另一个表中具有关联行的行。例如，不能删除关联订单的顾客。删除该顾客的唯一方法是首先删除相关的订单（这表示还要删除相关的订单项）。由于需要一系列的删除，因而利用外键可以防止意外删除数据。</p>
+<p>有的 DBMS 支持称为<strong>级联删除</strong>（cascading delete）的特性。如果启用，该特性在从一个表中删除行时删除所有相关的数据。例如，如果启用级联删除并且从 Customers 表中删除某个顾客，则任何关联的订单行也会被自动删除。</p>
+</blockquote>
 </li>
 <li><p>唯一（unique）约束</p>
-<p>唯一约束和主键约束一样都是设置表中的列不能重复的约束，区别就是一个表中只能有一个主键约束，而却可以有多个唯一约束。通常情况下设置唯一约束的目的就是使非主键列没有重复值。唯一约束与主键约束的另一个区别是如果数据表中的某一列中有空值，那么就不能把这个列设置为主键列，而可以设置成唯一约束。例如，在商品信息表中把商品编号设置成了主键，但是还要保证商品的名称不重名时，就可以把商品名称设置为唯一约束。</p>
+<p>唯一约束用来保证一列（或一组列）中的数据是唯一的。它们类似于主键，但存在以下重要区别。</p>
+<ul>
+<li><p>表可包含多个唯一约束，但每个表只允许一个主键。</p>
+</li>
+<li><p>唯一约束列可包含 NULL 值。</p>
+</li>
+<li><p>唯一约束列可修改或更新。</p>
+</li>
+<li><p>唯一约束列的值可重复使用。</p>
+</li>
+<li><p>与主键不一样，唯一约束不能用来定义外键。</p>
+</li>
+</ul>
+<p>每个雇员都有唯一的社保号，但我们并不想用它作主键，因为它太长（而且我们也不想使该信息容易利用）。因此，每个雇员除了其社保号外还有唯一的雇员 ID（主键）。</p>
+<p>雇员 ID 是主键，可以确定它是唯一的。你可能还想使 DBMS 保证每个社保号也是唯一的（保证输入错误不会导致使用他人号码）。可以通过在社保号列上定义 UNIQUE 约束做到。</p>
 </li>
 <li><p>检查（check）约束</p>
-<p>检查约束是用来指定表中列的值的取值范围的。例如，在员工信息表中员工年龄的列，如果要使员工年龄列的值为 18～50，就可以使用检查约束进行设置，当输入的值不在有效范围内时，就会出现错误。这样就保证了数据库中数据的有效性。</p>
+<p>检查约束用来保证一列（或一组列）中的数据满足一组指定的条件。检查约束的常见用途有以下几点。</p>
+<ul>
+<li><p>检查最小或最大值。例如，防止 0 个物品的订单（即使 0 是合法的数）。</p>
+</li>
+<li><p>指定范围。例如，保证发货日期大于等于今天的日期，但不超过今天起一年后的日期。</p>
+</li>
+<li><p>只允许特定的值。例如，在性别字段中只允许 M 或 F。</p>
+</li>
+</ul>
+<p>换句话说，数据类型限制了列中可保存的数据的类型。检查约束在数据类型内又做了进一步的限制，这些限制极其重要，可以确保插入数据库的数据正是你想要的数据。不需要依赖于客户端应用程序或用户来保证正确获取它，DBMS 本身将会拒绝任何无效的数据。</p>
 </li>
 <li><p>非空（not null）约束</p>
 <p>非空约束是用来约束表中的列不允许为空的。例如，在员工信息表中员工身份证号码列，要求员工 必须输入时，可以使用非空约束来保证该列不能为空。</p>
@@ -315,9 +394,11 @@
 <p>插入数据没有赋值时，给一个默认值。</p>
 </li>
 </ul>
-<h2 id="anchor_7"><a name="anchor_7" class="anchor-navigation-ex-anchor" href="#anchor_7"><i class="fa fa-link" aria-hidden="true"></i></a>6. 事务</h2><p>我们可以把事务理解成一组 SQL 语句的集合。</p>
+<hr>
+<h1 id="anchor_7"><a name="anchor_7" class="anchor-navigation-ex-anchor" href="#anchor_7"><i class="fa fa-link" aria-hidden="true"></i></a>事务和锁</h1><p>事务和锁是两个联系非常紧密的概念，它们保证了数据库的一致性。由于数据库是一个可以由多个用户共享的资源，因此当多个用户并发地存取数据时，就要保证数据的准确性。事务和锁就完成了这项功能。</p>
+<h2 id="anchor_8"><a name="anchor_8" class="anchor-navigation-ex-anchor" href="#anchor_8"><i class="fa fa-link" aria-hidden="true"></i></a>1. 什么是事务</h2><p>我们可以把事务理解成一组 SQL 语句的集合，这样描述可能不太容易理解，不要着急，我们先大概的描述一下理论，然后再进行形象的举例。</p>
 <p>事务可以只包含一条 SQL 语句，也可以包含多条复杂的 SQL 语句，事务中的所有 SQL 语句被当做一个操作单元，换句话说，事务中的 SQL 语句要么都执行成功，要么全部执行失败，事务内的 SQL 语句被当做一个整体，被当做一个原子进行操作。</p>
-<h3 id="anchor_8"><a name="anchor_8" class="anchor-navigation-ex-anchor" href="#anchor_8"><i class="fa fa-link" aria-hidden="true"></i></a>6.1. 事务的 ACID 特性</h3><p>事务有 4 个特性，它们分别是原子性、一致性、隔离性、持久性。</p>
+<h3 id="anchor_9"><a name="anchor_9" class="anchor-navigation-ex-anchor" href="#anchor_9"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. 事务的 ACID 特性</h3><p>事务有 4 个特性，它们分别是原子性、一致性、隔离性、持久性。</p>
 <ul>
 <li><p>原子性 (atomicity)</p>
 <p>整个事务中的所有操作要么全部执行成功，要么全部执行失败后回滚到最初状态。</p>
@@ -338,6 +419,176 @@
 </ul>
 <blockquote><p>事务的提交很重要，但不建议频繁地提交事务，因为每次提交事务都需要时间，如果 1W 行记录，每行记录都提交事务，那么事务本身将是性能的主要消耗者。所以，适当地减少事务提交次数比较重要。例如，可以每 1K 行提交一次。</p>
 </blockquote>
+<hr>
+<p>对于这个问题比较经典的例子就是银行账户之间的汇款转账操作。</p>
+<p>银行有很多用户，目前，A 用户账户上的余额为 8000 元，B 用户账上的余额为 5000 元，现在 A 用户要向 B 用户转账 1000 元。</p>
+<p>那么，当转账结束以后，A 用户账户上的余额应该为 7000 元，B 账户上的余额应该为 6000 元。</p>
+<p>那么上述过程在数据库中应该转换为如下操作。</p>
+<ul>
+<li><p>操作 1：修改 A 用户账户对应的余额记录，8000-1000</p>
+</li>
+<li><p>操作 2：修改 B 用户账户对应的余额记录，5000+1000</p>
+</li>
+</ul>
+<p>上述操作好像没毛病，但是假设，如果数据库刚刚完成 <code class="language-markup">操作 1</code> ，好巧不巧，这个时候停电了，过了两分钟，又来电了，当我们再次查看数据库时，发现 A 用户余额为 7000，比停电之前少了 1000，发现 B 用户的账户余额仍然为 5000，与停电之前一样，出现这种情况是因为数据库只完成了 <code class="language-markup">操作 1</code> ，而没来得及完成 <code class="language-markup">操作 2</code> ，那么，1000 块大洋凭空消失了。</p>
+<p>所以，我们应该防止这样的悲剧发生，没错，解决方法就是使用事务。</p>
+<p>我们之前说过，事务中的所有 SQL 语句都被当做一个整体，要么全部执行成功，要么在其中某些操作执行失败后回滚，回滚到最初的状态，就好像什么都没有发生过一样。那么利用事务的这个特性，就可以解决之前的问题，我们可以把转账的 SQL 语句写入到事务中，如下。</p>
+<ul>
+<li><p>事务开始</p>
+</li>
+<li><p>update A 用户余额 - 1000</p>
+</li>
+<li><p>update B 用户余额 + 1000</p>
+</li>
+<li><p>提交事务（事务结束）</p>
+</li>
+</ul>
+<p>利用事务完成上述操作，即使数据库刚刚将 A 用户账户余额减去 1000 时停电了，由于事务的特性，当再次使用数据库时，也不会出现 A 用户余额变为 7000，B 用户余额仍然为 5000 的情况。</p>
+<hr>
+<p>整个交易过程，我们看做一个事务，如果操作失败，那么该事务就会回滚，所有该事务中的操作将撤销，目标账户和源账户上的资金都不会出现变化；</p>
+<p>如果操作成功，那么将是对数据库永久的修改，即使以后服务器断电，也不会对该修改结果有影响。</p>
+<p>事务在没有提交之前可以回滚，而且在提交前当前用户可以查看已经修改的数据，但其他用户查看不到该数据，一旦事务提交就不能再撤销修改了。</p>
+<h3 id="anchor_10"><a name="anchor_10" class="anchor-navigation-ex-anchor" href="#anchor_10"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. 控制事务</h3><p>当一个事务被执行并成功完成时，虽然从输出结果来看目标表已经被修改了，但实际上目标表并不是立即被修改。当事务成功完成时，利用事务控制命令最终认可这个事务，可以把事务所做的修改保存到数据库，也可以撤销事务所做的修改。</p>
+<p>事务控制命令只与  <code class="language-markup">DML</code>  命令  <code class="language-markup">insert</code> 、 <code class="language-markup">update</code>  和  <code class="language-markup">DELETE</code>  配合使用，比如我们不会在创建表之后使用  <code class="language-markup">COMMIT</code>  语句，因为当表被创建之后，它会自动被提交给数据库。也不能使用 ROLLBACK 语句来恢复被撤销的表。此外，还有其他类似的语句，也是不能被撤销的，例如  <code class="language-markup">truncATE</code>  语句。所以，在运行新的命令前，最好先确认一下用户所使用的  <code class="language-markup">RDBMS</code>  在事务方面的相关规定。当事务完成之后，事务信息被保存在数据库里的指定区域或临时回退区域。所有的修改都被保存到这个临时回退区域，直到事务控制命令出现。当事务控制命令出现时，所做的修改要么被保存到数据库，要么被放弃，然后临时回退区域被清空。</p>
+<p><a data-lightbox="1" href="..\lsbook_import_img\2018-06-27-10-19-21.png">
+  <img alt="修改操作如何应用到关系型数据库" src="..\lsbook_import_img\2018-06-27-10-19-21.png" title="修改操作如何应用到关系型数据库">
+</a></p>
+<p>事务基本控制语句有如下几个：</p>
+<ul>
+<li><p>commit：提交事务</p>
+</li>
+<li><p>savepoint：设置保存点</p>
+</li>
+<li><p>rollback：回滚事务</p>
+</li>
+<li><p>rollback to savepoint：回滚至保存点</p>
+</li>
+</ul>
+<blockquote><p>事务和程序不同，一条语句或者多条语句甚至一段程序都可能在一个事务中，而一段程序又可以包含多个事务。事务可以根据自己的需要把一段程序分成多个组，然后把每个组都当成一个单元，而这个单元就可以理解为一个事务。</p>
+</blockquote>
+<ul>
+<li><p><strong>代码演示：</strong></p>
+<pre class="line-numbers"><code class="lang-sql">commit;
+savepoint a1;
+rollback to a1;
+rollback;
+</code></pre>
+</li>
+</ul>
+<h2 id="anchor_11"><a name="anchor_11" class="anchor-navigation-ex-anchor" href="#anchor_11"><i class="fa fa-link" aria-hidden="true"></i></a>2. 什么是锁</h2><p>数据库是一个庞大的多用户数据管理系统，由于在多用户的系统中，同一时刻多个用户同时操作某相同资源的情况时有发生，而在逻辑上这些用户想同时操作该资源是不可能的，而数据库中利用锁消除了多用户操作同一资源时可能产生的隐患。</p>
+<h3 id="anchor_12"><a name="anchor_12" class="anchor-navigation-ex-anchor" href="#anchor_12"><i class="fa fa-link" aria-hidden="true"></i></a>2.1. 认识锁</h3><p>锁出现在数据共享的环境中，它是一种机制，在访问相同资源时，可以防止事务之间的破坏性交互。例如，在多个会话同时操作某表时，优先操作的会话需要对其锁定。</p>
+<p>事务的隔离性要求当前事务不能影响其他的事务，所以当多个会话访问相同的资源时，数据库系统会利用锁确保它们像队列一样依次进行。Oracle 处理数据时用到的锁是自动获取的，我们不用对此有过多的关注，但 Oracle 允许我们手动锁定数据。</p>
+<p>Oracle 利用很低的约束提供了最大程度的并发性，例如某会话正在修改一条记录，那么仅仅该记录会被锁定。而其他会话可以随时做读取操作，但读取的依然是修改前的数据。</p>
+<p>Oracle 的锁保证了数据的完整性。例如，当一个会话对表 A 的某行记录进行修改时，另一个会话也来修改该行记录，在没有任何处理的情况下保留的数据会有随机性，而这种数据是没有任何意义的，为脏数据。如果此时使用了行级锁，第一个会话修改记录时封锁该行，那么第二个会话此时只能等待，这样就避免了脏数据的产生。</p>
+<h3 id="anchor_13"><a name="anchor_13" class="anchor-navigation-ex-anchor" href="#anchor_13"><i class="fa fa-link" aria-hidden="true"></i></a>2.2. 锁的分类</h3><p>Oracle 中分为两种模式的锁，一种是排他锁（X 锁），另一种是共享锁（S 锁）。</p>
+<ul>
+<li><p>排他锁也可以叫写锁。</p>
+<p>这种模式的锁防止资源的共享，用做数据的修改。</p>
+<p>假如有事务 T 给数据 A 加上该锁，那么其他的事务将不能对 A 加任何的锁，所以此时只允许 T 对该数据进行读取和修改，直到事务完成将该类型的锁释放为止。</p>
+</li>
+<li><p>共享锁也可以叫读锁。</p>
+<p>该模式锁下的数据只能被读取，不能被修改。</p>
+<p>如果有事务 T 给数据 A 加上共享锁后，那么其他事务不能对其加排他锁，只能加共享锁。加了该锁的数据可以被并发地读取。</p>
+</li>
+</ul>
+<p>锁是实现并发的主要手段，在数据库中应用频繁，但很多都由数据库自动管理，当事务提交后会自动释放锁。</p>
+<hr>
+<h1 id="anchor_14"><a name="anchor_14" class="anchor-navigation-ex-anchor" href="#anchor_14"><i class="fa fa-link" aria-hidden="true"></i></a>视图</h1><p>视图在 Oracle 中应用相当普遍，所以也比较重要。视图在数据库中可以理解为一张虚拟的表，与包含数据的表不一样，视图只包含使用时动态检索数据的查询。使用视图可以补充表结构在某些需求方面的不足，可以让开发人员更方便地查询复杂数据，还可以缩短开发周期，节省公司成本。</p>
+<h2 id="anchor_15"><a name="anchor_15" class="anchor-navigation-ex-anchor" href="#anchor_15"><i class="fa fa-link" aria-hidden="true"></i></a>1. 什么是视图</h2><p>听到视图会比较陌生，实际上视图的创建和操作比较简单。在直观印象中它和表类似，但某些表的功能它不具备。</p>
+<p>根据官方的文档可以这样理解视图：它是一个基于一个表或多个表的逻辑表，视图本身不包含任何数据。</p>
+<p>通俗来说，可以把视图看成是虚拟的表，只是一个查询语句的结果，它的数据最终是从表中获取的，这些表通常称为 <strong>源表</strong> 或 <strong>基表</strong> 。当基表的数据发生变化时，视图里的数据同样发生变化。通常视图的数据源有三种情况：</p>
+<ul>
+<li><p>单一表的子集。</p>
+</li>
+<li><p>多表操作结果集。</p>
+</li>
+<li><p>视图的子集。</p>
+</li>
+</ul>
+<h2 id="anchor_16"><a name="anchor_16" class="anchor-navigation-ex-anchor" href="#anchor_16"><i class="fa fa-link" aria-hidden="true"></i></a>2. 视图的作用</h2><p>我们会产生疑问，既然视图被称为虚拟的表，那还用它做什么？下面就简单介绍一下视图的作用。</p>
+<ul>
+<li><p>使数据简化</p>
+<p>在表中很多数据对业务来说是冗余的，这时开发者会使用比较复杂的 SQL 语句得到自己想要的。实际开发中不能要求每个人都能做到这一点，所以，通常情况下由一个人把该复杂语句做成视图，其他人员直接调用该视图即可。这样对视图使用人员就简化了数据，隐藏了数据的复杂性。</p>
+</li>
+<li><p>使数据更加独立</p>
+<p>程序开发时，大多数是程序直接访问数据库的表，当这些表的结构随着业务的变化而不得不重新设计时会影响到程序（通常表一旦设计完成就很难再做修改），所以可以使得程序直接访问视图。这样视图就可以把程序和数据库的表隔离开来，降低开发者的劳动成本。</p>
+</li>
+<li><p>增加安全性</p>
+<p>视图可以查询表指定的列来展现给用户，而不必让使用者完全看见表的所有字段。这种情况很多是一个公司提供给其他合作伙伴查询数据的接口，而视图通常也会设成只读属性。</p>
+</li>
+</ul>
+<blockquote><p>警告：性能问题</p>
+<p>因为视图不包含数据，所以每次使用视图时，都必须处理查询执行时需要的所有检索。如果你用多个联结和过滤创建了复杂的视图或者嵌套了视图，性能可能会下降得很厉害。因此，在部署使用了大量视图的应用前，应该进行测试。</p>
+</blockquote>
+<hr>
+<h1 id="anchor_17"><a name="anchor_17" class="anchor-navigation-ex-anchor" href="#anchor_17"><i class="fa fa-link" aria-hidden="true"></i></a>存储过程</h1><p>迄今为止，我们使用的大多数 SQL 语句都是针对一个或多个表的单条语句。并非所有操作都这么简单，经常会有一些复杂的操作需要多条语句才能完成。</p>
+<p>例如以下的情形：</p>
+<ul>
+<li><p>为了处理订单，必须核对以保证库存中有相应的物品。</p>
+</li>
+<li><p>如果物品有库存，需要预定，不再出售给别的人，并且减少物品数据以反映正确的库存量。</p>
+</li>
+<li><p>库存中没有的物品需要订购，这需要与供应商进行某种交互。</p>
+</li>
+<li><p>关于哪些物品入库（并且可以立即发货）和哪些物品退订，需要通知相应的顾客。</p>
+</li>
+</ul>
+<p>这显然不是一个完整的例子，它甚至超出了我们所学范例的范围，但足以表达我们的意思了。执行这个处理需要针对许多表的多条 SQL 语句。此外，需要执行的具体 SQL 语句及其次序也不是固定的，它们可能会根据物品是否在库存中而变化。</p>
+<p>那么，怎样编写代码呢？可以单独编写每条 SQL 语句，并根据结果有条件地执行其他语句。在每次需要这个处理时（以及每个需要它的应用中），都必须做这些工作。</p>
+<p>可以创建存储过程。简单来说，存储过程就是为以后使用而保存的一条或多条 SQL 语句。可将其视为批文件，虽然它们的作用不仅限于批处理。</p>
+<h2 id="anchor_18"><a name="anchor_18" class="anchor-navigation-ex-anchor" href="#anchor_18"><i class="fa fa-link" aria-hidden="true"></i></a>1. 为什么要使用存储过程</h2><p>我们知道了什么是存储过程，那么为什么要使用它们呢？</p>
+<p>理由很多，下面列出一些主要的。</p>
+<ul>
+<li><p>通过把处理封装在一个易用的单元中，可以简化复杂的操作（如前面例子所述）。</p>
+</li>
+<li><p>由于不要求反复建立一系列处理步骤，因而保证了数据的一致性。如果所有开发人员和应用程序都使用同一存储过程，则所使用的代码都是相同的。</p>
+</li>
+<li><p>这一点的延伸就是防止错误。需要执行的步骤越多，出错的可能性就越大。防止错误保证了数据的一致性。</p>
+</li>
+<li><p>简化对变动的管理。如果表名、列名或业务逻辑（或别的内容）有变化，那么只需要更改存储过程的代码。使用它的人员甚至不需要知道这些变化。</p>
+</li>
+<li><p>这一点的延伸就是安全性。通过存储过程限制对基础数据的访问，减少了数据讹误（无意识的或别的原因所导致的数据讹误）的机会。</p>
+</li>
+<li><p>因为存储过程通常以编译过的形式存储，所以 DBMS 处理命令的工作较少，提高了性能。</p>
+</li>
+</ul>
+<p>存在一些只能用在单个请求中的 SQL 元素和特性，存储过程可以使用它们来编写功能更强更灵活的代码。</p>
+<p>换句话说，使用存储过程有三个主要的好处，即简单、安全、高性能。显然，它们都很重要。不过，在将 SQL 代码转换为存储过程前，也必须知道它的一些缺陷。</p>
+<ul>
+<li><p>不同 DBMS 中的存储过程语法有所不同。事实上，编写真正的可移植存储过程几乎是不可能的。不过，存储过程的自我调用（名字以及数据如何传递）可以相对保持可移植。因此，如果需要移植到别的 DBMS，至少客户端应用代码不需要变动。</p>
+</li>
+<li><p>一般来说，编写存储过程比编写基本 SQL 语句复杂，需要更高的技能，更丰富的经验。因此，许多数据库管理员把限制存储过程的创建作为安全措施（主要受上一条缺陷的影响）。</p>
+</li>
+</ul>
+<p>尽管有这些缺陷，存储过程还是非常有用的，并且应该使用。事实上，多数 DBMS 都带有用于管理数据库和表的各种存储过程。更多信息请参阅具体的 DBMS 文档。</p>
+<blockquote><p>说明：不能编写存储过程？你依然可以使用</p>
+<p>大多数 DBMS 将编写存储过程所需的安全和访问权限与执行存储过程所需的安全和访问权限区分开来。这是好事情，即使你不能（或不想）编写自己的存储过程，也仍然可以在适当的时候执行别的存储过程。</p>
+</blockquote>
+<hr>
+<h1 id="anchor_19"><a name="anchor_19" class="anchor-navigation-ex-anchor" href="#anchor_19"><i class="fa fa-link" aria-hidden="true"></i></a>触发器</h1><p>触发器是特殊的存储过程，它在特定的数据库活动发生时自动执行。触发器可以与特定表上的 INSERT、UPDATE 和 DELETE 操作（或组合）相关联。</p>
+<p>与存储过程不一样（存储过程只是简单的存储 SQL 语句），触发器与单个的表相关联。与 Orders 表上的 INSERT 操作相关联的触发器只在 Orders 表中插入行时执行。类似地，Customers 表上的 INSERT 和 UPDATE 操作的触发器只在表上出现这些操作时执行。</p>
+<p>触发器内的代码具有以下数据的访问权：</p>
+<ul>
+<li><p><code class="language-markup">INSERT</code>  操作中的所有新数据；</p>
+</li>
+<li><p><code class="language-markup">UPDATE</code>  操作中的所有新数据和旧数据；</p>
+</li>
+<li><p><code class="language-markup">DELETE</code>  操作中删除的数据。</p>
+</li>
+</ul>
+<p>根据所使用的 DBMS 的不同，触发器可在特定操作执行之前或之后执行。</p>
+<p>下面是触发器的一些常见用途。</p>
+<ul>
+<li><p>保证数据一致。例如，在 INSERT 或 UPDATE 操作中将所有州名转换为大写。</p>
+</li>
+<li><p>基于某个表的变动在其他表上执行活动。例如，每当更新或删除一行时将审计跟踪记录写入某个日志表。</p>
+</li>
+<li><p>进行额外的验证并根据需要回退数据。例如，保证某个顾客的可用资金不超限定，如果已经超出，则阻塞插入。</p>
+</li>
+<li><p>计算计算列的值或更新时间戳。</p>
+</li>
+</ul>
+<p>不同 DBMS 的触发器创建语法差异很大，更详细的信息请参阅相应的文档。</p>
 
                         <footer class="page-footer"><span class="copyright">© 2019 刘士. 
 All rights reserved.</span><span class="footer-modification">
@@ -384,7 +635,7 @@ All rights reserved.</span><span class="footer-modification">
                 "language": "zh-cn"
             },
             "basePath": "..",
-            "js": {}
+            "js": {'prism': ['..\\../asserts/lsbook/prismjs/clipboard.min.js', '..\\../asserts/lsbook/prismjs/prism.js']}
         });
     });
 </script>
