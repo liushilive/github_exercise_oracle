@@ -126,7 +126,7 @@
 <p>工资大于 2000 小于等于3500，则显示<code class="language-vim">中等工资</code>。</p>
 <p>工资小于等于 2000 的则显示<code class="language-vim">低等工资</code>。</p>
 <h2 id="anchor_3"><a class="anchor-navigation-ex-anchor" href="#anchor_3" name="anchor_3"><i aria-hidden="true" class="fa fa-link"></i></a>2. 实例</h2>
-<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx23"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx23"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql">select e.ename, e.sal, (
+<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx24"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx24"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql">select e.ename, e.sal, (
   case
     when e.sal &gt; 3500 then &#x27;高工资&#x27;
     when e.sal &gt; 2000 then &#x27;中等工资&#x27;
@@ -178,7 +178,9 @@ All rights reserved.</span><span class="footer-modification">
         lsbook.page.hasChanged({
             "config": {
                 "github_url":"https://liushilive.github.io/",
-                "language": "zh-cn"
+                "language": "zh-cn",
+                "previous_page_link": "044.html",
+                "next_page_link": "046.html"
             },
             "basePath": "../..",
             "js": {'prism': ['../..\\../asserts/lsbook/prismjs/clipboard.min.js', '../..\\../asserts/lsbook/prismjs/prism.js']}

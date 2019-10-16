@@ -123,7 +123,7 @@
 <h2 id="anchor_2"><a class="anchor-navigation-ex-anchor" href="#anchor_2" name="anchor_2"><i aria-hidden="true" class="fa fa-link"></i></a>1. 题目</h2>
 <p>查找出工资等级不为 4 级的员工的员工名字，部门名字，部门位置。</p>
 <h2 id="anchor_3"><a class="anchor-navigation-ex-anchor" href="#anchor_3" name="anchor_3"><i aria-hidden="true" class="fa fa-link"></i></a>2. 实例</h2>
-<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx11"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx11"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql">select e.ename, d.dname, d.loc, s.grade
+<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx18"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx18"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql">select e.ename, d.dname, d.loc, s.grade
 from emp e
 join salgrade s on e.sal between s.losal and s.hisal
                 and s.grade != 4
@@ -172,7 +172,9 @@ All rights reserved.</span><span class="footer-modification">
         lsbook.page.hasChanged({
             "config": {
                 "github_url":"https://liushilive.github.io/",
-                "language": "zh-cn"
+                "language": "zh-cn",
+                "previous_page_link": "028.html",
+                "next_page_link": "030.html"
             },
             "basePath": "../..",
             "js": {'prism': ['../..\\../asserts/lsbook/prismjs/clipboard.min.js', '../..\\../asserts/lsbook/prismjs/prism.js']}

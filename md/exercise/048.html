@@ -123,7 +123,7 @@
 <h2 id="anchor_2"><a class="anchor-navigation-ex-anchor" href="#anchor_2" name="anchor_2"><i aria-hidden="true" class="fa fa-link"></i></a>1. 题目</h2>
 <p>从 Student 表和 Achievement 表中查询成绩 <code class="language-vim">&gt;85</code> 分的学生的姓名</p>
 <h2 id="anchor_3"><a class="anchor-navigation-ex-anchor" href="#anchor_3" name="anchor_3"><i aria-hidden="true" class="fa fa-link"></i></a>2. 实例</h2>
-<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx22"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx22"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql">select s.id, s.name, a.mark
+<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx2"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx2"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql">select s.id, s.name, a.mark
 from student s, achievement a
 where s.id = a.id
     and a.mark&gt;85;
@@ -172,7 +172,9 @@ All rights reserved.</span><span class="footer-modification">
         lsbook.page.hasChanged({
             "config": {
                 "github_url":"https://liushilive.github.io/",
-                "language": "zh-cn"
+                "language": "zh-cn",
+                "previous_page_link": "047.html",
+                "next_page_link": "049.html"
             },
             "basePath": "../..",
             "js": {'prism': ['../..\\../asserts/lsbook/prismjs/clipboard.min.js', '../..\\../asserts/lsbook/prismjs/prism.js']}

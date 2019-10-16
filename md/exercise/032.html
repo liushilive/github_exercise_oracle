@@ -123,7 +123,7 @@
 <h2 id="anchor_2"><a class="anchor-navigation-ex-anchor" href="#anchor_2" name="anchor_2"><i aria-hidden="true" class="fa fa-link"></i></a>1. 题目</h2>
 <p>所有员工名字前加上 Dear , 并且名字首字母大写</p>
 <h2 id="anchor_3"><a class="anchor-navigation-ex-anchor" href="#anchor_3" name="anchor_3"><i aria-hidden="true" class="fa fa-link"></i></a>2. 实例</h2>
-<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx14"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx14"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql">select e.ename, &#x27;Dear&#x27; || initcap(e.ename)
+<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx3"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx3"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql">select e.ename, &#x27;Dear&#x27; || initcap(e.ename)
 from emp e;
 
 select e.ename, concat(&#x27;Dear&#x27;, initcap(e.ename))
@@ -172,7 +172,9 @@ All rights reserved.</span><span class="footer-modification">
         lsbook.page.hasChanged({
             "config": {
                 "github_url":"https://liushilive.github.io/",
-                "language": "zh-cn"
+                "language": "zh-cn",
+                "previous_page_link": "031.html",
+                "next_page_link": "033.html"
             },
             "basePath": "../..",
             "js": {'prism': ['../..\\../asserts/lsbook/prismjs/clipboard.min.js', '../..\\../asserts/lsbook/prismjs/prism.js']}

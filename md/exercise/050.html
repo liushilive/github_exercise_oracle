@@ -124,7 +124,7 @@
 <p>操作 Student 表和 Achievement 表</p>
 <p>Robert 此次考试考了 80 分，但是成绩没能录入表中，请将其成绩添加进去</p>
 <h2 id="anchor_3"><a class="anchor-navigation-ex-anchor" href="#anchor_3" name="anchor_3"><i aria-hidden="true" class="fa fa-link"></i></a>2. 实例</h2>
-<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx24"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx24"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql">insert into achievement(id,mark)
+<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx3"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx3"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql">insert into achievement(id,mark)
 values ((select id from student where name=&#x27;Robert&#x27;), 80);
 </code></pre></div></div></div></sec>
 
@@ -170,7 +170,9 @@ All rights reserved.</span><span class="footer-modification">
         lsbook.page.hasChanged({
             "config": {
                 "github_url":"https://liushilive.github.io/",
-                "language": "zh-cn"
+                "language": "zh-cn",
+                "previous_page_link": "049.html",
+                "next_page_link": "051.html"
             },
             "basePath": "../..",
             "js": {'prism': ['../..\\../asserts/lsbook/prismjs/clipboard.min.js', '../..\\../asserts/lsbook/prismjs/prism.js']}
