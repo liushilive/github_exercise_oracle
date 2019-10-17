@@ -124,7 +124,7 @@
 <p>从 EMP 表中查询</p>
 <p>统计各部门工资低于（包含） 2000 的人数与高于 2000 的人数</p>
 <h2 id="anchor_3"><a class="anchor-navigation-ex-anchor" href="#anchor_3" name="anchor_3"><i aria-hidden="true" class="fa fa-link"></i></a>2. 实例</h2>
-<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx8"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx8"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql">select e.deptno,
+<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx11"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx11"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql">select e.deptno,
        count(case
                 when e.sal &lt;= 2000 then e.sal
                 else null
