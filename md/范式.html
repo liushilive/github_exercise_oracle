@@ -134,11 +134,11 @@
 <ul>
 <li>
 <p>数据冗余</p>
-<p>同一个产品由 n 个顾客购买，“产品类型”就重复 n-1 次；同一个顾客购买了多件产品，那么就会多次记录顾客的个人信息。</p>
+<p>同一个产品由 n 个顾客购买，<code class="language-vim">产品类型</code>就重复 n-1 次；同一个顾客购买了多件产品，那么就会多次记录顾客的个人信息。</p>
 </li>
 <li>
 <p>更新异常</p>
-<p>若调整了某个产品的类型，数据表中所有行的“产品类型”值都要更新，否则会出现同一个产品不同类型的情况。</p>
+<p>若调整了某个产品的类型，数据表中所有行的<code class="language-vim">产品类型</code>值都要更新，否则会出现同一个产品不同类型的情况。</p>
 </li>
 <li>
 <p>插入异常</p>
@@ -217,7 +217,7 @@ All rights reserved.</span><span class="footer-modification">
                 "next_page_link": "E-R图.html"
             },
             "basePath": "..",
-            "js": {}
+            "js": {'prism': ['..\\../asserts/lsbook/prismjs/clipboard.min.js', '..\\../asserts/lsbook/prismjs/prism.js']}
         });
     });
 </script>
