@@ -123,7 +123,7 @@
 <h2 id="anchor_2"><a class="anchor-navigation-ex-anchor" href="#anchor_2" name="anchor_2"><i aria-hidden="true" class="fa fa-link"></i></a>1. 题目</h2>
 <p>创建一查询，显示能获得与 SCOTT 一样薪水的其他雇员的姓名、受雇日期以及薪水。</p>
 <h2 id="anchor_3"><a class="anchor-navigation-ex-anchor" href="#anchor_3" name="anchor_3"><i aria-hidden="true" class="fa fa-link"></i></a>2. 实例</h2>
-<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx12"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx12"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql">select e.ename, e.hiredate, e.sal
+<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx4"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx4"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql">select e.ename, e.hiredate, e.sal
 from emp e
 join emp e1 on e.sal = e1.sal
             and e1.ename = &#x27;SCOTT&#x27;
