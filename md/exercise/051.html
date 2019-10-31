@@ -124,7 +124,7 @@
 <p>操作 Student 表和 Achievement 表</p>
 <p>将 Rose 的成绩修改为 87</p>
 <h2 id="anchor_3"><a class="anchor-navigation-ex-anchor" href="#anchor_3" name="anchor_3"><i aria-hidden="true" class="fa fa-link"></i></a>2. 实例</h2>
-<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx9"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx9"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql">update achievement a set a.mark=87
+<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx1"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx1"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql">update achievement a set a.mark=87
 where a.id = (select s.id from student s where name=&#x27;Rose&#x27;);
 </code></pre></div></div></div></sec>
 
