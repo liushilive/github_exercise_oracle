@@ -8,17 +8,17 @@
 <meta content="" name="description">
 <meta content="刘士" name="author">
 
-<link href="..\../asserts/lsbook/less/website.css" rel="stylesheet">
-<link href="..\../asserts/lsbook/katex/katex.min.css" rel="stylesheet">
-<link href="..\../asserts/lsbook/lightbox/css/lightbox.min.css" rel="stylesheet">
+<link href="../../asserts/lsbook/less/website.css" rel="stylesheet">
+<link href="../../asserts/lsbook/katex/katex.min.css" rel="stylesheet">
+<link href="../../asserts/lsbook/lightbox/css/lightbox.min.css" rel="stylesheet">
 
 <meta content="true" name="HandheldFriendly"/>
 <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
 <meta content="yes" name="apple-mobile-web-app-capable">
 <meta content="black" name="apple-mobile-web-app-status-bar-style">
-<link href="..\../asserts/lsbook/images/apple-touch-icon-precomposed-152.png"
+<link href="../../asserts/lsbook/images/apple-touch-icon-precomposed-152.png"
       rel="apple-touch-icon-precomposed" sizes="152x152">
-<link href="..\../asserts/lsbook/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<link href="../../asserts/lsbook/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
 <!--分页-->
 <link href="范式.html" rel="next"/>
 </head>
@@ -352,7 +352,7 @@
 <p>当一个事务被执行并成功完成时，虽然从输出结果来看目标表已经被修改了，但实际上目标表并不是立即被修改。当事务成功完成时，利用事务控制命令最终认可这个事务，可以把事务所做的修改保存到数据库，也可以撤销事务所做的修改。</p>
 <p>事务控制命令只与 <code class="language-vim">DML</code> 命令 <code class="language-vim">insert</code>、<code class="language-vim">update</code> 和 <code class="language-vim">delete</code> 配合使用，比如我们不会在创建表之后使用 <code class="language-vim">commit</code> 语句，因为当表被创建之后，它会自动被提交给数据库。也不能使用 <code class="language-vim">rollback</code> 语句来恢复被撤销的表。</p>
 <p>此外，还有其他类似的语句，也是不能被撤销的，例如 <code class="language-vim">truncate</code> 语句。所以，在运行新的命令前，最好先确认一下用户所使用的 <code class="language-vim">DBMS</code> 在事务方面的相关规定。当事务完成之后，事务信息被保存在数据库里的指定区域或临时回退区域。所有的修改都被保存到这个临时回退区域，直到事务控制命令出现。当事务控制命令出现时，所做的修改要么被保存到数据库，要么被放弃，然后临时回退区域被清空。</p>
-<p><a data-lightbox="1" href="..\lsbook_import_img\2018-06-27-10-19-21.png"><img src="..\lsbook_import_img\2018-06-27-10-19-21.png" alt="修改操作如何应用到关系型数据库" title="修改操作如何应用到关系型数据库" /></a></p>
+<p><a data-lightbox="1" href="../lsbook_import_img/2018-06-27-10-19-21.png"><img src="../lsbook_import_img/2018-06-27-10-19-21.png" alt="修改操作如何应用到关系型数据库" title="修改操作如何应用到关系型数据库" /></a></p>
 <p>事务基本控制语句有如下几个：</p>
 <ul>
 <li>
@@ -565,16 +565,16 @@ All rights reserved.</span><span class="footer-modification">
                 "next_page_link": "范式.html"
             },
             "basePath": "..",
-            "js": {'prism': ['..\\../asserts/lsbook/prismjs/clipboard.min.js', '..\\../asserts/lsbook/prismjs/prism.js']}
+            "js": {'prism': ['../../asserts/lsbook/prismjs/clipboard.min.js', '../../asserts/lsbook/prismjs/prism.js']}
         });
     });
 </script>
 </div>
 
-<script src="..\../asserts/lsbook/jquery-3.3.1.min.js"></script>
-<script charset="UTF-8" src="..\../asserts/lsbook/jquery_mar/jquery.mark.js"></script>
-<script src="..\../asserts/lsbook/lightbox/js/lightbox.min.js"></script>
-<script src="..\../asserts/lsbook/lsbook.min.js"></script>
+<script src="../../asserts/lsbook/jquery-3.3.1.min.js"></script>
+<script charset="UTF-8" src="../../asserts/lsbook/jquery_mar/jquery.mark.js"></script>
+<script src="../../asserts/lsbook/lightbox/js/lightbox.min.js"></script>
+<script src="../../asserts/lsbook/lsbook.min.js"></script>
 
 </body>
 </html>
