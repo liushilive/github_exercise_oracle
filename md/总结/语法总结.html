@@ -128,7 +128,7 @@
   \textcolor{#228B22}{user} \space \text{用户名} \space \textcolor{#228B22}{identified \space by \space} \text{密码} \space[\textcolor{#228B22}{account \space lock}|\textcolor{#228B22}{unlock}] ; \\
   \textcolor{#228B22}{table} \space \text{表名} ( \text{列名} \space \text{类型} \space [\textcolor{#228B22}{null}|\textcolor{#228B22}{not \space null}] \space [\textcolor{#228B22}{constraint}]) ; \\
   [\textcolor{#228B22}{or \space replace}] \space [\textcolor{#228B22}{noforce} | \textcolor{#228B22}{force}] \space \textcolor{#228B22}{view} \space \text{视图名} \space \textcolor{#228B22}{as} \space select \text{查询} \space [\textcolor{#228B22}{with \space read \space only}] ; \\
-  [\textcolor{#228B22}{unique}] \space \textcolor{#228B22}{index} \space \text{索引名} \space \textcolor{#228B22}{on} \space 表名 ( 列名 \space [ , \space 列名 …]) ;\\
+  [\textcolor{#228B22}{unique}] \space \textcolor{#228B22}{index} \space \text{索引名} \space \textcolor{#228B22}{on} \space \text{表名} ( \text{列名} \space [ , \space \text{列名} …]) ;\\
 \end{cases}
 \]
 </li>
@@ -142,31 +142,31 @@
       \textcolor{#228B22}{account \space lock}|\textcolor{#228B22}{unlock};
     \end{cases}
   } \\
-  \textcolor{#228B22}{table} \space 表名 \space{
+  \textcolor{#228B22}{table} \space \text{表名} \space{
     \begin{cases}
       \textcolor{#228B22}{add} \space {
         \begin{cases}
-          列名 \space 列类型 \space 列约束 ; \\
-          \textcolor{#228B22}{constraint} \space 约束名 \space {
+          \text{列名} \space \text{列类型} \space \text{列约束} ; \\
+          \textcolor{#228B22}{constraint} \space \text{约束名} \space {
             \begin{cases}
-              \textcolor{#228B22}{primary \space key}( 列 ) ; \\
-              \textcolor{#228B22}{foreign \space key}( 列 ) \space \textcolor{#228B22}{references} \space 参照表 ( 参照列 ) ; \\
-              \textcolor{#228B22}{unique} ( 列 ) ; \\
-              \textcolor{#228B22}{check} ( 条件 ) ; \\
+              \textcolor{#228B22}{primary \space key}( \text{列} ) ; \\
+              \textcolor{#228B22}{foreign \space key}( \text{列} ) \space \textcolor{#228B22}{references} \space \text{参照表} ( \text{参照列} ) ; \\
+              \textcolor{#228B22}{unique} ( \text{列} ) ; \\
+              \textcolor{#228B22}{check} ( \text{条件} ) ; \\
             \end{cases}
           }
         \end{cases}
       } \\
       \textcolor{#228B22}{drop} \space {
         \begin{cases}
-          \textcolor{#228B22}{column} \space 列名 ; \\
-          \textcolor{#228B22}{constraint} \space 约束名 ;
+          \textcolor{#228B22}{column} \space \text{列名} ; \\
+          \textcolor{#228B22}{constraint} \space \text{约束名} ;
         \end{cases}
       } \\
-      \textcolor{#228B22}{modify} \space 列 \space {
+      \textcolor{#228B22}{modify} \space \text{列} \space {
         \begin{cases}
           \textcolor{#228B22}{not \space null} | \textcolor{#228B22}{null} ; \\
-          \textcolor{#228B22}{default} \space 默认值 | \textcolor{#228B22}{null};
+          \textcolor{#228B22}{default} \space \text{默认值} | \textcolor{#228B22}{null};
         \end{cases}
       }
     \end{cases}
@@ -179,9 +179,9 @@
 \[\textcolor{#228B22}{alter}
 \begin{cases}
   \textcolor{#228B22}{user} \space \text{用户名} \space [\textcolor{#228B22}{cascade}] ; \\
-  \textcolor{#228B22}{table} \space 表名 ; \\
-  \textcolor{#228B22}{view} \space 视图名 ; \\
-  \textcolor{#228B22}{index} \space 索引名 ; \\
+  \textcolor{#228B22}{table} \space \text{表名} ; \\
+  \textcolor{#228B22}{view} \space \text{视图名} ; \\
+  \textcolor{#228B22}{index} \space \text{索引名} ; \\
 \end{cases}
 \]
 </li>
