@@ -175,8 +175,8 @@ EXEC DBMS_XDB.SETLISTENERLOCALACCESS(FALSE);
 EOF
 </code></pre>
 <h2 id="anchor_8"><a class="anchor-navigation-ex-anchor" href="#anchor_8" name="anchor_8"><i aria-hidden="true" class="fa fa-link"></i></a>7. 配置防火墙</h2>
-<pre class="line-numbers"><code class="lang-bash">firewall-cmd --add-port=8080/tcp --permanent
-firewall-cmd --add-port=1521/tcp --permanent
+<pre class="line-numbers"><code class="lang-bash">firewall-cmd --add-port=8080/tcp --permanent --zone=public
+firewall-cmd --add-port=1521/tcp --permanent --zone=public
 firewall-cmd --reload
 </code></pre>
 <blockquote>
@@ -200,8 +200,8 @@ su -
 sqlplus &quot;sys/123456 as sysdba&quot; &lt;&lt;EOF
 EXEC DBMS_XDB.SETLISTENERLOCALACCESS(FALSE);
 EOF
-firewall-cmd --add-port=8080/tcp --permanent
-firewall-cmd --add-port=1521/tcp --permanent
+firewall-cmd --add-port=8080/tcp --permanent --zone=public
+firewall-cmd --add-port=1521/tcp --permanent --zone=public
 firewall-cmd --reload
 </code></pre>
 
