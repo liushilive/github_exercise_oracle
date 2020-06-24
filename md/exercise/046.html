@@ -127,20 +127,78 @@
                         <h1 id="anchor_1"><a class="anchor-navigation-ex-anchor" href="#anchor_1" name="anchor_1"><i aria-hidden="true" class="fa fa-link"></i></a>Oracle 练习 046</h1>
 <h2 id="anchor_2"><a class="anchor-navigation-ex-anchor" href="#anchor_2" name="anchor_2"><i aria-hidden="true" class="fa fa-link"></i></a>1. 题目</h2>
 <p>已知有如下数据表：A</p>
-<p>月份|部门|业绩
---|--|--
-一月份|A|10
-一月份|B|10
-一月份|C|5
-二月份|A|8
-二月份|B|9
-三月份|A|8</p>
+<table>
+<thead>
+<tr>
+<th align="left">月份</th>
+<th align="left">部门</th>
+<th align="left">业绩</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">一月份</td>
+<td align="left">A</td>
+<td align="left">10</td>
+</tr>
+<tr>
+<td align="left">一月份</td>
+<td align="left">B</td>
+<td align="left">10</td>
+</tr>
+<tr>
+<td align="left">一月份</td>
+<td align="left">C</td>
+<td align="left">5</td>
+</tr>
+<tr>
+<td align="left">二月份</td>
+<td align="left">A</td>
+<td align="left">8</td>
+</tr>
+<tr>
+<td align="left">二月份</td>
+<td align="left">B</td>
+<td align="left">9</td>
+</tr>
+<tr>
+<td align="left">三月份</td>
+<td align="left">A</td>
+<td align="left">8</td>
+</tr>
+</tbody>
+</table>
 <p>写出相应 SQL，得到以下结果集：</p>
-<p>部门|一月份|二月份|三月份
---|--|--|--
-A|10|8|8
-B|10|9|0
-C|5|0|0</p>
+<table>
+<thead>
+<tr>
+<th align="left">部门</th>
+<th align="left">一月份</th>
+<th align="left">二月份</th>
+<th align="left">三月份</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">A</td>
+<td align="left">10</td>
+<td align="left">8</td>
+<td align="left">8</td>
+</tr>
+<tr>
+<td align="left">B</td>
+<td align="left">10</td>
+<td align="left">9</td>
+<td align="left">0</td>
+</tr>
+<tr>
+<td align="left">C</td>
+<td align="left">5</td>
+<td align="left">0</td>
+<td align="left">0</td>
+</tr>
+</tbody>
+</table>
 <h2 id="anchor_3"><a class="anchor-navigation-ex-anchor" href="#anchor_3" name="anchor_3"><i aria-hidden="true" class="fa fa-link"></i></a>2. 实例</h2>
 <sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx1"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx1"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql">select 部门,
   max(case 月份 when &#x27;一月份&#x27; then 业绩 else 0 end) 一月份,
