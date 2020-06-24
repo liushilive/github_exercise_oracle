@@ -1,0 +1,297 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+<meta charset="UTF-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Oracle 相关 - 存储结构</title>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="" name="description">
+<meta content="刘士" name="author">
+
+<link href="../../../../../asserts/lsbook/less/website.css" rel="stylesheet">
+<link href="../../../../../asserts/lsbook/katex/katex.min.css" rel="stylesheet">
+<link href="../../../../../asserts/lsbook/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+<meta content="true" name="HandheldFriendly"/>
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<link href="../../../../../asserts/lsbook/images/apple-touch-icon-precomposed-152.png"
+      rel="apple-touch-icon-precomposed" sizes="152x152">
+<link href="../../../../../asserts/lsbook/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<!--分页-->
+<link href="内存结构.html" rel="next"/>
+</head>
+<body>
+<div class="book"><div class="book-summary">
+    <div id="book-search-input" role="search">
+        <input placeholder="输入并搜索" type="text"/>
+    </div>
+    <nav role="navigation">
+        <ul class="summary">
+            <li class="header">Summary</li>
+<ul class="articles"><li class="chapter" data-level="1.1" data-path="../../../../index.html"><a href="../../../../index.html"><b>1.1.</b>介绍</a></li>
+<li class="chapter" data-level="1.2" data-path="../../../index.html"><a href="../../../index.html"><b>1.2.</b>Oracle 部署</a></li>
+<li class="chapter" data-level="1.3" data-path="../../../总结/语法总结.html"><a href="../../../总结/语法总结.html"><b>1.3.</b>Oracle 语法总结</a></li>
+<li class="chapter" data-level="1.4" data-path="../../../概念.html"><a href="../../../概念.html"><b>1.4.</b>Oracle 概念</a>
+<ul class="articles"><li class="chapter" data-level="1.4.1" data-path="系统结构概述.html"><a href="系统结构概述.html"><b>1.4.1.</b>系统结构概述</a>
+<ul class="articles"><li class="chapter active" data-level="1.4.1.1" data-path="存储结构.html"><a href="存储结构.html"><b>1.4.1.1.</b>存储结构</a></li>
+<li class="chapter" data-level="1.4.1.2" data-path="内存结构.html"><a href="内存结构.html"><b>1.4.1.2.</b>内存结构</a></li>
+<li class="chapter" data-level="1.4.1.3" data-path="后台进程.html"><a href="后台进程.html"><b>1.4.1.3.</b>后台进程</a></li>
+<li class="chapter" data-level="1.4.1.4" data-path="数据字典.html"><a href="数据字典.html"><b>1.4.1.4.</b>数据字典</a></li></ul></li>
+<li class="chapter" data-level="1.4.2" data-path="../../../数据库中的相关术语.html"><a href="../../../数据库中的相关术语.html"><b>1.4.2.</b>数据库中的相关术语</a></li>
+<li class="chapter" data-level="1.4.3" data-path="../../../范式.html"><a href="../../../范式.html"><b>1.4.3.</b>范式</a></li>
+<li class="chapter" data-level="1.4.4" data-path="../../../E-R图.html"><a href="../../../E-R图.html"><b>1.4.4.</b>E-R图</a></li>
+<li class="chapter" data-level="1.4.5" data-path="../../../Oracle数据类型.html"><a href="../../../Oracle数据类型.html"><b>1.4.5.</b>Oracle 数据类型</a></li></ul></li>
+<li class="chapter" data-level="1.5" data-path="../../../exercise/index.html"><a href="../../../exercise/index.html"><b>1.5.</b>Oracle 练习汇总</a>
+<ul class="articles"><li class="chapter" data-level="1.5.1" data-path="../../../exercise/001.html"><a href="../../../exercise/001.html"><b>1.5.1.</b>Oracle 练习 001</a></li>
+<li class="chapter" data-level="1.5.2" data-path="../../../exercise/002.html"><a href="../../../exercise/002.html"><b>1.5.2.</b>Oracle 练习 002</a></li>
+<li class="chapter" data-level="1.5.3" data-path="../../../exercise/003.html"><a href="../../../exercise/003.html"><b>1.5.3.</b>Oracle 练习 003</a></li>
+<li class="chapter" data-level="1.5.4" data-path="../../../exercise/004.html"><a href="../../../exercise/004.html"><b>1.5.4.</b>Oracle 练习 004</a></li>
+<li class="chapter" data-level="1.5.5" data-path="../../../exercise/005.html"><a href="../../../exercise/005.html"><b>1.5.5.</b>Oracle 练习 005</a></li>
+<li class="chapter" data-level="1.5.6" data-path="../../../exercise/006.html"><a href="../../../exercise/006.html"><b>1.5.6.</b>Oracle 练习 006</a></li>
+<li class="chapter" data-level="1.5.7" data-path="../../../exercise/007.html"><a href="../../../exercise/007.html"><b>1.5.7.</b>Oracle 练习 007</a></li>
+<li class="chapter" data-level="1.5.8" data-path="../../../exercise/008.html"><a href="../../../exercise/008.html"><b>1.5.8.</b>Oracle 练习 008</a></li>
+<li class="chapter" data-level="1.5.9" data-path="../../../exercise/009.html"><a href="../../../exercise/009.html"><b>1.5.9.</b>Oracle 练习 009</a></li>
+<li class="chapter" data-level="1.5.10" data-path="../../../exercise/010.html"><a href="../../../exercise/010.html"><b>1.5.10.</b>Oracle 练习 010</a></li>
+<li class="chapter" data-level="1.5.11" data-path="../../../exercise/011.html"><a href="../../../exercise/011.html"><b>1.5.11.</b>Oracle 练习 011</a></li>
+<li class="chapter" data-level="1.5.12" data-path="../../../exercise/012.html"><a href="../../../exercise/012.html"><b>1.5.12.</b>Oracle 练习 012</a></li>
+<li class="chapter" data-level="1.5.13" data-path="../../../exercise/013.html"><a href="../../../exercise/013.html"><b>1.5.13.</b>Oracle 练习 013</a></li>
+<li class="chapter" data-level="1.5.14" data-path="../../../exercise/014.html"><a href="../../../exercise/014.html"><b>1.5.14.</b>Oracle 练习 014</a></li>
+<li class="chapter" data-level="1.5.15" data-path="../../../exercise/015.html"><a href="../../../exercise/015.html"><b>1.5.15.</b>Oracle 练习 015</a></li>
+<li class="chapter" data-level="1.5.16" data-path="../../../exercise/016.html"><a href="../../../exercise/016.html"><b>1.5.16.</b>Oracle 练习 016</a></li>
+<li class="chapter" data-level="1.5.17" data-path="../../../exercise/017.html"><a href="../../../exercise/017.html"><b>1.5.17.</b>Oracle 练习 017</a></li>
+<li class="chapter" data-level="1.5.18" data-path="../../../exercise/018.html"><a href="../../../exercise/018.html"><b>1.5.18.</b>Oracle 练习 018</a></li>
+<li class="chapter" data-level="1.5.19" data-path="../../../exercise/019.html"><a href="../../../exercise/019.html"><b>1.5.19.</b>Oracle 练习 019</a></li>
+<li class="chapter" data-level="1.5.20" data-path="../../../exercise/020.html"><a href="../../../exercise/020.html"><b>1.5.20.</b>Oracle 练习 020</a></li>
+<li class="chapter" data-level="1.5.21" data-path="../../../exercise/021.html"><a href="../../../exercise/021.html"><b>1.5.21.</b>Oracle 练习 021</a></li>
+<li class="chapter" data-level="1.5.22" data-path="../../../exercise/022.html"><a href="../../../exercise/022.html"><b>1.5.22.</b>Oracle 练习 022</a></li>
+<li class="chapter" data-level="1.5.23" data-path="../../../exercise/023.html"><a href="../../../exercise/023.html"><b>1.5.23.</b>Oracle 练习 023</a></li>
+<li class="chapter" data-level="1.5.24" data-path="../../../exercise/024.html"><a href="../../../exercise/024.html"><b>1.5.24.</b>Oracle 练习 024</a></li>
+<li class="chapter" data-level="1.5.25" data-path="../../../exercise/025.html"><a href="../../../exercise/025.html"><b>1.5.25.</b>Oracle 练习 025</a></li>
+<li class="chapter" data-level="1.5.26" data-path="../../../exercise/026.html"><a href="../../../exercise/026.html"><b>1.5.26.</b>Oracle 练习 026</a></li>
+<li class="chapter" data-level="1.5.27" data-path="../../../exercise/027.html"><a href="../../../exercise/027.html"><b>1.5.27.</b>Oracle 练习 027</a></li>
+<li class="chapter" data-level="1.5.28" data-path="../../../exercise/028.html"><a href="../../../exercise/028.html"><b>1.5.28.</b>Oracle 练习 028</a></li>
+<li class="chapter" data-level="1.5.29" data-path="../../../exercise/029.html"><a href="../../../exercise/029.html"><b>1.5.29.</b>Oracle 练习 029</a></li>
+<li class="chapter" data-level="1.5.30" data-path="../../../exercise/030.html"><a href="../../../exercise/030.html"><b>1.5.30.</b>Oracle 练习 030</a></li>
+<li class="chapter" data-level="1.5.31" data-path="../../../exercise/031.html"><a href="../../../exercise/031.html"><b>1.5.31.</b>Oracle 练习 031</a></li>
+<li class="chapter" data-level="1.5.32" data-path="../../../exercise/032.html"><a href="../../../exercise/032.html"><b>1.5.32.</b>Oracle 练习 032</a></li>
+<li class="chapter" data-level="1.5.33" data-path="../../../exercise/033.html"><a href="../../../exercise/033.html"><b>1.5.33.</b>Oracle 练习 033</a></li>
+<li class="chapter" data-level="1.5.34" data-path="../../../exercise/034.html"><a href="../../../exercise/034.html"><b>1.5.34.</b>Oracle 练习 034</a></li>
+<li class="chapter" data-level="1.5.35" data-path="../../../exercise/035.html"><a href="../../../exercise/035.html"><b>1.5.35.</b>Oracle 练习 035</a></li>
+<li class="chapter" data-level="1.5.36" data-path="../../../exercise/036.html"><a href="../../../exercise/036.html"><b>1.5.36.</b>Oracle 练习 036</a></li>
+<li class="chapter" data-level="1.5.37" data-path="../../../exercise/037.html"><a href="../../../exercise/037.html"><b>1.5.37.</b>Oracle 练习 037</a></li>
+<li class="chapter" data-level="1.5.38" data-path="../../../exercise/038.html"><a href="../../../exercise/038.html"><b>1.5.38.</b>Oracle 练习 038</a></li>
+<li class="chapter" data-level="1.5.39" data-path="../../../exercise/039.html"><a href="../../../exercise/039.html"><b>1.5.39.</b>Oracle 练习 039</a></li>
+<li class="chapter" data-level="1.5.40" data-path="../../../exercise/040.html"><a href="../../../exercise/040.html"><b>1.5.40.</b>Oracle 练习 040</a></li>
+<li class="chapter" data-level="1.5.41" data-path="../../../exercise/041.html"><a href="../../../exercise/041.html"><b>1.5.41.</b>Oracle 练习 041</a></li>
+<li class="chapter" data-level="1.5.42" data-path="../../../exercise/042.html"><a href="../../../exercise/042.html"><b>1.5.42.</b>Oracle 练习 042</a></li>
+<li class="chapter" data-level="1.5.43" data-path="../../../exercise/043.html"><a href="../../../exercise/043.html"><b>1.5.43.</b>Oracle 练习 043</a></li>
+<li class="chapter" data-level="1.5.44" data-path="../../../exercise/044.html"><a href="../../../exercise/044.html"><b>1.5.44.</b>Oracle 练习 044</a></li>
+<li class="chapter" data-level="1.5.45" data-path="../../../exercise/045.html"><a href="../../../exercise/045.html"><b>1.5.45.</b>Oracle 练习 045</a></li>
+<li class="chapter" data-level="1.5.46" data-path="../../../exercise/046.html"><a href="../../../exercise/046.html"><b>1.5.46.</b>Oracle 练习 046</a></li>
+<li class="chapter" data-level="1.5.47" data-path="../../../exercise/047.html"><a href="../../../exercise/047.html"><b>1.5.47.</b>Oracle 练习 047</a></li>
+<li class="chapter" data-level="1.5.48" data-path="../../../exercise/048.html"><a href="../../../exercise/048.html"><b>1.5.48.</b>Oracle 练习 048</a></li>
+<li class="chapter" data-level="1.5.49" data-path="../../../exercise/049.html"><a href="../../../exercise/049.html"><b>1.5.49.</b>Oracle 练习 049</a></li>
+<li class="chapter" data-level="1.5.50" data-path="../../../exercise/050.html"><a href="../../../exercise/050.html"><b>1.5.50.</b>Oracle 练习 050</a></li>
+<li class="chapter" data-level="1.5.51" data-path="../../../exercise/051.html"><a href="../../../exercise/051.html"><b>1.5.51.</b>Oracle 练习 051</a></li>
+<li class="chapter" data-level="1.5.52" data-path="../../../exercise/052.html"><a href="../../../exercise/052.html"><b>1.5.52.</b>Oracle 练习 052</a></li>
+<li class="chapter" data-level="1.5.53" data-path="../../../exercise/053.html"><a href="../../../exercise/053.html"><b>1.5.53.</b>Oracle 练习 053</a></li>
+<li class="chapter" data-level="1.5.54" data-path="../../../exercise/选择题.html"><a href="../../../exercise/选择题.html"><b>1.5.54.</b>Oracle 选择题</a></li></ul></li></ul>
+            <li class="divider"></li>
+            <li>
+                <a class="lsbook-link" href="https://github.com/liushilive/lsbook" target="blank">
+                    本书使用 LsBook 发布
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<div class="book-body">
+    <div class="body-inner">
+    <div class="book-header" role="navigation">
+        <!-- Title -->
+        <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i>
+            <a href="../../../..">存储结构</a>
+        </h1>
+    </div>
+
+    <div class="page-wrapper" role="main" tabindex="-1">
+        <div class="page-inner">
+            <div class="search-plus" id="book-search-results">
+                <div class="search-noresults">
+                    <section class="normal markdown-section">
+                        <div id='anchor-navigation-ex-navbar'><i class='fa fa-anchor'></i><ul><li><span class='title-icon fa fa-hand-o-right'></span><a aria-label class='on-toolbar-action' href='' onclick="$('.fa.fa-align-justify').parent()[0].click();">目录</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_1'><b></b>存储结构概述</a></li><ul><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_2'><b>1. </b>物理存储结构概述</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_3'><b>2. </b>逻辑存储结构概述</a></li></ul></ul></div><a href='#anchor_1' id='anchorNavigationExGoTop'><i class='fa fa-arrow-up'></i></a>
+                        <h1 id="anchor_1"><a class="anchor-navigation-ex-anchor" href="#anchor_1" name="anchor_1"><i aria-hidden="true" class="fa fa-link"></i></a>存储结构概述</h1>
+<p>Oracle 数据库的存储结构分为<code class="language-vim">物理存储结构</code>和<code class="language-vim">逻辑存储结构</code>两种。</p>
+<ul>
+<li>物理存储结构主要用于描述在 Oracle 数据库外部数据的存储，即在操作系统层面中如何组织和管理数据，与具体的操作系统有关。</li>
+<li>逻辑存储结构主要描述 Oracle 数据库内部数据的组织和管理方式，即在数据库管理系统的层面中如何组织和管理数据，与操作系统没有关系。</li>
+</ul>
+<p>物理存储结构具体表现为一系列的操作系统文件，是可见的；而逻辑存储结构是物理存储结构的抽象体现，是不可见的，可以通过查询数据库数据字典了解逻辑存储结构信息。</p>
+<p>Oracle 数据库的物理存储结构与逻辑存储结构既相互独立又相互联系，如图所示。</p>
+<p><a data-lightbox="1" href="../../../../screenshot/2020-06-21-19-07-20.png"><img src="../../../../screenshot/2020-06-21-19-07-20.png" alt="Oracle数据库物理存储结构与逻辑存储结构的关系" title="Oracle数据库物理存储结构与逻辑存储结构的关系" /></a></p>
+<p>从图中可以看出数据库物理存储结构与逻辑存储结构的基本关系。</p>
+<ul>
+<li>一个数据库在物理上包含多个数据文件，在逻辑上包含多个表空间。</li>
+<li>一个表空间包含一个或多个数据文件，一个数据文件只能从属于某个表空间。</li>
+<li>数据库的逻辑块由一个或多个操作系统块构成。</li>
+<li>一个逻辑区只能从属于某一个数据文件，而一个数据文件可包含一个或多个逻辑区。</li>
+</ul>
+<h2 id="anchor_2"><a class="anchor-navigation-ex-anchor" href="#anchor_2" name="anchor_2"><i aria-hidden="true" class="fa fa-link"></i></a>1. 物理存储结构概述</h2>
+<p>Oracle 数据库的物理存储结构是由一系列操作系统文件组成的，存放于物理磁盘上，是数据库的实际存储单元。这些文件主要包括数据文件、控制文件、重做日志文件、归档文件、初始化参数文件、跟踪文件、告警文件等。每种文件都存储特定内容的信息，其数量也因文件类型不同而不同。</p>
+<ul>
+<li>数据文件：是数据库中所有数据的实际存储空间，所有数据文件的大小和构成了数据库的大小。</li>
+<li>控制文件：记录数据库结构信息的重要的二进制文件，由 Oracle 系统进行读 / 写操作，DBA 不能直接操作控制文件。</li>
+<li>重做日志文件：是以重做记录的形式记录、保存用户对数据库所进行的变更操作，是数据库中最重要的物理文件。</li>
+<li>归档日志文件：是历史联机重做日志文件的集合，是联机重做日志文件被覆盖之前备份的副本。</li>
+<li>初始化参数文件：是数据库启动过程所必需的文件，记录了数据库显式参数的设置。数据库启动的第一步就是根据初始化参数文件中的设置，创建并启动实例，即分配内存空间、启动后台进程。</li>
+<li>跟踪文件：是数据库中重要的诊断文件，是获取数据库信息的重要工具，对管理数据库的实例起着至关重要的作用。跟踪文件中包含数据库系统运行过程中所发生的重大事件的有关信息，可以为数据库运行故障的解决提供重要信息。</li>
+<li>告警文件：是数据库中重要的诊断文件，记录数据库在启动、关闭和运行期间后台进程的活动情况。</li>
+</ul>
+<h2 id="anchor_3"><a class="anchor-navigation-ex-anchor" href="#anchor_3" name="anchor_3"><i aria-hidden="true" class="fa fa-link"></i></a>2. 逻辑存储结构概述</h2>
+<p>Oracle 数据库的逻辑存储结构是从逻辑的角度来分析数据库的构成的，也就是数据库创建后利用逻辑概念来描述 Oracle 数据库内部数据的组织和管理形式。在操作系统中，没有数据库逻辑存储结构信息，而只有物理存储结构信息。数据库的逻辑存储结构概念存储在数据库的数据字典中，可以通过数据字典查询逻辑存储结构信息。</p>
+<p>Oracle 数据库的逻辑存储结构分为 Oracle 数据块（Oracle DATE Block）、区（Extent）、段（Segment）和表空间（Table space）4 种，它们之间的关系如图所示。一个或多个连续的 Oracle 数据块构成区，一个或多个区构成段，一个或多个段构成表空间，所有表空间构成数据库。</p>
+<p><a data-lightbox="2" href="../../../../screenshot/2020-06-21-19-09-00.png"><img src="../../../../screenshot/2020-06-21-19-09-00.png" alt="Oracle数据库逻辑存储结构之间的关系" title="Oracle数据库逻辑存储结构之间的关系" /></a></p>
+<ol>
+<li>
+<p>Oracle 数据块</p>
+<p>Oracle 数据块是数据库中最小的逻辑存储单元，是数据库执行输入、输出操作的最小单位，由一个或者多个操作系统块构成。在 Oracle 11g 数据库中，数据块分为标准块和非标准块两种，其中标准块由数据库初始化参数 DB_BLOCK_SIZE 设置，其大小不可更改。Oracle 数据库的默认数据缓冲区就是由标准数据块构成的。</p>
+</li>
+<li>
+<p>区</p>
+<p>区是由一系列连续的数据块构成的逻辑存储单元，是存储空间分配的最小单位。当创建一个数据库对象时，Oracle 为对象分配若干个区，以构成一个段来为对象提供初始的存储空间。当段中已分配的区都写满后，Oracle 会为段分配一个新区，以容纳更多的数据。构成一个段的所有区只能在一个文件中。在 Oracle 数据库中，引入区的目的是为了提高系统存储空间分配的效率，以区为单位的存储空间分配大大减少了磁盘分配的次数。</p>
+</li>
+<li>
+<p>段</p>
+<p>段是由一个或多个连续或不连续的区组成的逻辑存储单元，用于存储特定的、具有独立存储结构的数据库对象。根据存储对象类型不同，分为表段、索引段、临时段和回退段 4 类。</p>
+<ul>
+<li>表段，又称数据段，用来存储表或簇的数据，可以细分为普通表段（TABLE）、分区表段（TABLE Partition）、簇段（Cluster）、索引化表段（INDEX-organized TABLE）。</li>
+<li>索引段用来存放索引数据，包括 ROWID 和索引键值。</li>
+<li>临时段是进行查询、排序等操作时，如果内存空间不足，用于保存 SQL 语句在解释和执行过程中产生的临时数据。会话结束时，为该操作分配的临时段将被释放。</li>
+<li>回退段用于保存数据库的回退信息，包含当前未提交事务所修改的数据的原始版本。利用回退段中保存的回退信息，可以实现事务回滚、数据库恢复、数据的读一致性和闪回查询。</li>
+</ul>
+</li>
+<li>
+<p>表空间</p>
+<p>表空间是 Oracle 数据库最大的逻辑存储单元，数据库的大小从逻辑上看就是由表空间决定的，所有表空间大小的和就是数据库的大小。在 Oracle 数据库中，存储结构管理主要就是通过对表空间的管理来实现的。</p>
+<p>表空间与数据库文件直接关联，一个表空间包含一个或多个数据文件，一个数据文件只能从属于某一个表空间，数据库对象就是存储在表空间对应的一个或多个数据文件中。</p>
+<p>表空间根据存储数据的类型不同，分为系统表空间和非系统表空间两类。系统表空间主要存放数据库的系统信息，如数据字典信息、数据库对象定义信息、数据库组件信息等。非系统表空间又分为撤销表空间、临时表空间和用户表空间等。其中，撤销表空间用于自动管理数据库的回退信息，临时表空间用于管理数据库的临时信息，用户表空间用于存储用户的业务数据。Oracle 11g 数据库在创建时会自动创建 6 个表空间，见表 3-1。</p>
+</li>
+</ol>
+<p>Oracle 11g 数据库自动创建的表空间</p>
+<table>
+<thead>
+<tr>
+<th align="left">名称</th>
+<th align="left">类型</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">SYSTEM</td>
+<td align="left">系统表空间</td>
+<td align="left">存放数据字典、数据库对象定义、PL/SQL 程序源代码等系统信息</td>
+</tr>
+<tr>
+<td align="left">SYSAUX</td>
+<td align="left">系统表空间</td>
+<td align="left">辅助系统表空间，存储数据库组件等信息</td>
+</tr>
+<tr>
+<td align="left">TEMP</td>
+<td align="left">临时表空间</td>
+<td align="left">存放临时数据，用于排序等操作</td>
+</tr>
+<tr>
+<td align="left">UNDOTBS1</td>
+<td align="left">撤销表空间</td>
+<td align="left">存储、管理回退信息</td>
+</tr>
+<tr>
+<td align="left">USERS</td>
+<td align="left">用户表空间</td>
+<td align="left">存放用户业务数据信息</td>
+</tr>
+<tr>
+<td align="left">EXAMPLE</td>
+<td align="left">示例表空间</td>
+<td align="left">示例表空间，存放示例的数据库方案对象信息</td>
+</tr>
+</tbody>
+</table>
+
+                        <footer class="page-footer"><span class="copyright">© 2020 刘士. 
+All rights reserved.</span><span class="footer-modification">
+<span id="busuanzi_container_site_uv" style="display:none">本站访客数 <span id="busuanzi_value_site_uv">
+</span> 人次</span></span></footer>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+(function () {
+  var bp = document.createElement('script');
+  var curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else {
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+                    </section>
+                </div>
+                <div class="search-results">
+                    <div class="has-results">
+                        <h1 class="search-results-title"><span class='search-results-count'></span> 结果匹配 "<span class='search-query'></span>"</h1>
+                        <ul class="search-results-list"></ul>
+                    </div>
+                    <div class="no-results">
+                        <h1 class="search-results-title">没有匹配的结果 "<span class='search-query'></span>"</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<a aria-label="Previous page: 系统结构概述" class="navigation navigation-prev" href="系统结构概述.html">
+    <i class="fa fa-angle-left"></i>
+</a>
+
+
+<a aria-label="Next page: 内存结构" class="navigation navigation-next" href="内存结构.html">
+    <i class="fa fa-angle-right"></i>
+</a>
+
+
+</div>
+<script>
+    var lsbook = lsbook || [];
+    lsbook.push(function () {
+        lsbook.page.hasChanged({
+            "config": {
+                "github_url":"https://liushilive.github.io/",
+                "language": "zh-cn",
+                "previous_page_link": "系统结构概述.html",
+                "next_page_link": "内存结构.html"
+            },
+            "basePath": "../../../..",
+            "js": {'prism': ['../../../../../asserts/lsbook/prismjs/clipboard.min.js', '../../../../../asserts/lsbook/prismjs/prism.js']}
+        });
+    });
+</script>
+</div>
+
+<script src="../../../../../asserts/lsbook/jquery-3.3.1.min.js"></script>
+<script charset="UTF-8" src="../../../../../asserts/lsbook/jquery_mar/jquery.mark.js"></script>
+<script src="../../../../../asserts/lsbook/lightbox/js/lightbox.min.js"></script>
+<script src="../../../../../asserts/lsbook/lsbook.min.js"></script>
+
+</body>
+</html>

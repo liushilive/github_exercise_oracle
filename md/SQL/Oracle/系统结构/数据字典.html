@@ -1,0 +1,316 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+<meta charset="UTF-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Oracle 相关 - 数据字典</title>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="" name="description">
+<meta content="刘士" name="author">
+
+<link href="../../../../../asserts/lsbook/less/website.css" rel="stylesheet">
+<link href="../../../../../asserts/lsbook/katex/katex.min.css" rel="stylesheet">
+<link href="../../../../../asserts/lsbook/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+<meta content="true" name="HandheldFriendly"/>
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<link href="../../../../../asserts/lsbook/images/apple-touch-icon-precomposed-152.png"
+      rel="apple-touch-icon-precomposed" sizes="152x152">
+<link href="../../../../../asserts/lsbook/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<!--分页-->
+<link href="../../../数据库中的相关术语.html" rel="next"/>
+</head>
+<body>
+<div class="book"><div class="book-summary">
+    <div id="book-search-input" role="search">
+        <input placeholder="输入并搜索" type="text"/>
+    </div>
+    <nav role="navigation">
+        <ul class="summary">
+            <li class="header">Summary</li>
+<ul class="articles"><li class="chapter" data-level="1.1" data-path="../../../../index.html"><a href="../../../../index.html"><b>1.1.</b>介绍</a></li>
+<li class="chapter" data-level="1.2" data-path="../../../index.html"><a href="../../../index.html"><b>1.2.</b>Oracle 部署</a></li>
+<li class="chapter" data-level="1.3" data-path="../../../总结/语法总结.html"><a href="../../../总结/语法总结.html"><b>1.3.</b>Oracle 语法总结</a></li>
+<li class="chapter" data-level="1.4" data-path="../../../概念.html"><a href="../../../概念.html"><b>1.4.</b>Oracle 概念</a>
+<ul class="articles"><li class="chapter" data-level="1.4.1" data-path="系统结构概述.html"><a href="系统结构概述.html"><b>1.4.1.</b>系统结构概述</a>
+<ul class="articles"><li class="chapter" data-level="1.4.1.1" data-path="存储结构.html"><a href="存储结构.html"><b>1.4.1.1.</b>存储结构</a></li>
+<li class="chapter" data-level="1.4.1.2" data-path="内存结构.html"><a href="内存结构.html"><b>1.4.1.2.</b>内存结构</a></li>
+<li class="chapter" data-level="1.4.1.3" data-path="后台进程.html"><a href="后台进程.html"><b>1.4.1.3.</b>后台进程</a></li>
+<li class="chapter active" data-level="1.4.1.4" data-path="数据字典.html"><a href="数据字典.html"><b>1.4.1.4.</b>数据字典</a></li></ul></li>
+<li class="chapter" data-level="1.4.2" data-path="../../../数据库中的相关术语.html"><a href="../../../数据库中的相关术语.html"><b>1.4.2.</b>数据库中的相关术语</a></li>
+<li class="chapter" data-level="1.4.3" data-path="../../../范式.html"><a href="../../../范式.html"><b>1.4.3.</b>范式</a></li>
+<li class="chapter" data-level="1.4.4" data-path="../../../E-R图.html"><a href="../../../E-R图.html"><b>1.4.4.</b>E-R图</a></li>
+<li class="chapter" data-level="1.4.5" data-path="../../../Oracle数据类型.html"><a href="../../../Oracle数据类型.html"><b>1.4.5.</b>Oracle 数据类型</a></li></ul></li>
+<li class="chapter" data-level="1.5" data-path="../../../exercise/index.html"><a href="../../../exercise/index.html"><b>1.5.</b>Oracle 练习汇总</a>
+<ul class="articles"><li class="chapter" data-level="1.5.1" data-path="../../../exercise/001.html"><a href="../../../exercise/001.html"><b>1.5.1.</b>Oracle 练习 001</a></li>
+<li class="chapter" data-level="1.5.2" data-path="../../../exercise/002.html"><a href="../../../exercise/002.html"><b>1.5.2.</b>Oracle 练习 002</a></li>
+<li class="chapter" data-level="1.5.3" data-path="../../../exercise/003.html"><a href="../../../exercise/003.html"><b>1.5.3.</b>Oracle 练习 003</a></li>
+<li class="chapter" data-level="1.5.4" data-path="../../../exercise/004.html"><a href="../../../exercise/004.html"><b>1.5.4.</b>Oracle 练习 004</a></li>
+<li class="chapter" data-level="1.5.5" data-path="../../../exercise/005.html"><a href="../../../exercise/005.html"><b>1.5.5.</b>Oracle 练习 005</a></li>
+<li class="chapter" data-level="1.5.6" data-path="../../../exercise/006.html"><a href="../../../exercise/006.html"><b>1.5.6.</b>Oracle 练习 006</a></li>
+<li class="chapter" data-level="1.5.7" data-path="../../../exercise/007.html"><a href="../../../exercise/007.html"><b>1.5.7.</b>Oracle 练习 007</a></li>
+<li class="chapter" data-level="1.5.8" data-path="../../../exercise/008.html"><a href="../../../exercise/008.html"><b>1.5.8.</b>Oracle 练习 008</a></li>
+<li class="chapter" data-level="1.5.9" data-path="../../../exercise/009.html"><a href="../../../exercise/009.html"><b>1.5.9.</b>Oracle 练习 009</a></li>
+<li class="chapter" data-level="1.5.10" data-path="../../../exercise/010.html"><a href="../../../exercise/010.html"><b>1.5.10.</b>Oracle 练习 010</a></li>
+<li class="chapter" data-level="1.5.11" data-path="../../../exercise/011.html"><a href="../../../exercise/011.html"><b>1.5.11.</b>Oracle 练习 011</a></li>
+<li class="chapter" data-level="1.5.12" data-path="../../../exercise/012.html"><a href="../../../exercise/012.html"><b>1.5.12.</b>Oracle 练习 012</a></li>
+<li class="chapter" data-level="1.5.13" data-path="../../../exercise/013.html"><a href="../../../exercise/013.html"><b>1.5.13.</b>Oracle 练习 013</a></li>
+<li class="chapter" data-level="1.5.14" data-path="../../../exercise/014.html"><a href="../../../exercise/014.html"><b>1.5.14.</b>Oracle 练习 014</a></li>
+<li class="chapter" data-level="1.5.15" data-path="../../../exercise/015.html"><a href="../../../exercise/015.html"><b>1.5.15.</b>Oracle 练习 015</a></li>
+<li class="chapter" data-level="1.5.16" data-path="../../../exercise/016.html"><a href="../../../exercise/016.html"><b>1.5.16.</b>Oracle 练习 016</a></li>
+<li class="chapter" data-level="1.5.17" data-path="../../../exercise/017.html"><a href="../../../exercise/017.html"><b>1.5.17.</b>Oracle 练习 017</a></li>
+<li class="chapter" data-level="1.5.18" data-path="../../../exercise/018.html"><a href="../../../exercise/018.html"><b>1.5.18.</b>Oracle 练习 018</a></li>
+<li class="chapter" data-level="1.5.19" data-path="../../../exercise/019.html"><a href="../../../exercise/019.html"><b>1.5.19.</b>Oracle 练习 019</a></li>
+<li class="chapter" data-level="1.5.20" data-path="../../../exercise/020.html"><a href="../../../exercise/020.html"><b>1.5.20.</b>Oracle 练习 020</a></li>
+<li class="chapter" data-level="1.5.21" data-path="../../../exercise/021.html"><a href="../../../exercise/021.html"><b>1.5.21.</b>Oracle 练习 021</a></li>
+<li class="chapter" data-level="1.5.22" data-path="../../../exercise/022.html"><a href="../../../exercise/022.html"><b>1.5.22.</b>Oracle 练习 022</a></li>
+<li class="chapter" data-level="1.5.23" data-path="../../../exercise/023.html"><a href="../../../exercise/023.html"><b>1.5.23.</b>Oracle 练习 023</a></li>
+<li class="chapter" data-level="1.5.24" data-path="../../../exercise/024.html"><a href="../../../exercise/024.html"><b>1.5.24.</b>Oracle 练习 024</a></li>
+<li class="chapter" data-level="1.5.25" data-path="../../../exercise/025.html"><a href="../../../exercise/025.html"><b>1.5.25.</b>Oracle 练习 025</a></li>
+<li class="chapter" data-level="1.5.26" data-path="../../../exercise/026.html"><a href="../../../exercise/026.html"><b>1.5.26.</b>Oracle 练习 026</a></li>
+<li class="chapter" data-level="1.5.27" data-path="../../../exercise/027.html"><a href="../../../exercise/027.html"><b>1.5.27.</b>Oracle 练习 027</a></li>
+<li class="chapter" data-level="1.5.28" data-path="../../../exercise/028.html"><a href="../../../exercise/028.html"><b>1.5.28.</b>Oracle 练习 028</a></li>
+<li class="chapter" data-level="1.5.29" data-path="../../../exercise/029.html"><a href="../../../exercise/029.html"><b>1.5.29.</b>Oracle 练习 029</a></li>
+<li class="chapter" data-level="1.5.30" data-path="../../../exercise/030.html"><a href="../../../exercise/030.html"><b>1.5.30.</b>Oracle 练习 030</a></li>
+<li class="chapter" data-level="1.5.31" data-path="../../../exercise/031.html"><a href="../../../exercise/031.html"><b>1.5.31.</b>Oracle 练习 031</a></li>
+<li class="chapter" data-level="1.5.32" data-path="../../../exercise/032.html"><a href="../../../exercise/032.html"><b>1.5.32.</b>Oracle 练习 032</a></li>
+<li class="chapter" data-level="1.5.33" data-path="../../../exercise/033.html"><a href="../../../exercise/033.html"><b>1.5.33.</b>Oracle 练习 033</a></li>
+<li class="chapter" data-level="1.5.34" data-path="../../../exercise/034.html"><a href="../../../exercise/034.html"><b>1.5.34.</b>Oracle 练习 034</a></li>
+<li class="chapter" data-level="1.5.35" data-path="../../../exercise/035.html"><a href="../../../exercise/035.html"><b>1.5.35.</b>Oracle 练习 035</a></li>
+<li class="chapter" data-level="1.5.36" data-path="../../../exercise/036.html"><a href="../../../exercise/036.html"><b>1.5.36.</b>Oracle 练习 036</a></li>
+<li class="chapter" data-level="1.5.37" data-path="../../../exercise/037.html"><a href="../../../exercise/037.html"><b>1.5.37.</b>Oracle 练习 037</a></li>
+<li class="chapter" data-level="1.5.38" data-path="../../../exercise/038.html"><a href="../../../exercise/038.html"><b>1.5.38.</b>Oracle 练习 038</a></li>
+<li class="chapter" data-level="1.5.39" data-path="../../../exercise/039.html"><a href="../../../exercise/039.html"><b>1.5.39.</b>Oracle 练习 039</a></li>
+<li class="chapter" data-level="1.5.40" data-path="../../../exercise/040.html"><a href="../../../exercise/040.html"><b>1.5.40.</b>Oracle 练习 040</a></li>
+<li class="chapter" data-level="1.5.41" data-path="../../../exercise/041.html"><a href="../../../exercise/041.html"><b>1.5.41.</b>Oracle 练习 041</a></li>
+<li class="chapter" data-level="1.5.42" data-path="../../../exercise/042.html"><a href="../../../exercise/042.html"><b>1.5.42.</b>Oracle 练习 042</a></li>
+<li class="chapter" data-level="1.5.43" data-path="../../../exercise/043.html"><a href="../../../exercise/043.html"><b>1.5.43.</b>Oracle 练习 043</a></li>
+<li class="chapter" data-level="1.5.44" data-path="../../../exercise/044.html"><a href="../../../exercise/044.html"><b>1.5.44.</b>Oracle 练习 044</a></li>
+<li class="chapter" data-level="1.5.45" data-path="../../../exercise/045.html"><a href="../../../exercise/045.html"><b>1.5.45.</b>Oracle 练习 045</a></li>
+<li class="chapter" data-level="1.5.46" data-path="../../../exercise/046.html"><a href="../../../exercise/046.html"><b>1.5.46.</b>Oracle 练习 046</a></li>
+<li class="chapter" data-level="1.5.47" data-path="../../../exercise/047.html"><a href="../../../exercise/047.html"><b>1.5.47.</b>Oracle 练习 047</a></li>
+<li class="chapter" data-level="1.5.48" data-path="../../../exercise/048.html"><a href="../../../exercise/048.html"><b>1.5.48.</b>Oracle 练习 048</a></li>
+<li class="chapter" data-level="1.5.49" data-path="../../../exercise/049.html"><a href="../../../exercise/049.html"><b>1.5.49.</b>Oracle 练习 049</a></li>
+<li class="chapter" data-level="1.5.50" data-path="../../../exercise/050.html"><a href="../../../exercise/050.html"><b>1.5.50.</b>Oracle 练习 050</a></li>
+<li class="chapter" data-level="1.5.51" data-path="../../../exercise/051.html"><a href="../../../exercise/051.html"><b>1.5.51.</b>Oracle 练习 051</a></li>
+<li class="chapter" data-level="1.5.52" data-path="../../../exercise/052.html"><a href="../../../exercise/052.html"><b>1.5.52.</b>Oracle 练习 052</a></li>
+<li class="chapter" data-level="1.5.53" data-path="../../../exercise/053.html"><a href="../../../exercise/053.html"><b>1.5.53.</b>Oracle 练习 053</a></li>
+<li class="chapter" data-level="1.5.54" data-path="../../../exercise/选择题.html"><a href="../../../exercise/选择题.html"><b>1.5.54.</b>Oracle 选择题</a></li></ul></li></ul>
+            <li class="divider"></li>
+            <li>
+                <a class="lsbook-link" href="https://github.com/liushilive/lsbook" target="blank">
+                    本书使用 LsBook 发布
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<div class="book-body">
+    <div class="body-inner">
+    <div class="book-header" role="navigation">
+        <!-- Title -->
+        <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i>
+            <a href="../../../..">数据字典</a>
+        </h1>
+    </div>
+
+    <div class="page-wrapper" role="main" tabindex="-1">
+        <div class="page-inner">
+            <div class="search-plus" id="book-search-results">
+                <div class="search-noresults">
+                    <section class="normal markdown-section">
+                        <div id='anchor-navigation-ex-navbar'><i class='fa fa-anchor'></i><ul><li><span class='title-icon fa fa-hand-o-right'></span><a aria-label class='on-toolbar-action' href='' onclick="$('.fa.fa-align-justify').parent()[0].click();">目录</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_1'><b></b>数据字典</a></li><ul><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_2'><b>1. </b>数据字典概述</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_3'><b>2. </b>数据字典的结构</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_4'><b>3. </b>数据字典的使用</a></li></ul></ul></div><a href='#anchor_1' id='anchorNavigationExGoTop'><i class='fa fa-arrow-up'></i></a>
+                        <h1 id="anchor_1"><a class="anchor-navigation-ex-anchor" href="#anchor_1" name="anchor_1"><i aria-hidden="true" class="fa fa-link"></i></a>数据字典</h1>
+<h2 id="anchor_2"><a class="anchor-navigation-ex-anchor" href="#anchor_2" name="anchor_2"><i aria-hidden="true" class="fa fa-link"></i></a>1. 数据字典概述</h2>
+<ol>
+<li>
+<p>数据字典的内容与作用</p>
+<p>数据字典是数据库重要组成部分，是在数据库创建过程中创建的，保存了数据库系统信息以及数据库中所有的对象信息，是数据库系统运行的基础。</p>
+<p>Oracle 数据库的数据字典由一系列表和视图构成，这些表和视图对于所有的用户，包括 DBA，都是只读的。只有 Oracle 系统才可以对数据字典进行管理与维护。在 Oracle 数据库中，所有数据字典表和视图都属于 SYS 模式，存储于 SYSTEM 表空间中。</p>
+<p>Oracle 数据字典保存数据库本身的系统信息及所有数据库对象信息，包括：</p>
+<ul>
+<li>各种数据库对象的定义信息，包括表、视图、索引、同义词、序列、存储过程、函数、包、触发器及其他各种对象；</li>
+<li>数据库存储空间分配信息，如为某个数据库对象分配了多少空间，已经使用了多少空间等；</li>
+<li>数据库的安全信息，包括用户、权限、角色、完整性等；</li>
+<li>数据库运行时的性能和统计信息；</li>
+<li>其他数据库本身的基本信息。</li>
+</ul>
+<p>数据字典除了用于 Oracle 进行系统管理外，对于 DBA 以及普通数据库用户都有着非常重要的作用。数据字典的主要用途包括：</p>
+<ul>
+<li>Oracle 通过访问数据字典获取用户、模式对象、数据库对象定义与存储等信息，以判断用户权限合法性、模式对象存在性及存储空间的可用性等；</li>
+<li>使用 DDL 语句修改数据库对象后，Oracle 将在数据字典中记录所做的修改；</li>
+<li>任何数据库用户都可以从数据字典只读视图中获取各种数据库对象信息；</li>
+<li>DBA 可以从数据字典动态性能视图中获取数据库的运行状态，作为进行性能调整的依据。</li>
+</ul>
+</li>
+<li>
+<p>数据字典的管理与维护</p>
+<p>数据字典主要是由 Oracle 数据库服务器使用的，服务器通过访问数据字典基表获取用户、数据库对象、存储结构等信息，并利用这些信息进行数据库的管理与维护。只有 Oracle 系统可以对数据字典进行管理与维护。在 Oracle 数据库运行过程中，如果数据库结构发生变化，Oracle 数据库服务器会及时地修改相应的数据字典以记录这些变化。</p>
+<p>当数据库中执行下列各种 SQL 语句操作时，Oracle 数据库服务器会修改数据字典信息。</p>
+<ul>
+<li>DDL 语句。如增加或减少表空间、增加或减少用户。</li>
+<li>DCL 语句。如授予用户权限、回收用户权限。</li>
+<li>DML 语句。某些 DML 语句，如引起表的存储空间扩展的插入、修改语句，Oracle 会将磁盘上存储空间的变化信息记录到数据字典中。</li>
+</ul>
+<p>包括数据库管理员（DBA）在内的任何用户都不能直接使用 DML 语句修改数据字典中的内容。所有用户和管理员（DBA）只能通过访问数据字典视图来得到数据库的相关信息。一些数据字典视图可以被所有用户访问，而另一些只能被数据库管理员访问。</p>
+</li>
+</ol>
+<h2 id="anchor_3"><a class="anchor-navigation-ex-anchor" href="#anchor_3" name="anchor_3"><i aria-hidden="true" class="fa fa-link"></i></a>2. 数据字典的结构</h2>
+<p>数据字典主要包括数据字典表和数据字典视图两种。根据数据字典对象的虚实性不同，分为静态的数据字典和动态数据字典两种，其中，静态数据字典在用户访问数据字典时不会发生改变，但动态数据字典是依赖数据库运行的性能的，反映数据库运行的一些内在信息，所以在访问这类数据字典时往往不是一成不变的。</p>
+<ol>
+<li>
+<p>静态数据字典表</p>
+<p>静态数据字典表是在数据库创建过程中自动运行 sql.bsq（%Oracle_HOME%\RDBMS\ADMIN\sql.bsq）脚本创建的，由 SYS 用户所拥有，表中信息都是经过加密处理的。数据字典中的所有信息实际上都是存储在静态数据字典表中的。静态数据字典表的命名中通常包含 \( 符号。只有 Oracle 才能读 / 写这些静态数据字典表。例如，静态数据字典表 tab\)。</p>
+</li>
+<li>
+<p>静态数据字典视图</p>
+<p>由于静态数据字典表对于用户而言是不可访问的，因此，通过对静态数据字典表进行解密和处理，创建了一系列用户可读的静态数据字典视图。在数据库创建过程中，通过自动运行 catalog.sql（%Oracle_HOME%\RDBMS\ADMIN\catalog.sql）脚本创建静态数据字典视图及其公共同义词，并进行授权。例如，静态数据字典视图 USER_TABLES。</p>
+</li>
+<li>
+<p>动态数据字典表</p>
+<p>动态数据字典表是在数据库实例运行过程中由 Oracle 动态创建和维护的一系列“虚表”，在实例关闭时被释放。动态数据字典表中记录与数据库运行的性能相关的统计信息，因此又称为动态性能表。通常，动态性能表的命名以 X\( 开头。动态性能表由 SYS 用户所拥有。例如，动态性能表 X\)KSPPI。</p>
+</li>
+<li>
+<p>动态数据字典视图</p>
+<p>在动态性能表上创建的视图称为动态数据字典视图，又称动态性能视图。所有动态性能视图命名都以 V\( 开头，Oracle 自动为这些视图创建了以 V\) 开头命名的公共同义词，因此动态性能视图又称为“V\( 视图”。例如，动态性能视图 V\)DATAFILE。</p>
+<p>通过查询表 dictionary，可以获得全部可以访问的数据字典表或视图的名称和解释；通过查询表 dict_columns，可以获得全部可以访问的数据字典表或视图中字段名称和解释。例如：</p>
+<pre class="line-numbers"><code class="lang-sql">SQL&gt; SELECT * FROM dictionary;
+SQL&gt; SELECT * FROM dict_columns WHERE TABLE_NAME=&#x27;USER_TABLES&#x27;;
+</code></pre>
+</li>
+</ol>
+<h2 id="anchor_4"><a class="anchor-navigation-ex-anchor" href="#anchor_4" name="anchor_4"><i aria-hidden="true" class="fa fa-link"></i></a>3. 数据字典的使用</h2>
+<ol>
+<li>
+<p>静态数据字典表的使用</p>
+<p>静态数据字典表只能由 Oracle 进行维护，用户不能对这些表进行直接操作。当用户执行 DDL 操作时，Oracle 系统自动对相应的静态数据字典表进行操作。例如，当执行 CREATE TABLE、ALTER TABLE 和 DROP TABLE 操作时，系统会自动对 TAB$ 表进行 INSERT、UPDATE 和 DELETE 操作。</p>
+</li>
+<li>
+<p>静态数据字典视图的使用</p>
+<p>通常，用户通过对静态数据字典视图的查询可以获取所需要的所有数据库信息。</p>
+<p>Oracle 静态数据字典视图可以分为 3 类，各类视图具有独特的前缀，其表示形式和含义如表 3-2 所描述。</p>
+<p>静态数据字典视图分类及其含义</p>
+<table>
+<thead>
+<tr>
+<th align="left">名称前缀</th>
+<th align="left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">USER_</td>
+<td align="left">包含当前数据库用户所拥有的所有的模式对象的信息</td>
+</tr>
+<tr>
+<td align="left">ALL_</td>
+<td align="left">包含当前数据库用户可以访问的所有的模式对象的信息</td>
+</tr>
+<tr>
+<td align="left">DBA_</td>
+<td align="left">包含所有数据库对象信息，只有具有 DBA 角色的用户才能够访问这些视图</td>
+</tr>
+</tbody>
+</table>
+<p>例如，查询当前用户所拥有的表的信息、可以访问的表的信息及当前数据库所有表的信息，可以分别执行下列语句：</p>
+<pre class="line-numbers"><code class="lang-sql">SQL&gt; SELECT * FROM USER_TABLES;
+SQL&gt; SELECT * FROM ALL_TABLES;
+SQL&gt; SELECT * FROM SYS.DBA_TABLES;
+</code></pre>
+<p>注意：以 USER_、ALL_开头的数据字典视图都具有与其同名公共同义词，用户可以直接访问，而以 DBA_开头的数据字典视图归 SYS 用户所有，没有与其对应的同名公共同义词，因此非 SYS 用户访问时，需在 DBA_视图名前加 SYS 前缀。</p>
+</li>
+<li>
+<p>动态性能表的使用</p>
+<p>动态性能表是数据库实例启动后动态创建的表，用于存放数据库运行过程中的性能相关的信息。动态性能表都属于 SYS 用户，Oracle 使用这些表生成动态性能视图。</p>
+<p>可以通过下列语句查询当前数据库中所有的动态性能表和动态性能视图：</p>
+<pre class="line-numbers"><code class="lang-sql">SQL&gt; SELECT NAME FROM V_$FIXED_TABLE;
+</code></pre>
+</li>
+<li>
+<p>动态性能视图的使用</p>
+<p>动态性能视图是 SYS 用户所拥有的，在默认状况下，只有 SYS 用户和拥有 DBA 角色的用户可以访问。与静态数据字典表和视图不同，在数据库启动的不同阶段只能访问不同的动态性能视图。</p>
+<p>当数据库启动到 NOMOUNT 状态时，Oracle 数据库打开初始化参数文件，分配 SGA 并启动后台进程，因此只能访问从 SGA 中获得信息的动态性能视图，如 V\(PARAMETER、V\)SGA、V\(SESSION、V\)PROCESSE、V\(INSTANCE、V\)VERSION、V$OPTION 等。</p>
+<p>当数据库启动到 MOUNT 状态时，Oracle 打开控制文件，因此不仅能访问从 SGA 中获得信息的动态性能视图，还可以访问从控制文件中获得信息的动态性能视图，如 V\(LOG、V\)LOGFILE、V\(DATAFILE、V\)CONTROLFILE、V\(DATABASE、V\)THREAD、V$DATAFILE_HEADER 等。</p>
+<p>当数据库完全启动后，可以访问 V_$fixed_table 表中所有的动态性能视图。</p>
+<p>例如，利用动态性能视图查询当前数据库参数设置信息、数据文件信息。</p>
+<pre class="line-numbers"><code class="lang-sql">SQL&gt; SELECT * FROM V$PARAMETER;
+SQL&gt; SELECT * FROM DATAFILE;
+</code></pre>
+</li>
+</ol>
+
+                        <footer class="page-footer"><span class="copyright">© 2020 刘士. 
+All rights reserved.</span><span class="footer-modification">
+<span id="busuanzi_container_site_uv" style="display:none">本站访客数 <span id="busuanzi_value_site_uv">
+</span> 人次</span></span></footer>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+(function () {
+  var bp = document.createElement('script');
+  var curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else {
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+                    </section>
+                </div>
+                <div class="search-results">
+                    <div class="has-results">
+                        <h1 class="search-results-title"><span class='search-results-count'></span> 结果匹配 "<span class='search-query'></span>"</h1>
+                        <ul class="search-results-list"></ul>
+                    </div>
+                    <div class="no-results">
+                        <h1 class="search-results-title">没有匹配的结果 "<span class='search-query'></span>"</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<a aria-label="Previous page: 后台进程" class="navigation navigation-prev" href="后台进程.html">
+    <i class="fa fa-angle-left"></i>
+</a>
+
+
+<a aria-label="Next page: 数据库中的相关术语" class="navigation navigation-next" href="../../../数据库中的相关术语.html">
+    <i class="fa fa-angle-right"></i>
+</a>
+
+
+</div>
+<script>
+    var lsbook = lsbook || [];
+    lsbook.push(function () {
+        lsbook.page.hasChanged({
+            "config": {
+                "github_url":"https://liushilive.github.io/",
+                "language": "zh-cn",
+                "previous_page_link": "后台进程.html",
+                "next_page_link": "../../../数据库中的相关术语.html"
+            },
+            "basePath": "../../../..",
+            "js": {'katex': ['../../../../../asserts/lsbook/katex/katex.min.js', '../../../../../asserts/lsbook/katex/contrib/auto-render.min.js'], 'prism': ['../../../../../asserts/lsbook/prismjs/clipboard.min.js', '../../../../../asserts/lsbook/prismjs/prism.js']}
+        });
+    });
+</script>
+</div>
+
+<script src="../../../../../asserts/lsbook/jquery-3.3.1.min.js"></script>
+<script charset="UTF-8" src="../../../../../asserts/lsbook/jquery_mar/jquery.mark.js"></script>
+<script src="../../../../../asserts/lsbook/lightbox/js/lightbox.min.js"></script>
+<script src="../../../../../asserts/lsbook/lsbook.min.js"></script>
+
+</body>
+</html>
