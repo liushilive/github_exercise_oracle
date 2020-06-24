@@ -164,19 +164,19 @@
 <ol>
 <li>
 <p>静态数据字典表</p>
-<p>静态数据字典表是在数据库创建过程中自动运行 sql.bsq（%Oracle_HOME%\RDBMS\ADMIN\sql.bsq）脚本创建的，由 SYS 用户所拥有，表中信息都是经过加密处理的。数据字典中的所有信息实际上都是存储在静态数据字典表中的。静态数据字典表的命名中通常包含 \( 符号。只有 Oracle 才能读 / 写这些静态数据字典表。例如，静态数据字典表 tab\)。</p>
+<p>静态数据字典表是在数据库创建过程中自动运行 sql.bsq（<code class="language-vim">%Oracle_HOME%\RDBMS\ADMIN\sql.bsq</code>）脚本创建的，由 SYS 用户所拥有，表中信息都是经过加密处理的。数据字典中的所有信息实际上都是存储在静态数据字典表中的。静态数据字典表的命名中通常包含 <code class="language-vim">$</code> 符号。只有 Oracle 才能读 / 写这些静态数据字典表。例如，静态数据字典表 <code class="language-vim">tab$</code>。</p>
 </li>
 <li>
 <p>静态数据字典视图</p>
-<p>由于静态数据字典表对于用户而言是不可访问的，因此，通过对静态数据字典表进行解密和处理，创建了一系列用户可读的静态数据字典视图。在数据库创建过程中，通过自动运行 catalog.sql（%Oracle_HOME%\RDBMS\ADMIN\catalog.sql）脚本创建静态数据字典视图及其公共同义词，并进行授权。例如，静态数据字典视图 USER_TABLES。</p>
+<p>由于静态数据字典表对于用户而言是不可访问的，因此，通过对静态数据字典表进行解密和处理，创建了一系列用户可读的静态数据字典视图。在数据库创建过程中，通过自动运行 catalog.sql（<code class="language-vim">%Oracle_HOME%\RDBMS\ADMIN\catalog.sql</code>）脚本创建静态数据字典视图及其公共同义词，并进行授权。例如，静态数据字典视图 USER_TABLES。</p>
 </li>
 <li>
 <p>动态数据字典表</p>
-<p>动态数据字典表是在数据库实例运行过程中由 Oracle 动态创建和维护的一系列“虚表”，在实例关闭时被释放。动态数据字典表中记录与数据库运行的性能相关的统计信息，因此又称为动态性能表。通常，动态性能表的命名以 X\( 开头。动态性能表由 SYS 用户所拥有。例如，动态性能表 X\)KSPPI。</p>
+<p>动态数据字典表是在数据库实例运行过程中由 Oracle 动态创建和维护的一系列“虚表”，在实例关闭时被释放。动态数据字典表中记录与数据库运行的性能相关的统计信息，因此又称为动态性能表。通常，动态性能表的命名以 <code class="language-vim">X$</code> 开头。动态性能表由 SYS 用户所拥有。例如，动态性能表 <code class="language-vim">X$KSPPI</code>。</p>
 </li>
 <li>
 <p>动态数据字典视图</p>
-<p>在动态性能表上创建的视图称为动态数据字典视图，又称动态性能视图。所有动态性能视图命名都以 V\( 开头，Oracle 自动为这些视图创建了以 V\) 开头命名的公共同义词，因此动态性能视图又称为“V\( 视图”。例如，动态性能视图 V\)DATAFILE。</p>
+<p>在动态性能表上创建的视图称为动态数据字典视图，又称动态性能视图。所有动态性能视图命名都以 V\( 开头，Oracle 自动为这些视图创建了以 V\) 开头命名的公共同义词，因此动态性能视图又称为<code class="language-vim">V$ 视图</code>。例如，动态性能视图 <code class="language-vim">V$DATAFILE</code>。</p>
 <p>通过查询表 dictionary，可以获得全部可以访问的数据字典表或视图的名称和解释；通过查询表 dict_columns，可以获得全部可以访问的数据字典表或视图中字段名称和解释。例如：</p>
 <pre class="line-numbers"><code class="lang-sql">SQL&gt; SELECT * FROM dictionary;
 SQL&gt; SELECT * FROM dict_columns WHERE TABLE_NAME=&#x27;USER_TABLES&#x27;;
@@ -192,7 +192,7 @@ SQL&gt; SELECT * FROM dict_columns WHERE TABLE_NAME=&#x27;USER_TABLES&#x27;;
 <li>
 <p>静态数据字典视图的使用</p>
 <p>通常，用户通过对静态数据字典视图的查询可以获取所需要的所有数据库信息。</p>
-<p>Oracle 静态数据字典视图可以分为 3 类，各类视图具有独特的前缀，其表示形式和含义如表 3-2 所描述。</p>
+<p>Oracle 静态数据字典视图可以分为 3 类，各类视图具有独特的前缀，其表示形式和含义如表所描述。</p>
 <p>静态数据字典视图分类及其含义</p>
 <table>
 <thead>
@@ -233,9 +233,9 @@ SQL&gt; SELECT * FROM SYS.DBA_TABLES;
 <li>
 <p>动态性能视图的使用</p>
 <p>动态性能视图是 SYS 用户所拥有的，在默认状况下，只有 SYS 用户和拥有 DBA 角色的用户可以访问。与静态数据字典表和视图不同，在数据库启动的不同阶段只能访问不同的动态性能视图。</p>
-<p>当数据库启动到 NOMOUNT 状态时，Oracle 数据库打开初始化参数文件，分配 SGA 并启动后台进程，因此只能访问从 SGA 中获得信息的动态性能视图，如 V\(PARAMETER、V\)SGA、V\(SESSION、V\)PROCESSE、V\(INSTANCE、V\)VERSION、V$OPTION 等。</p>
-<p>当数据库启动到 MOUNT 状态时，Oracle 打开控制文件，因此不仅能访问从 SGA 中获得信息的动态性能视图，还可以访问从控制文件中获得信息的动态性能视图，如 V\(LOG、V\)LOGFILE、V\(DATAFILE、V\)CONTROLFILE、V\(DATABASE、V\)THREAD、V$DATAFILE_HEADER 等。</p>
-<p>当数据库完全启动后，可以访问 V_$fixed_table 表中所有的动态性能视图。</p>
+<p>当数据库启动到 NOMOUNT 状态时，Oracle 数据库打开初始化参数文件，分配 SGA 并启动后台进程，因此只能访问从 SGA 中获得信息的动态性能视图，如 <code class="language-vim">V$PARAMETER</code>、<code class="language-vim">V$SGA</code>、<code class="language-vim">V$SESSION</code>、<code class="language-vim">V$PROCESSE</code>、<code class="language-vim">V$INSTANCE</code>、<code class="language-vim">V$VERSION</code>、<code class="language-vim">V$OPTION</code> 等。</p>
+<p>当数据库启动到 MOUNT 状态时，Oracle 打开控制文件，因此不仅能访问从 SGA 中获得信息的动态性能视图，还可以访问从控制文件中获得信息的动态性能视图，如 <code class="language-vim">V$LOG</code>、<code class="language-vim">V$LOGFILE</code>、<code class="language-vim">V$DATAFILE</code>、<code class="language-vim">V$CONTROLFILE</code>、<code class="language-vim">V$DATABASE</code>、<code class="language-vim">V$THREAD</code>、<code class="language-vim">V$DATAFILE_HEADER</code> 等。</p>
+<p>当数据库完全启动后，可以访问 <code class="language-vim">V_$fixed_table</code> 表中所有的动态性能视图。</p>
 <p>例如，利用动态性能视图查询当前数据库参数设置信息、数据文件信息。</p>
 <pre class="line-numbers"><code class="lang-sql">SQL&gt; SELECT * FROM V$PARAMETER;
 SQL&gt; SELECT * FROM DATAFILE;
