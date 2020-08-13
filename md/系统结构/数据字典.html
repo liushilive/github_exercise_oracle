@@ -23,7 +23,7 @@
 <link href="../概念/数据库中的相关术语.html" rel="next"/>
 </head>
 <body>
-<div class="book"><div class="book-summary">
+<div class="book match-braces"><div class="book-summary">
     <div id="book-search-input" role="search">
         <input placeholder="输入并搜索" type="text"/>
     </div>
@@ -178,7 +178,7 @@
 <p>动态数据字典视图</p>
 <p>在动态性能表上创建的视图称为动态数据字典视图，又称动态性能视图。所有动态性能视图命名都以 V\( 开头，Oracle 自动为这些视图创建了以 `V\)` 开头命名的公共同义词，因此动态性能视图又称为<code class="language-vim">V$ 视图</code>。例如，动态性能视图 <code class="language-vim">V$DATAFILE</code>。</p>
 <p>通过查询表 dictionary，可以获得全部可以访问的数据字典表或视图的名称和解释；通过查询表 dict_columns，可以获得全部可以访问的数据字典表或视图中字段名称和解释。例如：</p>
-<pre class="line-numbers"><code class="lang-sql">SQL&gt; SELECT * FROM dictionary;
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">SQL&gt; SELECT * FROM dictionary;
 SQL&gt; SELECT * FROM dict_columns WHERE TABLE_NAME=&#x27;USER_TABLES&#x27;;
 </code></pre>
 </li>
@@ -217,7 +217,7 @@ SQL&gt; SELECT * FROM dict_columns WHERE TABLE_NAME=&#x27;USER_TABLES&#x27;;
 </tbody>
 </table>
 <p>例如，查询当前用户所拥有的表的信息、可以访问的表的信息及当前数据库所有表的信息，可以分别执行下列语句：</p>
-<pre class="line-numbers"><code class="lang-sql">SQL&gt; SELECT * FROM USER_TABLES;
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">SQL&gt; SELECT * FROM USER_TABLES;
 SQL&gt; SELECT * FROM ALL_TABLES;
 SQL&gt; SELECT * FROM SYS.DBA_TABLES;
 </code></pre>
@@ -227,7 +227,7 @@ SQL&gt; SELECT * FROM SYS.DBA_TABLES;
 <p>动态性能表的使用</p>
 <p>动态性能表是数据库实例启动后动态创建的表，用于存放数据库运行过程中的性能相关的信息。动态性能表都属于 SYS 用户，Oracle 使用这些表生成动态性能视图。</p>
 <p>可以通过下列语句查询当前数据库中所有的动态性能表和动态性能视图：</p>
-<pre class="line-numbers"><code class="lang-sql">SQL&gt; SELECT NAME FROM V_$FIXED_TABLE;
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">SQL&gt; SELECT NAME FROM V_$FIXED_TABLE;
 </code></pre>
 </li>
 <li>
@@ -237,7 +237,7 @@ SQL&gt; SELECT * FROM SYS.DBA_TABLES;
 <p>当数据库启动到 MOUNT 状态时，Oracle 打开控制文件，因此不仅能访问从 SGA 中获得信息的动态性能视图，还可以访问从控制文件中获得信息的动态性能视图，如 <code class="language-vim">V$LOG</code>、<code class="language-vim">V$LOGFILE</code>、<code class="language-vim">V$DATAFILE</code>、<code class="language-vim">V$CONTROLFILE</code>、<code class="language-vim">V$DATABASE</code>、<code class="language-vim">V$THREAD</code>、<code class="language-vim">V$DATAFILE_HEADER</code> 等。</p>
 <p>当数据库完全启动后，可以访问 <code class="language-vim">V_$fixed_table</code> 表中所有的动态性能视图。</p>
 <p>例如，利用动态性能视图查询当前数据库参数设置信息、数据文件信息。</p>
-<pre class="line-numbers"><code class="lang-sql">SQL&gt; SELECT * FROM V$PARAMETER;
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">SQL&gt; SELECT * FROM V$PARAMETER;
 SQL&gt; SELECT * FROM DATAFILE;
 </code></pre>
 </li>

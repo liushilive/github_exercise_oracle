@@ -23,7 +23,7 @@
 <link href="053.html" rel="next"/>
 </head>
 <body>
-<div class="book"><div class="book-summary">
+<div class="book match-braces"><div class="book-summary">
     <div id="book-search-input" role="search">
         <input placeholder="输入并搜索" type="text"/>
     </div>
@@ -129,7 +129,7 @@
 <p>操作 Student 表和 Achievement 表</p>
 <p>删除 Betty 的记录</p>
 <h2 id="anchor_3"><a class="anchor-navigation-ex-anchor" href="#anchor_3" name="anchor_3"><i aria-hidden="true" class="fa fa-link"></i></a>2. 实例</h2>
-<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx1"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx1"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql">delete from achievement
+<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx1"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx1"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql rainbow-braces">delete from achievement
 where id = (select id from student where name=&#x27;Betty&#x27;);
 
 delete from student where name=&#x27;Betty&#x27;;

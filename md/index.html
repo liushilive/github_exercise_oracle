@@ -23,7 +23,7 @@
 <link href="总结/语法总结.html" rel="next"/>
 </head>
 <body>
-<div class="book"><div class="book-summary">
+<div class="book match-braces"><div class="book-summary">
     <div id="book-search-input" role="search">
         <input placeholder="输入并搜索" type="text"/>
     </div>
@@ -131,7 +131,7 @@
 </blockquote>
 <p>虚拟机还原到<code class="language-vim">系统安装完毕</code>快照</p>
 <h2 id="anchor_2"><a class="anchor-navigation-ex-anchor" href="#anchor_2" name="anchor_2"><i aria-hidden="true" class="fa fa-link"></i></a>1. 部署本地 yum 源</h2>
-<pre class="line-numbers"><code class="lang-bash">rm -rf /etc/yum.repos.d/*
+<pre class="line-numbers"><code class="lang-bash rainbow-braces">rm -rf /etc/yum.repos.d/*
 
 curl -o /etc/yum.repos.d/CentOS-7.repo http://192.168.2.251/Centos/CentOS7.repo
 
@@ -140,10 +140,10 @@ yum clean all
 yum makecache
 </code></pre>
 <h2 id="anchor_3"><a class="anchor-navigation-ex-anchor" href="#anchor_3" name="anchor_3"><i aria-hidden="true" class="fa fa-link"></i></a>2. 安装必需的安装包</h2>
-<pre class="line-numbers"><code class="lang-bash">yum install -y libaio bc flex net-tools
+<pre class="line-numbers"><code class="lang-bash rainbow-braces">yum install -y libaio bc flex net-tools
 </code></pre>
 <h2 id="anchor_4"><a class="anchor-navigation-ex-anchor" href="#anchor_4" name="anchor_4"><i aria-hidden="true" class="fa fa-link"></i></a>3. 安装 Oracle</h2>
-<pre class="line-numbers"><code class="lang-bash">rpm -ivh http://192.168.2.251/Centos/oracle/oracle-xe-11.2.0-1.0.x86_64.rpm
+<pre class="line-numbers"><code class="lang-bash rainbow-braces">rpm -ivh http://192.168.2.251/Centos/oracle/oracle-xe-11.2.0-1.0.x86_64.rpm
 </code></pre>
 <h2 id="anchor_5"><a class="anchor-navigation-ex-anchor" href="#anchor_5" name="anchor_5"><i aria-hidden="true" class="fa fa-link"></i></a>4. 配置 Oracle</h2>
 <ul>
@@ -163,24 +163,24 @@ yum makecache
 <p>数据库在计算机启动时自动启动（下次重新引导）</p>
 </li>
 </ul>
-<pre class="line-numbers"><code class="lang-bash">echo -e &quot;\n\n123456\n123456\ny&quot; | /etc/init.d/oracle-xe configure
+<pre class="line-numbers"><code class="lang-bash rainbow-braces">echo -e &quot;\n\n123456\n123456\ny&quot; | /etc/init.d/oracle-xe configure
 </code></pre>
 <h2 id="anchor_6"><a class="anchor-navigation-ex-anchor" href="#anchor_6" name="anchor_6"><i aria-hidden="true" class="fa fa-link"></i></a>5. 环境变量配置</h2>
-<pre class="line-numbers"><code class="lang-bash">cat &gt;&gt; .bash_profile &lt;&lt; EOF
+<pre class="line-numbers"><code class="lang-bash rainbow-braces">cat &gt;&gt; .bash_profile &lt;&lt; EOF
 . /u01/app/oracle/product/11.2.0/xe/bin/oracle_env.sh
 EOF
 </code></pre>
 <p>让环境变量生效</p>
-<pre class="line-numbers"><code class="lang-bash">su -
+<pre class="line-numbers"><code class="lang-bash rainbow-braces">su -
 </code></pre>
 <h2 id="anchor_7"><a class="anchor-navigation-ex-anchor" href="#anchor_7" name="anchor_7"><i aria-hidden="true" class="fa fa-link"></i></a>6. 允许远程访问 Oracle 11g XE GUI</h2>
 <p>进入 SQL 命令窗口</p>
-<pre class="line-numbers"><code class="lang-bash">sqlplus &quot;sys/123456 as sysdba&quot; &lt;&lt;EOF
+<pre class="line-numbers"><code class="lang-bash rainbow-braces">sqlplus &quot;sys/123456 as sysdba&quot; &lt;&lt;EOF
 EXEC DBMS_XDB.SETLISTENERLOCALACCESS(FALSE);
 EOF
 </code></pre>
 <h2 id="anchor_8"><a class="anchor-navigation-ex-anchor" href="#anchor_8" name="anchor_8"><i aria-hidden="true" class="fa fa-link"></i></a>7. 配置防火墙</h2>
-<pre class="line-numbers"><code class="lang-bash">firewall-cmd --add-port=8080/tcp --permanent --zone=public
+<pre class="line-numbers"><code class="lang-bash rainbow-braces">firewall-cmd --add-port=8080/tcp --permanent --zone=public
 firewall-cmd --add-port=1521/tcp --permanent --zone=public
 firewall-cmd --reload
 </code></pre>
@@ -191,7 +191,7 @@ firewall-cmd --reload
 密码：<code class="language-vim">123456</code></p>
 </blockquote>
 <h2 id="anchor_9"><a class="anchor-navigation-ex-anchor" href="#anchor_9" name="anchor_9"><i aria-hidden="true" class="fa fa-link"></i></a>8. 一键部署</h2>
-<pre class="line-numbers"><code class="lang-bash">rm -rf /etc/yum.repos.d/*
+<pre class="line-numbers"><code class="lang-bash rainbow-braces">rm -rf /etc/yum.repos.d/*
 curl -o /etc/yum.repos.d/CentOS-7.repo http://192.168.2.251/Centos/CentOS7.repo
 yum clean all
 yum makecache

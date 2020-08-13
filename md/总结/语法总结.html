@@ -23,7 +23,7 @@
 <link href="../概念/index.html" rel="next"/>
 </head>
 <body>
-<div class="book"><div class="book-summary">
+<div class="book match-braces"><div class="book-summary">
     <div id="book-search-input" role="search">
         <input placeholder="输入并搜索" type="text"/>
     </div>
@@ -199,7 +199,7 @@
 </li>
 <li>
 <p><strong>语法结构</strong>：查询</p>
-<pre class="line-numbers"><code class="lang-sql">SELECT [DISTINCT] *|列|表达式
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">SELECT [DISTINCT] *|列|表达式
 FROM A
 JOIN B              --内连接
   ON 表之间关联的条件
@@ -217,37 +217,37 @@ ORDER BY 排序列 [ASC|DESC];
 </li>
 <li>
 <p><strong>语法结构</strong>：创建用户</p>
-<pre class="line-numbers"><code class="lang-sql">CREATE USER 用户名 IDENTIFIED BY 口令 [ACCOUNT LOCK|UNLOCK];
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">CREATE USER 用户名 IDENTIFIED BY 口令 [ACCOUNT LOCK|UNLOCK];
 </code></pre>
 </li>
 <li>
 <p><strong>语法结构</strong>：修改用户的密码</p>
-<pre class="line-numbers"><code class="lang-sql">ALTER USER 用户名 IDENTIFIED BY 新密码;
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">ALTER USER 用户名 IDENTIFIED BY 新密码;
 </code></pre>
 </li>
 <li>
 <p><strong>语法结构</strong>：修改用户处于锁定（非锁定）状态</p>
-<pre class="line-numbers"><code class="lang-sql">ALTER USER 用户名 ACCOUNT LOCK|UNLOCK;
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">ALTER USER 用户名 ACCOUNT LOCK|UNLOCK;
 </code></pre>
 </li>
 <li>
 <p><strong>语法结构</strong>：删除用户</p>
-<pre class="line-numbers"><code class="lang-sql">DROP USER 用户名 CASCADE;
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">DROP USER 用户名 CASCADE;
 </code></pre>
 </li>
 <li>
 <p><strong>语法结构</strong>：授予权限</p>
-<pre class="line-numbers"><code class="lang-sql">GRANT 角色|权限 TO 用户|角色;
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">GRANT 角色|权限 TO 用户|角色;
 </code></pre>
 </li>
 <li>
 <p><strong>语法结构</strong>：回收权限</p>
-<pre class="line-numbers"><code class="lang-sql">REVOKE 角色|权限 FROM 用户|角色;
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">REVOKE 角色|权限 FROM 用户|角色;
 </code></pre>
 </li>
 <li>
 <p><strong>语法结构</strong>：创建表</p>
-<pre class="line-numbers"><code class="lang-sql">CREATE TABLE 表名(
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">CREATE TABLE 表名(
   列名1 类型 [NULL | NOT NULL] [CONSTRAINT],
   类名2 类型
 );
@@ -255,52 +255,52 @@ ORDER BY 排序列 [ASC|DESC];
 </li>
 <li>
 <p><strong>语法结构</strong>：修改表名</p>
-<pre class="line-numbers"><code class="lang-sql">RENAME 原表名 TO 新表名;
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">RENAME 原表名 TO 新表名;
 </code></pre>
 </li>
 <li>
 <p><strong>语法结构</strong>：添加列</p>
-<pre class="line-numbers"><code class="lang-sql">ALTER TABLE 表名 ADD 列名 列类型 列约束;
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">ALTER TABLE 表名 ADD 列名 列类型 列约束;
 </code></pre>
 </li>
 <li>
 <p><strong>语法结构</strong>：删除列</p>
-<pre class="line-numbers"><code class="lang-sql">ALTER TABLE 表名 DROP COLUMN 列名;
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">ALTER TABLE 表名 DROP COLUMN 列名;
 </code></pre>
 </li>
 <li>
 <p><strong>语法结构</strong>： 删除表</p>
-<pre class="line-numbers"><code class="lang-sql">DROP TABLE 表名;
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">DROP TABLE 表名;
 </code></pre>
 </li>
 <li>
 <p><strong>语法结构</strong>：添加约束</p>
-<pre class="line-numbers"><code class="lang-sql">ALTER TABLE 表名 ADD CONSTRAINT 约束名 约束内容;
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">ALTER TABLE 表名 ADD CONSTRAINT 约束名 约束内容;
 </code></pre>
 </li>
 <li>
 <p><strong>语法结构</strong>：删除约束</p>
-<pre class="line-numbers"><code class="lang-sql">ALTER TABLE 表名 DROP CONSTRAINT 约束名;
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">ALTER TABLE 表名 DROP CONSTRAINT 约束名;
 </code></pre>
 </li>
 <li>
 <p>语法结构：数据插入</p>
-<pre class="line-numbers"><code class="lang-sql">INSERT INTO 表名(列名 1，列名 2……) VALUES (值 1，值 2……)
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">INSERT INTO 表名(列名 1，列名 2……) VALUES (值 1，值 2……)
 </code></pre>
 </li>
 <li>
 <p>语法结构：更新数据</p>
-<pre class="line-numbers"><code class="lang-sql">UPDATE 表名 SET 列名1=值,列名2=值 WHERE 条件;
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">UPDATE 表名 SET 列名1=值,列名2=值 WHERE 条件;
 </code></pre>
 </li>
 <li>
 <p>语法结构：删除数据</p>
-<pre class="line-numbers"><code class="lang-sql">DELETE FROM 表名 WHERE 条件;
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">DELETE FROM 表名 WHERE 条件;
 </code></pre>
 </li>
 <li>
 <p>语法结构：删除全部数据！！ 无法回滚，高危！</p>
-<pre class="line-numbers"><code class="lang-sql">TRUNCATE TABLE 表名;
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">TRUNCATE TABLE 表名;
 </code></pre>
 </li>
 </ul>
