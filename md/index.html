@@ -133,7 +133,7 @@
 <h2 id="anchor_2"><a class="anchor-navigation-ex-anchor" href="#anchor_2" name="anchor_2"><i aria-hidden="true" class="fa fa-link"></i></a>1. 部署本地 yum 源</h2>
 <pre class="line-numbers"><code class="lang-bash rainbow-braces">rm -rf /etc/yum.repos.d/*
 
-curl -o /etc/yum.repos.d/CentOS-7.repo http://192.168.2.251/Centos/CentOS7.repo
+curl -o /etc/yum.repos.d/CentOS7.repo http://192.168.2.251/Centos/CentOS7.repo
 
 yum clean all
 
@@ -192,7 +192,7 @@ firewall-cmd --reload
 </blockquote>
 <h2 id="anchor_9"><a class="anchor-navigation-ex-anchor" href="#anchor_9" name="anchor_9"><i aria-hidden="true" class="fa fa-link"></i></a>8. 一键部署</h2>
 <pre class="line-numbers"><code class="lang-bash rainbow-braces">rm -rf /etc/yum.repos.d/*
-curl -o /etc/yum.repos.d/CentOS-7.repo http://192.168.2.251/Centos/CentOS7.repo
+curl -o /etc/yum.repos.d/CentOS7.repo http://192.168.2.251/Centos/CentOS7.repo
 yum clean all
 yum makecache
 yum install -y libaio bc flex net-tools
