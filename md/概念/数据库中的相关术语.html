@@ -124,9 +124,17 @@
                 <div class="search-noresults">
                     <section class="normal markdown-section">
                         <div id='anchor-navigation-ex-navbar'><i class='fa fa-anchor'></i><ul><li><span class='title-icon fa fa-hand-o-right'></span><a aria-label class='on-toolbar-action' href='' onclick="$('.fa.fa-align-justify').parent()[0].click();">目录</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_1'><b></b>数据库中的相关术语</a></li><ul><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_2'><b>1. </b>数据库</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_3'><b>2. </b>表</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_4'><b>3. </b>列和数据类型</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_5'><b>4. </b>行</a></li></ul><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_6'><b></b>约束</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_7'><b></b>事务和锁</a></li><ul><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_8'><b>1. </b>什么是事务</a></li><ul><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_9'><b>1.1. </b>事务的 ACID 特性</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_10'><b>1.2. </b>控制事务</a></li></ul><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_11'><b>2. </b>什么是锁</a></li><ul><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_12'><b>2.1. </b>认识锁</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_13'><b>2.2. </b>锁的分类</a></li></ul></ul><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_14'><b></b>视图</a></li><ul><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_15'><b>1. </b>什么是视图</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_16'><b>2. </b>视图的作用</a></li></ul><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_17'><b></b>索引</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_18'><b></b>存储过程</a></li><ul><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_19'><b>1. </b>为什么要使用存储过程</a></li></ul><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_20'><b></b>触发器</a></li></ul></div><a href='#anchor_1' id='anchorNavigationExGoTop'><i class='fa fa-arrow-up'></i></a>
-                        <h1 id="anchor_1"><a class="anchor-navigation-ex-anchor" href="#anchor_1" name="anchor_1"><i aria-hidden="true" class="fa fa-link"></i></a>数据库中的相关术语</h1>
+                        <h1 id="anchor_1">
+    <a class="anchor-navigation-ex-anchor" href="#anchor_1" name="anchor_1">
+        <i aria-hidden="true" class="fa fa-link"></i>
+    </a>数据库中的相关术语
+</h1>
 <p>在 Oracle 数据库中每个数据库里面都包含很多对象，主要包括表、视图、存储过程、触发器以及约束。在这儿只简单介绍一下每一个术语的含义，在后面会详细地讲解这些术语的使用。</p>
-<h2 id="anchor_2"><a class="anchor-navigation-ex-anchor" href="#anchor_2" name="anchor_2"><i aria-hidden="true" class="fa fa-link"></i></a>1. 数据库</h2>
+<h2 id="anchor_2">
+    <a class="anchor-navigation-ex-anchor" href="#anchor_2" name="anchor_2">
+        <i aria-hidden="true" class="fa fa-link"></i>
+    </a>1. 数据库
+</h2>
 <p><strong>数据库</strong>这个术语的用法很多，但就从 SQL 的角度来看，数据库是一个以某种有组织的方式存储的数据集合。</p>
 <p>最简单的办法是将数据库想象为一个文件柜。这个文件柜是一个存放数据的物理位置，不管数据是什么，也不管数据是如何组织的。</p>
 <ul>
@@ -140,7 +148,11 @@
 <p>我们通常用数据库这个术语来代表他们使用的数据库软件，这是不正确的，也因此产生了许多混淆。</p>
 <p>确切地说，数据库软件应称为<strong>数据库管理系统</strong>（即 DBMS）。数据库是通过 DBMS 创建和操纵的容器，而具体它究竟是什么，形式如何，各种数据库都不一样。</p>
 </blockquote>
-<h2 id="anchor_3"><a class="anchor-navigation-ex-anchor" href="#anchor_3" name="anchor_3"><i aria-hidden="true" class="fa fa-link"></i></a>2. 表</h2>
+<h2 id="anchor_3">
+    <a class="anchor-navigation-ex-anchor" href="#anchor_3" name="anchor_3">
+        <i aria-hidden="true" class="fa fa-link"></i>
+    </a>2. 表
+</h2>
 <p>你往文件柜里放资料时，并不是随便将它们扔进某个抽屉就完事了，而是在文件柜中创建文件，然后将相关的资料放入特定的文件中。</p>
 <p>在数据库领域中，这种文件称为表。表是一种结构化的文件，可用来存储某种特定类型的数据。表可以保存顾客清单、产品目录，或者其他信息清单。</p>
 <ul>
@@ -162,7 +174,11 @@
 <p>关于数据库和表的布局及特性的信息。</p>
 </li>
 </ul>
-<h2 id="anchor_4"><a class="anchor-navigation-ex-anchor" href="#anchor_4" name="anchor_4"><i aria-hidden="true" class="fa fa-link"></i></a>3. 列和数据类型</h2>
+<h2 id="anchor_4">
+    <a class="anchor-navigation-ex-anchor" href="#anchor_4" name="anchor_4">
+        <i aria-hidden="true" class="fa fa-link"></i>
+    </a>3. 列和数据类型
+</h2>
 <p>表由列组成。列存储表中某部分的信息。</p>
 <ul>
 <li>
@@ -188,7 +204,11 @@
 <p><strong>注意：数据类型兼容</strong></p>
 <p>数据类型及其名称是 SQL 不兼容的一个主要原因。虽然大多数基本数据类型得到了一致的支持，但许多高级的数据类型却没有。更糟的是，偶然会有相同的数据类型在不同的 DBMS 中具有不同的名称。对此用户毫无办法，重要的是在创建表结构时要记住这些差异。</p>
 </blockquote>
-<h2 id="anchor_5"><a class="anchor-navigation-ex-anchor" href="#anchor_5" name="anchor_5"><i aria-hidden="true" class="fa fa-link"></i></a>4. 行</h2>
+<h2 id="anchor_5">
+    <a class="anchor-navigation-ex-anchor" href="#anchor_5" name="anchor_5">
+        <i aria-hidden="true" class="fa fa-link"></i>
+    </a>4. 行
+</h2>
 <p>表中的数据是按行存储的，所保存的每个记录存储在自己的行内。如果将表想象为网格，网格中垂直的列为表列，水平行为表行。</p>
 <p>例如，顾客表可以每行存储一个顾客。表中的行编号为记录的编号。</p>
 <ul>
@@ -202,7 +222,11 @@
 <p>你可能听到用户在提到行时称其为数据库记录（record）。这两个术语多半是可以交替使用的，但从技术上说，行才是正确的术语。</p>
 </blockquote>
 <hr />
-<h1 id="anchor_6"><a class="anchor-navigation-ex-anchor" href="#anchor_6" name="anchor_6"><i aria-hidden="true" class="fa fa-link"></i></a>约束</h1>
+<h1 id="anchor_6">
+    <a class="anchor-navigation-ex-anchor" href="#anchor_6" name="anchor_6">
+        <i aria-hidden="true" class="fa fa-link"></i>
+    </a>约束
+</h1>
 <p>SQL 已经改进过多个版本，成为非常完善和强大的语言。许多强有力的特性给用户提供了高级的数据处理技术，如约束。</p>
 <p>关系数据库存储分解为多个表的数据，每个表存储相应的数据。利用键来建立从一个表到另一个表的引用（由此产生了术语<strong>引用完整性</strong>（referential integrity））。</p>
 <p>正确地进行关系数据库设计，需要一种方法保证只在表中插入合法数据。例如，如果 Orders 表存储订单信息，OrderItems 表存储订单详细内容，应该保证 OrderItems 中引用的任何订单 ID 都存在于 Orders 中。类似地，在 Orders 表中引用的任意顾客必须存在于 Customers 表中。</p>
@@ -286,12 +310,24 @@
 </li>
 </ul>
 <hr />
-<h1 id="anchor_7"><a class="anchor-navigation-ex-anchor" href="#anchor_7" name="anchor_7"><i aria-hidden="true" class="fa fa-link"></i></a>事务和锁</h1>
+<h1 id="anchor_7">
+    <a class="anchor-navigation-ex-anchor" href="#anchor_7" name="anchor_7">
+        <i aria-hidden="true" class="fa fa-link"></i>
+    </a>事务和锁
+</h1>
 <p>事务和锁是两个联系非常紧密的概念，它们保证了数据库的一致性。由于数据库是一个可以由多个用户共享的资源，因此当多个用户并发地存取数据时，就要保证数据的准确性。事务和锁就完成了这项功能。</p>
-<h2 id="anchor_8"><a class="anchor-navigation-ex-anchor" href="#anchor_8" name="anchor_8"><i aria-hidden="true" class="fa fa-link"></i></a>1. 什么是事务</h2>
+<h2 id="anchor_8">
+    <a class="anchor-navigation-ex-anchor" href="#anchor_8" name="anchor_8">
+        <i aria-hidden="true" class="fa fa-link"></i>
+    </a>1. 什么是事务
+</h2>
 <p>我们可以把事务理解成一组 SQL 语句的集合，这样描述可能不太容易理解，不要着急，我们先大概的描述一下理论，然后再进行形象的举例。</p>
 <p>事务可以只包含一条 SQL 语句，也可以包含多条复杂的 SQL 语句，事务中的所有 SQL 语句被当做一个操作单元，换句话说，事务中的 SQL 语句要么都执行成功，要么全部执行失败，事务内的 SQL 语句被当做一个整体，被当做一个原子进行操作。</p>
-<h3 id="anchor_9"><a class="anchor-navigation-ex-anchor" href="#anchor_9" name="anchor_9"><i aria-hidden="true" class="fa fa-link"></i></a>1.1. 事务的 ACID 特性</h3>
+<h3 id="anchor_9">
+    <a class="anchor-navigation-ex-anchor" href="#anchor_9" name="anchor_9">
+        <i aria-hidden="true" class="fa fa-link"></i>
+    </a>1.1. 事务的 ACID 特性
+</h3>
 <p>事务有 4 个特性，它们分别是原子性、一致性、隔离性、持久性。</p>
 <ul>
 <li>
@@ -353,7 +389,11 @@
 <p>整个交易过程，我们看做一个事务，如果操作失败，那么该事务就会回滚，所有该事务中的操作将撤销，目标账户和源账户上的资金都不会出现变化；</p>
 <p>如果操作成功，那么将是对数据库永久的修改，即使以后服务器断电，也不会对该修改结果有影响。</p>
 <p>事务在没有提交之前可以回滚，而且在提交前当前用户可以查看已经修改的数据，但其他用户查看不到该数据，一旦事务提交就不能再撤销修改了。</p>
-<h3 id="anchor_10"><a class="anchor-navigation-ex-anchor" href="#anchor_10" name="anchor_10"><i aria-hidden="true" class="fa fa-link"></i></a>1.2. 控制事务</h3>
+<h3 id="anchor_10">
+    <a class="anchor-navigation-ex-anchor" href="#anchor_10" name="anchor_10">
+        <i aria-hidden="true" class="fa fa-link"></i>
+    </a>1.2. 控制事务
+</h3>
 <p>当一个事务被执行并成功完成时，虽然从输出结果来看目标表已经被修改了，但实际上目标表并不是立即被修改。当事务成功完成时，利用事务控制命令最终认可这个事务，可以把事务所做的修改保存到数据库，也可以撤销事务所做的修改。</p>
 <p>事务控制命令只与 <code class="language-vim">DML</code> 命令 <code class="language-vim">INSERT</code>、<code class="language-vim">UPDATE</code> 和 <code class="language-vim">DELETE</code> 配合使用，比如我们不会在创建表之后使用 <code class="language-vim">COMMIT</code> 语句，因为当表被创建之后，它会自动被提交给数据库。也不能使用 <code class="language-vim">ROLLBACK</code> 语句来恢复被撤销的表。</p>
 <p>此外，还有其他类似的语句，也是不能被撤销的，例如 <code class="language-vim">TRUNCATE</code> 语句。所以，在运行新的命令前，最好先确认一下用户所使用的 <code class="language-vim">DBMS</code> 在事务方面的相关规定。当事务完成之后，事务信息被保存在数据库里的指定区域或临时回退区域。所有的修改都被保存到这个临时回退区域，直到事务控制命令出现。当事务控制命令出现时，所做的修改要么被保存到数据库，要么被放弃，然后临时回退区域被清空。</p>
@@ -386,14 +426,26 @@ ROLLBACK;
 </code></pre>
 </li>
 </ul>
-<h2 id="anchor_11"><a class="anchor-navigation-ex-anchor" href="#anchor_11" name="anchor_11"><i aria-hidden="true" class="fa fa-link"></i></a>2. 什么是锁</h2>
+<h2 id="anchor_11">
+    <a class="anchor-navigation-ex-anchor" href="#anchor_11" name="anchor_11">
+        <i aria-hidden="true" class="fa fa-link"></i>
+    </a>2. 什么是锁
+</h2>
 <p>数据库是一个庞大的多用户数据管理系统，由于在多用户的系统中，同一时刻多个用户同时操作某相同资源的情况时有发生，而在逻辑上这些用户想同时操作该资源是不可能的，而数据库中利用锁消除了多用户操作同一资源时可能产生的隐患。</p>
-<h3 id="anchor_12"><a class="anchor-navigation-ex-anchor" href="#anchor_12" name="anchor_12"><i aria-hidden="true" class="fa fa-link"></i></a>2.1. 认识锁</h3>
+<h3 id="anchor_12">
+    <a class="anchor-navigation-ex-anchor" href="#anchor_12" name="anchor_12">
+        <i aria-hidden="true" class="fa fa-link"></i>
+    </a>2.1. 认识锁
+</h3>
 <p>锁出现在数据共享的环境中，它是一种机制，在访问相同资源时，可以防止事务之间的破坏性交互。例如，在多个会话同时操作某表时，优先操作的会话需要对其锁定。</p>
 <p>事务的隔离性要求当前事务不能影响其他的事务，所以当多个会话访问相同的资源时，数据库系统会利用锁确保它们像队列一样依次进行。Oracle 处理数据时用到的锁是自动获取的，我们不用对此有过多的关注，但 Oracle 允许我们手动锁定数据。</p>
 <p>Oracle 利用很低的约束提供了最大程度的并发性，例如某会话正在修改一条记录，那么仅仅该记录会被锁定。而其他会话可以随时做读取操作，但读取的依然是修改前的数据。</p>
 <p>Oracle 的锁保证了数据的完整性。例如，当一个会话对表 A 的某行记录进行修改时，另一个会话也来修改该行记录，在没有任何处理的情况下保留的数据会有随机性，而这种数据是没有任何意义的，为脏数据。如果此时使用了行级锁，第一个会话修改记录时封锁该行，那么第二个会话此时只能等待，这样就避免了脏数据的产生。</p>
-<h3 id="anchor_13"><a class="anchor-navigation-ex-anchor" href="#anchor_13" name="anchor_13"><i aria-hidden="true" class="fa fa-link"></i></a>2.2. 锁的分类</h3>
+<h3 id="anchor_13">
+    <a class="anchor-navigation-ex-anchor" href="#anchor_13" name="anchor_13">
+        <i aria-hidden="true" class="fa fa-link"></i>
+    </a>2.2. 锁的分类
+</h3>
 <p>Oracle 中分为两种模式的锁，一种是排他锁（X 锁），另一种是共享锁（S 锁）。</p>
 <ul>
 <li>
@@ -409,9 +461,17 @@ ROLLBACK;
 </ul>
 <p>锁是实现并发的主要手段，在数据库中应用频繁，但很多都由数据库自动管理，当事务提交后会自动释放锁。</p>
 <hr />
-<h1 id="anchor_14"><a class="anchor-navigation-ex-anchor" href="#anchor_14" name="anchor_14"><i aria-hidden="true" class="fa fa-link"></i></a>视图</h1>
+<h1 id="anchor_14">
+    <a class="anchor-navigation-ex-anchor" href="#anchor_14" name="anchor_14">
+        <i aria-hidden="true" class="fa fa-link"></i>
+    </a>视图
+</h1>
 <p>视图在 Oracle 中应用相当普遍，所以也比较重要。视图在数据库中可以理解为一张虚拟的表，与包含数据的表不一样，视图只包含使用时动态检索数据的查询。使用视图可以补充表结构在某些需求方面的不足，可以让开发人员更方便地查询复杂数据，还可以缩短开发周期，节省公司成本。</p>
-<h2 id="anchor_15"><a class="anchor-navigation-ex-anchor" href="#anchor_15" name="anchor_15"><i aria-hidden="true" class="fa fa-link"></i></a>1. 什么是视图</h2>
+<h2 id="anchor_15">
+    <a class="anchor-navigation-ex-anchor" href="#anchor_15" name="anchor_15">
+        <i aria-hidden="true" class="fa fa-link"></i>
+    </a>1. 什么是视图
+</h2>
 <p>听到视图会比较陌生，实际上视图的创建和操作比较简单。在直观印象中它和表类似，但某些表的功能它不具备。</p>
 <p>根据官方的文档可以这样理解视图：它是一个基于一个表或多个表的逻辑表，视图本身不包含任何数据。</p>
 <p>通俗来说，可以把视图看成是虚拟的表，只是一个查询语句的结果，它的数据最终是从表中获取的，这些表通常称为 <strong>源表</strong> 或 <strong>基表</strong> 。当基表的数据发生变化时，视图里的数据同样发生变化。通常视图的数据源有三种情况：</p>
@@ -426,7 +486,11 @@ ROLLBACK;
 <p>视图的子集。</p>
 </li>
 </ul>
-<h2 id="anchor_16"><a class="anchor-navigation-ex-anchor" href="#anchor_16" name="anchor_16"><i aria-hidden="true" class="fa fa-link"></i></a>2. 视图的作用</h2>
+<h2 id="anchor_16">
+    <a class="anchor-navigation-ex-anchor" href="#anchor_16" name="anchor_16">
+        <i aria-hidden="true" class="fa fa-link"></i>
+    </a>2. 视图的作用
+</h2>
 <p>我们会产生疑问，既然视图被称为虚拟的表，那还用它做什么？下面就简单介绍一下视图的作用。</p>
 <ul>
 <li>
@@ -447,7 +511,11 @@ ROLLBACK;
 <p>因为视图不包含数据，所以每次使用视图时，都必须处理查询执行时需要的所有检索。如果你用多个联结和过滤创建了复杂的视图或者嵌套了视图，性能可能会下降得很厉害。因此，在部署使用了大量视图的应用前，应该进行测试。</p>
 </blockquote>
 <hr />
-<h1 id="anchor_17"><a class="anchor-navigation-ex-anchor" href="#anchor_17" name="anchor_17"><i aria-hidden="true" class="fa fa-link"></i></a>索引</h1>
+<h1 id="anchor_17">
+    <a class="anchor-navigation-ex-anchor" href="#anchor_17" name="anchor_17">
+        <i aria-hidden="true" class="fa fa-link"></i>
+    </a>索引
+</h1>
 <p>索引用来排序数据以加快搜索和排序操作的速度。想像一本书后的索引，可以帮助你理解数据库的索引。</p>
 <p>假如要找出书中所有的<code class="language-vim">数据类型</code>这个词，简单的办法是从第 1 页开始，浏览每一行。虽然这样做可以完成任务，但显然不是一种好的办法。浏览少数几页文字可能还行，但以这种方式浏览整部书就不可行了。随着要搜索的页数不断增加，找出所需词汇的时间也会增加。</p>
 <p>这就是书籍要有索引的原因。索引按字母顺序列出词汇及其在书中的位置。为了搜索<code class="language-vim">数据类型</code>一词，可在索引中找出该词，确定它出现在哪些页中。然后再翻到这些页，找出<code class="language-vim">数据类型</code>一词。</p>
@@ -469,7 +537,11 @@ ROLLBACK;
 <p>索引的效率随表数据的增加或改变而变化。许多数据库管理员发现，过去创建的某个理想的索引经过几个月的数据处理后可能变得不再理想了。最好定期检查索引，并根据需要对索引进行调整。</p>
 </blockquote>
 <hr />
-<h1 id="anchor_18"><a class="anchor-navigation-ex-anchor" href="#anchor_18" name="anchor_18"><i aria-hidden="true" class="fa fa-link"></i></a>存储过程</h1>
+<h1 id="anchor_18">
+    <a class="anchor-navigation-ex-anchor" href="#anchor_18" name="anchor_18">
+        <i aria-hidden="true" class="fa fa-link"></i>
+    </a>存储过程
+</h1>
 <p>迄今为止，我们使用的大多数 SQL 语句都是针对一个或多个表的单条语句。并非所有操作都这么简单，经常会有一些复杂的操作需要多条语句才能完成。</p>
 <p>例如以下的情形：</p>
 <ul>
@@ -481,7 +553,11 @@ ROLLBACK;
 <p>这显然不是一个完整的例子，它甚至超出了我们所学范例的范围，但足以表达我们的意思了。执行这个处理需要针对许多表的多条 SQL 语句。此外，需要执行的具体 SQL 语句及其次序也不是固定的，它们可能会根据物品是否在库存中而变化。</p>
 <p>那么，怎样编写代码呢？可以单独编写每条 SQL 语句，并根据结果有条件地执行其他语句。在每次需要这个处理时（以及每个需要它的应用中），都必须做这些工作。</p>
 <p>可以创建存储过程。简单来说，存储过程就是为以后使用而保存的一条或多条 SQL 语句。可将其视为批文件，虽然它们的作用不仅限于批处理。</p>
-<h2 id="anchor_19"><a class="anchor-navigation-ex-anchor" href="#anchor_19" name="anchor_19"><i aria-hidden="true" class="fa fa-link"></i></a>1. 为什么要使用存储过程</h2>
+<h2 id="anchor_19">
+    <a class="anchor-navigation-ex-anchor" href="#anchor_19" name="anchor_19">
+        <i aria-hidden="true" class="fa fa-link"></i>
+    </a>1. 为什么要使用存储过程
+</h2>
 <p>我们知道了什么是存储过程，那么为什么要使用它们呢？</p>
 <p>理由很多，下面列出一些主要的。</p>
 <ul>
@@ -504,7 +580,11 @@ ROLLBACK;
 <p>大多数 DBMS 将编写存储过程所需的安全和访问权限与执行存储过程所需的安全和访问权限区分开来。这是好事情，即使你不能（或不想）编写自己的存储过程，也仍然可以在适当的时候执行别的存储过程。</p>
 </blockquote>
 <hr />
-<h1 id="anchor_20"><a class="anchor-navigation-ex-anchor" href="#anchor_20" name="anchor_20"><i aria-hidden="true" class="fa fa-link"></i></a>触发器</h1>
+<h1 id="anchor_20">
+    <a class="anchor-navigation-ex-anchor" href="#anchor_20" name="anchor_20">
+        <i aria-hidden="true" class="fa fa-link"></i>
+    </a>触发器
+</h1>
 <p>触发器是特殊的存储过程，它在特定的数据库活动发生时自动执行。触发器可以与特定表上的 insert、UPDATE 和 DELETE 操作（或组合）相关联。</p>
 <p>与存储过程不一样（存储过程只是简单的存储 SQL 语句），触发器与单个的表相关联。与 Orders 表上的 INSERT 操作相关联的触发器只在 Orders 表中插入行时执行。类似地，Customers 表上的 INSERT 和 UPDATE 操作的触发器只在表上出现这些操作时执行。</p>
 <p>触发器内的代码具有以下数据的访问权：</p>

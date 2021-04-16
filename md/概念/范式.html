@@ -124,9 +124,17 @@
                 <div class="search-noresults">
                     <section class="normal markdown-section">
                         <div id='anchor-navigation-ex-navbar'><i class='fa fa-anchor'></i><ul><li><span class='title-icon fa fa-hand-o-right'></span><a aria-label class='on-toolbar-action' href='' onclick="$('.fa.fa-align-justify').parent()[0].click();">目录</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_1'><b></b>范式—设计关系型数据库的准则</a></li><ul><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_2'><b>1. </b>第一范式—关系型数据库设计的第一步</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_3'><b>2. </b>第二范式—关系型数据库设计的第二步</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_4'><b>3. </b>第三范式—关系型数据库设计的第三步</a></li></ul></ul></div><a href='#anchor_1' id='anchorNavigationExGoTop'><i class='fa fa-arrow-up'></i></a>
-                        <h1 id="anchor_1"><a class="anchor-navigation-ex-anchor" href="#anchor_1" name="anchor_1"><i aria-hidden="true" class="fa fa-link"></i></a>范式—设计关系型数据库的准则</h1>
+                        <h1 id="anchor_1">
+    <a class="anchor-navigation-ex-anchor" href="#anchor_1" name="anchor_1">
+        <i aria-hidden="true" class="fa fa-link"></i>
+    </a>范式—设计关系型数据库的准则
+</h1>
 <p>关系型数据库是目前流行和使用广泛的数据库，关系型数据库的设计标准就是数据库的范式，范式分别有第一范式、第二范式、第三范式。</p>
-<h2 id="anchor_2"><a class="anchor-navigation-ex-anchor" href="#anchor_2" name="anchor_2"><i aria-hidden="true" class="fa fa-link"></i></a>1. 第一范式—关系型数据库设计的第一步</h2>
+<h2 id="anchor_2">
+    <a class="anchor-navigation-ex-anchor" href="#anchor_2" name="anchor_2">
+        <i aria-hidden="true" class="fa fa-link"></i>
+    </a>1. 第一范式—关系型数据库设计的第一步
+</h2>
 <p>目前，只要是使用关系型数据库来设计数据库，都能够满足数据库设计的第一范式。</p>
 <p>第一范式（1NF）就是数据库表中的字段都是单一属性的，不可再分。这个单一属性可以是数据库中任何一种基本数据类型，如整型、字符型、日期型等。只要是关系型数据库都会满足第一范式。</p>
 <p>例如，一个产品信息表 (product)，描述产品信息的字段有产品编号、产品名称、产品数量、产品价格、产品描述，如表所示，那么这个产品信息表就满足第一范式的要求：每一个字段都是不可再分的单一属性。</p>
@@ -160,7 +168,11 @@
 </tr>
 </tbody>
 </table>
-<h2 id="anchor_3"><a class="anchor-navigation-ex-anchor" href="#anchor_3" name="anchor_3"><i aria-hidden="true" class="fa fa-link"></i></a>2. 第二范式—关系型数据库设计的第二步</h2>
+<h2 id="anchor_3">
+    <a class="anchor-navigation-ex-anchor" href="#anchor_3" name="anchor_3">
+        <i aria-hidden="true" class="fa fa-link"></i>
+    </a>2. 第二范式—关系型数据库设计的第二步
+</h2>
 <p>第二范式是在第一范式的基础上进一步对关系型数据库进行规范，官方给出第二范式的定义是要求在数据库表中不存在非关键字段对任一候选关键字段的部分函数依赖。意思就是说在第二范式中组合主键（AB）里面的 A 或者 B 与其他字段不能存在组合重复。</p>
 <p>为解决这个问题，通常的做法是不用组合主键，添加一个编号列，作为单一主键即可满足第二范式。</p>
 <p>如果不想添加编号列，就满足组合主键（AB）里面的 A 或者 B 与其他字段不能存在组合重复。</p>
@@ -187,7 +199,11 @@
 <p>第 3 张表是产品信息表，表中有产品名称、产品类型、产品价格、产品数量。</p>
 </li>
 </ul>
-<h2 id="anchor_4"><a class="anchor-navigation-ex-anchor" href="#anchor_4" name="anchor_4"><i aria-hidden="true" class="fa fa-link"></i></a>3. 第三范式—关系型数据库设计的第三步</h2>
+<h2 id="anchor_4">
+    <a class="anchor-navigation-ex-anchor" href="#anchor_4" name="anchor_4">
+        <i aria-hidden="true" class="fa fa-link"></i>
+    </a>3. 第三范式—关系型数据库设计的第三步
+</h2>
 <p>第三范式是在第二范式的基础上对数据库设计进行规范，第三范式的要求是数据表中不存在非关键字段对任一候选关键字段的传递函数依赖。</p>
 <p>所谓传递函数依赖，指的是如果存在 A 决定 B、B 决定 C 的决定关系，则 C 传递函数依赖于 A。因此，满足第三范式的数据库表应该不存在依赖关系，假定员工信息表为 employee（员工编号，姓名，年龄，所在部门，部门电话），使用员工编号作为员工信息的主键，那么就存在决定关系：员工编号就决定了姓名、年龄、所在部门、部门电话这些字段。</p>
 <p>从上面的关系可以看出，在表中有一个主键，数据表的设计符合第二范式的要求。但是它不符合第三范式的要求，因为存在决定关系：员工编号就决定了所在部门，所在部门又决定了所在部门的电话，那么就存在了传递函数依赖关系，即员工编号决定部门电话，那么也会出现不满足第二范式时的数据冗余和更新、插入、删除异常的情况。为了满足第三范式的要求，必须把员工信息表拆分成如下两个数据表：</p>

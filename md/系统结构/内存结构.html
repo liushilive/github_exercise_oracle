@@ -124,10 +124,18 @@
                 <div class="search-noresults">
                     <section class="normal markdown-section">
                         <div id='anchor-navigation-ex-navbar'><i class='fa fa-anchor'></i><ul><li><span class='title-icon fa fa-hand-o-right'></span><a aria-label class='on-toolbar-action' href='' onclick="$('.fa.fa-align-justify').parent()[0].click();">目录</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_1'><b></b>结构概述</a></li><ul><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_2'><b>1. </b>SGA</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_3'><b>2. </b>PGA</a></li></ul></ul></div><a href='#anchor_1' id='anchorNavigationExGoTop'><i class='fa fa-arrow-up'></i></a>
-                        <h1 id="anchor_1"><a class="anchor-navigation-ex-anchor" href="#anchor_1" name="anchor_1"><i aria-hidden="true" class="fa fa-link"></i></a>结构概述</h1>
+                        <h1 id="anchor_1">
+    <a class="anchor-navigation-ex-anchor" href="#anchor_1" name="anchor_1">
+        <i aria-hidden="true" class="fa fa-link"></i>
+    </a>结构概述
+</h1>
 <p>Oracle 数据库实例由一系列内存结构和后台进程组成。用户操作数据库的过程实质上是与数据库实例建立连接，然后通过实例来操作数据库的过程。用户的所有操作都在内存中进行，最后由数据库后台进程将操作结果写入各种物理文件中永久性保存。</p>
 <p>内存结构是 Oracle 数据库体系结构的重要组成部分，是 Oracle 数据库重要的信息缓存和共享区域。根据内存区域信息使用范围的不同，分为系统全局区（System Global Area，SGA）和程序全局区（Program Global Area，PGA）。</p>
-<h2 id="anchor_2"><a class="anchor-navigation-ex-anchor" href="#anchor_2" name="anchor_2"><i aria-hidden="true" class="fa fa-link"></i></a>1. SGA</h2>
+<h2 id="anchor_2">
+    <a class="anchor-navigation-ex-anchor" href="#anchor_2" name="anchor_2">
+        <i aria-hidden="true" class="fa fa-link"></i>
+    </a>1. SGA
+</h2>
 <p>SGA 是由 Oracle 分配的共享内存结构，包含一个数据库实例的数据和控制信息。SGA 数据供所有的服务器进程和后台进程共享，所以 SGA 又称为共享全局区（Shared Global Area）。用户对数据库的各种操作主要在 SGA 中进行。该内存区随数据库实例的创建而分配，随实例的终止而释放。</p>
 <p>SGA 主要由数据高速缓冲区（Database Buffer Cache）、共享池（Shared Pool）、重做日志缓冲区（Redo Log Cache）、大型池（Large Pool）、Java 池（Java Pool）、流池（Streams Pool）和其他结构（如固定 SGA、锁管理等）组成。</p>
 <ol>
@@ -182,7 +190,11 @@
 <p>流池大小由初始化参数 STREAMS_POOL_SIZE 设定。</p>
 </li>
 </ol>
-<h2 id="anchor_3"><a class="anchor-navigation-ex-anchor" href="#anchor_3" name="anchor_3"><i aria-hidden="true" class="fa fa-link"></i></a>2. PGA</h2>
+<h2 id="anchor_3">
+    <a class="anchor-navigation-ex-anchor" href="#anchor_3" name="anchor_3">
+        <i aria-hidden="true" class="fa fa-link"></i>
+    </a>2. PGA
+</h2>
 <p>Oracle 创建一个服务器进程的同时要为该服务器进程分配一个内存区，该内存区称为程序全局区（Program Global Area，PGA）。PGA 是一个私有的内存区，不能共享，每个服务器进程只能访问自己的 PGA，因此 PGA 又称为私有全局区（Private Global Area）。系统同时为每个后台进程分配私有的 PGA 区。所有服务器进程 PGA 与所有后台进程 PGA 大小的和，即为实例的 PGA 的大小。PGA 随着服务器进程与后台进程的启动而分配，随着服务器进程和后台进程终止而被释放。</p>
 <p>PGA 由下列 4 部分组成。</p>
 <ol>
