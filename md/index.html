@@ -145,7 +145,7 @@
 </h2>
 <pre class="line-numbers"><code class="lang-bash rainbow-braces">rm -rf /etc/yum.repos.d/*
 
-curl -o /etc/yum.repos.d/CentOS7.repo http://192.168.2.251/Centos/CentOS7.repo
+curl -o /etc/yum.repos.d/CentOS7.repo http://10.0.0.11/Centos/CentOS7.repo
 
 yum clean all
 
@@ -163,7 +163,7 @@ yum makecache
         <i aria-hidden="true" class="fa fa-link"></i>
     </a>3. 安装 Oracle
 </h2>
-<pre class="line-numbers"><code class="lang-bash rainbow-braces">rpm -ivh http://192.168.2.251/tools/oracle/oracle-xe-11.2.0-1.0.x86_64.rpm
+<pre class="line-numbers"><code class="lang-bash rainbow-braces">rpm -ivh http://10.0.0.11/tools/oracle/oracle-xe-11.2.0-1.0.x86_64.rpm
 </code></pre>
 <h2 id="anchor_5">
     <a class="anchor-navigation-ex-anchor" href="#anchor_5" name="anchor_5">
@@ -232,11 +232,11 @@ firewall-cmd --reload
     </a>8. 一键部署
 </h2>
 <pre class="line-numbers"><code class="lang-bash rainbow-braces">rm -rf /etc/yum.repos.d/*
-curl -o /etc/yum.repos.d/CentOS7.repo http://192.168.2.251/Centos/CentOS7.repo
+curl -o /etc/yum.repos.d/CentOS7.repo http://10.0.0.11/Centos/CentOS7.repo
 yum clean all
 yum makecache
 yum install -y libaio bc flex net-tools
-rpm -ivh http://192.168.2.251/tools/oracle/oracle-xe-11.2.0-1.0.x86_64.rpm
+rpm -ivh http://10.0.0.11/tools/oracle/oracle-xe-11.2.0-1.0.x86_64.rpm
 echo -e &quot;\n\n123456\n123456\ny&quot; | /etc/init.d/oracle-xe configure
 cat &gt;&gt; .bash_profile &lt;&lt; EOF
 . /u01/app/oracle/product/11.2.0/xe/bin/oracle_env.sh
