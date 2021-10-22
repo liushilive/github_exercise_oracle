@@ -1,8 +1,8 @@
 -- 创建用户
 create user scott
-  identified by "scott"
-  default tablespace USERS
-  profile DEFAULT;
+    identified by "scott"
+    default tablespace USERS
+    profile DEFAULT;
 -- 授予角色权限
 grant connect to SCOTT;
 grant resource to SCOTT;
@@ -13,43 +13,43 @@ grant unlimited tablespace to SCOTT;
 -- 创建表
 create table SCOTT.BONUS
 (
-  ENAME VARCHAR2(50),
-  JOB   VARCHAR2(20),
-  SAL   NUMBER,
-  COMM  NUMBER
+    ENAME VARCHAR2(50),
+    JOB   VARCHAR2(20),
+    SAL   NUMBER,
+    COMM  NUMBER
 );
 
 create table SCOTT.DEPT
 (
-  DEPTNO NUMBER(2) not null,
-  DNAME  VARCHAR2(14),
-  LOC    VARCHAR2(13)
+    DEPTNO NUMBER(2) not null,
+    DNAME  VARCHAR2(14),
+    LOC    VARCHAR2(13)
 );
 alter table SCOTT.DEPT
-  add constraint PK_DEPT primary key (DEPTNO);
+    add constraint PK_DEPT primary key (DEPTNO);
 
 create table SCOTT.EMP
 (
-  EMPNO    NUMBER(4) not null,
-  ENAME    VARCHAR2(50),
-  JOB      VARCHAR2(9),
-  MGR      NUMBER(4),
-  HIREDATE DATE,
-  SAL      NUMBER(7,2),
-  COMM     NUMBER(7,2),
-  DEPTNO   NUMBER(2)
+    EMPNO    NUMBER(4) not null,
+    ENAME    VARCHAR2(50),
+    JOB      VARCHAR2(20),
+    MGR      NUMBER(4),
+    HIREDATE DATE,
+    SAL      NUMBER(7, 2),
+    COMM     NUMBER(7, 2),
+    DEPTNO   NUMBER(2)
 );
 alter table SCOTT.EMP
-  add constraint PK_EMP primary key (EMPNO);
+    add constraint PK_EMP primary key (EMPNO);
 alter table SCOTT.EMP
-  add constraint FK_DEPTNO foreign key (DEPTNO)
-  references SCOTT.DEPT (DEPTNO);
+    add constraint FK_DEPTNO foreign key (DEPTNO)
+        references SCOTT.DEPT (DEPTNO);
 
 create table SCOTT.SALGRADE
 (
-  GRADE NUMBER,
-  LOSAL NUMBER,
-  HISAL NUMBER
+    GRADE NUMBER,
+    LOSAL NUMBER,
+    HISAL NUMBER
 );
 
 -- 插入数据
@@ -151,21 +151,21 @@ commit;
 --创建表
 create table SCOTT.STUDENT
 (
-  ID    NUMBER,
-  NAME  VARCHAR2(50)
+    ID   NUMBER,
+    NAME VARCHAR2(50)
 );
 
 create table SCOTT.ACHIEVEMENT
 (
-  ID    NUMBER,
-  MARK  NUMBER
+    ID   NUMBER,
+    MARK NUMBER
 );
 
 create table SCOTT.USERORGZ
 (
-  ID            NUMBER,
-  USERNAME      VARCHAR2(50),
-  MOBILEPHONE   NUMBER
+    ID          NUMBER,
+    USERNAME    VARCHAR2(50),
+    MOBILEPHONE NUMBER
 );
 
 --插入数据
@@ -215,38 +215,102 @@ insert into SCOTT.ACHIEVEMENT (ID, MARK)
 values (8, 88);
 
 insert into SCOTT.USERORGZ (ID, USERNAME, MOBILEPHONE)
-values (1, '张三'， 13115152323);
+values (1, '张三', 13115152323);
 
 insert into SCOTT.USERORGZ (ID, USERNAME, MOBILEPHONE)
-values (2, '李四'， 13115152324);
+values (2, '李四', 13115152324);
 
 insert into SCOTT.USERORGZ (ID, USERNAME, MOBILEPHONE)
-values (3, '王五'， 13115152325);
+values (3, '王五', 13115152325);
 
 insert into SCOTT.USERORGZ (ID, USERNAME, MOBILEPHONE)
-values (4, '小球'， 13115152323);
+values (4, '小球', 13115152323);
 
 insert into SCOTT.USERORGZ (ID, USERNAME, MOBILEPHONE)
-values (5, '李小龙'， 13115152324);
+values (5, '李小龙', 13115152324);
 
 insert into SCOTT.USERORGZ (ID, USERNAME, MOBILEPHONE)
-values (6, '王思'， 13115152325);
+values (6, '王思', 13115152325);
 
 insert into SCOTT.USERORGZ (ID, USERNAME, MOBILEPHONE)
-values (7, '小王'， 13115152326);
+values (7, '小王', 13115152326);
 
 insert into SCOTT.USERORGZ (ID, USERNAME, MOBILEPHONE)
-values (8, '小四'， 13115152323);
+values (8, '小四', 13115152323);
 
 insert into SCOTT.USERORGZ (ID, USERNAME, MOBILEPHONE)
-values (9, '小三'， 13115152327);
+values (9, '小三', 13115152327);
 
 insert into SCOTT.USERORGZ (ID, USERNAME, MOBILEPHONE)
-values (10, '小二'， 13115152328);
+values (10, '小二', 13115152328);
+
+create table SCOTT.STOCK
+(
+    MC VARCHAR2(50),
+    ZL NUMBER
+);
+
+create table SCOTT.SALES
+(
+    MC VARCHAR2(50),
+    SL NUMBER
+);
+
+insert into SCOTT.STOCK (MC, ZL)
+values ('A', 100);
+
+insert into SCOTT.STOCK (MC, ZL)
+values ('B', 150);
+
+insert into SCOTT.SALES (MC, SL)
+values ('A', 10);
+
+insert into SCOTT.SALES (MC, SL)
+values ('A', 20);
+
+insert into SCOTT.SALES (MC, SL)
+values ('B', 10);
+
+insert into SCOTT.SALES (MC, SL)
+values ('B', 20);
+
+insert into SCOTT.SALES (MC, SL)
+values ('B', 30);
+
+create table A (
+    月份 char(12),
+    部门 char(2),
+    业绩 number
+);
+
+insert into A 
+values('一月份', 'A', 10);
+
+insert into A 
+values('一月份', 'B', 10);
+
+insert into A 
+values('一月份', 'C', 5);
+
+insert into A 
+values('二月份', 'A', 8);
+
+insert into A 
+values('二月份', 'B', 9);
+
+insert into A 
+values('三月份', 'A', 8);
 
 commit;
 
-select * from SCOTT.DEPT;
-select * from SCOTT.EMP;
 select * from SCOTT.SALGRADE;
+
 select * from SCOTT.USERORGZ;
+
+select * from SCOTT.STOCK;
+
+select * from SCOTT.SALES;
+
+select * from SCOTT.DEPT;
+
+select * from SCOTT.EMP;
