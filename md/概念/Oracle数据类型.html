@@ -137,46 +137,28 @@
 <p>数据类型是在向数据表中存储数据前必须设定好的，就像如果要使用记事本查看文件内容，那么文件就要是文本的，不能有图片，否则图片是查看不了的，因为记事本中只能查看文本文件。</p>
 <p><a target=_Blank href="https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/Data-Types.html#GUID-7B72E154-677A-4342-A1EA-C74C1EA928E6">官网文档</a></p>
 <!-- <http://192.168.2.50:8080/apex/f?p=4950:1> -->
-<p>在 Oracle 11g 中提供的数据类型有 23 种，下面介绍常用的数据类型，并把数据类型分为字符型、数字型、日期类型和其他数据类型 4 类进行讲解。</p>
+<p>在 Oracle 11g 中提供的数据类型有 23 种，下面介绍常用的数据类型。</p>
 <h2 id="anchor_2">
     <a class="anchor-navigation-ex-anchor" href="#anchor_2" name="anchor_2">
         <i aria-hidden="true" class="fa fa-link"></i>
     </a>1. 字符型
 </h2>
-<p>字符型在 Oracle 11g 中有 varchar2、char、nchar、nvarchar2 和 long 五种，它们在数据库中是以 ASCII 码的格式存储的。下面用一个表格来讲解每种数据类型的作用。</p>
+<p>字符型在 Oracle 11g 中有 varchar2、char、nchar、nvarchar2 和 long 五种，它们在数据库中是以 ASCII 码的格式存储的。</p>
 <table>
 <thead>
 <tr>
 <th align="left">数据类型</th>
-<th align="center">取值范围（字节）</th>
 <th align="left">说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">varchar2</td>
-<td align="center">0 ~ 4000</td>
-<td align="left">可变长度的字符串</td>
+<td align="left">CHAR(n)</td>
+<td align="left">存储固定长度的字符串，长度以字节为单位，默认和最小字符数为 1，最大字符数为 2000</td>
 </tr>
 <tr>
-<td align="left">nvarchar2</td>
-<td align="center">0 ~ 1000</td>
-<td align="left">用来存储 Unicode 字符集的变长字符串型数据</td>
-</tr>
-<tr>
-<td align="left">char</td>
-<td align="center">0 ~ 2000</td>
-<td align="left">用于描述定长的字符型数据</td>
-</tr>
-<tr>
-<td align="left">nchar</td>
-<td align="center">0 ~ 1000</td>
-<td align="left">用来存储 Unicode 字符集的定长字符型数据</td>
-</tr>
-<tr>
-<td align="left">long</td>
-<td align="center">0 ~ 2GB</td>
-<td align="left">用来存储变长的字符串</td>
+<td align="left">VARCHAR2(n)</td>
+<td align="left">存储可变长度的字符串，长度以字节为单位，最小字符数是 1，最大字符数是 4000</td>
 </tr>
 </tbody>
 </table>
@@ -190,20 +172,13 @@
 <thead>
 <tr>
 <th align="left">数据类型</th>
-<th align="left">取值范围</th>
 <th align="left">说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">number(p, s)</td>
-<td align="left">p 最大精度是 38 位（十进制）</td>
-<td align="left">p 代表的是精度，s 代表的是保留的小数位数；可以用来存储定长整数和小数</td>
-</tr>
-<tr>
-<td align="left">float</td>
-<td align="left">用来存储 126 位数据（二进制）</td>
-<td align="left">存储的精度是按二进制计算的。精度范围为二进制的 1~126。在转化为十进制时需要乘以 0.30103</td>
+<td align="left">NUMBER(p, s)</td>
+<td align="left">可以存储 0、正数和负数。p 表示数值的总位数（精度），取值范围为 1～38；s 表示刻度，取值为−84～127</td>
 </tr>
 </tbody>
 </table>
@@ -222,12 +197,12 @@
 </thead>
 <tbody>
 <tr>
-<td align="left">date</td>
-<td align="left">用来存储日期和时间，范围在公元前 4712 年 1 月 1 日到公元 9999 年 12 月 31 日</td>
+<td align="left">DATE</td>
+<td align="left">用于存储日期和时间。可以存储的日期范围为公元前 4712 年 1 月 1 日到公元后 9999 年 12 月 31 日，占据 7 字节的空间，由世纪、年、月、日、时、分、秒组成</td>
 </tr>
 <tr>
-<td align="left">timestamp</td>
-<td align="left">用来存储日期和时间，与 date 类型的区别就是在显示日期和时间更精确，date 类型的时间精确到秒，而 timestamp 的数据类型可以精确到小数秒。此外，使用 timestamp 存放日期和时间还能够显示当前时上午还是下午</td>
+<td align="left">TIMESTAMP(n)</td>
+<td align="left">表示时间戳，是 DATE 数据类型的扩展，允许存储小数形式的秒值。p 表示秒的小数位数，取值范围为 0～9，默认值为 6</td>
 </tr>
 </tbody>
 </table>
@@ -247,19 +222,34 @@
 </thead>
 <tbody>
 <tr>
-<td align="left">blob</td>
-<td align="left">最多可以存放 4GB</td>
-<td align="left">存储二进制数据</td>
+<td align="left">CLOB</td>
+<td align="left">用于存储单字节或多字节的大型字符串对象，支持使用数据库字符集的定长或变长字符。在 Oracle 11g 中 CLOB 类型最大存储容量为 128TB</td>
+<td align="left"></td>
 </tr>
 <tr>
-<td align="left">clob</td>
-<td align="left">最多可以存放 4GB</td>
-<td align="left">存储字符串数据</td>
+<td align="left">BLOB</td>
+<td align="left">用于存储大型的、未被结构化的变长的二进制数据（如二进制文件、图片文件、音频和视频等非文本文件）。在 Oracle 11g 中 BLOB 类型最大存储容量为 128TB</td>
+<td align="left"></td>
 </tr>
 <tr>
-<td align="left">bfile</td>
-<td align="left">大小与操作系统有关</td>
-<td align="left">用来把非结构化的二进制数据存储在数据库以外的操作系统中</td>
+<td align="left">BFILE</td>
+<td align="left">用于存储指向二进制格式文件的定位器，该二进制文件保存在数据库外部的操作系统中。在 Oracle 11g 中 BFILE 文件最大容量为 128TB，不能通过数据库操作修改 BFILE 定位器所指向的文件</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">RAW(n)</td>
+<td align="left">用于存储变长的二进制数据，n 表示数据长度，取值范围为 1～2000 字节</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">LONG RAW</td>
+<td align="left">用于存储变长的二进制数据，最大存储数据量为 2GB。Oracle 建议使用 BLOB 类型代替 LONG RAW 类型</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">ROWID</td>
+<td align="left">行标识符，表示表中行的物理地址的伪列类型</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>

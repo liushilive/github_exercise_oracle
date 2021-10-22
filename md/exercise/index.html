@@ -138,9 +138,9 @@
         <i aria-hidden="true" class="fa fa-link"></i>
     </a>1. 表结构介绍
 </h2>
-<ul>
-<li>奖金表：bonus</li>
-</ul>
+<ol>
+<li>
+<p>奖金表：BONUS</p>
 <table>
 <thead>
 <tr>
@@ -153,33 +153,33 @@
 <tbody>
 <tr>
 <td align="left">1</td>
-<td align="left">ename</td>
+<td align="left">ENAME</td>
 <td align="left">VARCHAR2(50)</td>
-<td align="left">姓名</td>
+<td align="left">员工姓名</td>
 </tr>
 <tr>
 <td align="left">2</td>
-<td align="left">job</td>
-<td align="left">VARCHAR2(20)</td>
-<td align="left">职位</td>
+<td align="left">JOB</td>
+<td align="left">VARCHAR2(9)</td>
+<td align="left">工作岗位</td>
 </tr>
 <tr>
 <td align="left">3</td>
-<td align="left">sal</td>
+<td align="left">SAL</td>
 <td align="left">NUMBER</td>
-<td align="left">薪水</td>
+<td align="left">员工工资</td>
 </tr>
 <tr>
 <td align="left">4</td>
-<td align="left">comm</td>
+<td align="left">COMM</td>
 <td align="left">NUMBER</td>
 <td align="left">奖金（佣金）</td>
 </tr>
 </tbody>
 </table>
-<ul>
-<li>部门表：dept</li>
-</ul>
+</li>
+<li>
+<p>部门表：DEPT</p>
 <table>
 <thead>
 <tr>
@@ -210,9 +210,9 @@
 </tr>
 </tbody>
 </table>
-<ul>
-<li>雇员表：emp</li>
-</ul>
+</li>
+<li>
+<p>雇员表：EMP</p>
 <table>
 <thead>
 <tr>
@@ -239,7 +239,7 @@
 <td align="left">3</td>
 <td align="left">JOB</td>
 <td align="left">VARCHAR2(9)</td>
-<td align="left">员工工作</td>
+<td align="left">工作岗位</td>
 </tr>
 <tr>
 <td align="left">4</td>
@@ -263,7 +263,7 @@
 <td align="left">7</td>
 <td align="left">COMM</td>
 <td align="left">NUMBER(7,2)</td>
-<td align="left">员工奖金</td>
+<td align="left">奖金（佣金）</td>
 </tr>
 <tr>
 <td align="left">8</td>
@@ -273,9 +273,9 @@
 </tr>
 </tbody>
 </table>
-<ul>
-<li>薪水等级表：salgrade</li>
-</ul>
+</li>
+<li>
+<p>工资等级表：SALGRADE</p>
 <table>
 <thead>
 <tr>
@@ -290,7 +290,7 @@
 <td align="left">1</td>
 <td align="left">GRADE</td>
 <td align="left">NUMBER</td>
-<td align="left">等级</td>
+<td align="left">工资等级</td>
 </tr>
 <tr>
 <td align="left">2</td>
@@ -306,9 +306,63 @@
 </tr>
 </tbody>
 </table>
-<ul>
-<li>学生表：STUDENT</li>
-</ul>
+</li>
+<li>
+<p>库存表：STOCK</p>
+<table>
+<thead>
+<tr>
+<th align="left">序号</th>
+<th align="left">列名</th>
+<th align="left">类型</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">1</td>
+<td align="left">MC</td>
+<td align="left">VARCHAR2(50)</td>
+<td align="left">商品名称</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">ZL</td>
+<td align="left">NUMBER</td>
+<td align="left">商品总量</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>出库表：SALES</p>
+<table>
+<thead>
+<tr>
+<th align="left">序号</th>
+<th align="left">列名</th>
+<th align="left">类型</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">1</td>
+<td align="left">MC</td>
+<td align="left">VARCHAR2(50)</td>
+<td align="left">商品名称</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">SL</td>
+<td align="left">NUMBER</td>
+<td align="left">销售数量</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>学生表：STUDENT</p>
 <table>
 <thead>
 <tr>
@@ -333,9 +387,9 @@
 </tr>
 </tbody>
 </table>
-<ul>
-<li>成绩表：ACHIEVEMENT</li>
-</ul>
+</li>
+<li>
+<p>成绩表：ACHIEVEMENT</p>
 <table>
 <thead>
 <tr>
@@ -360,9 +414,9 @@
 </tr>
 </tbody>
 </table>
-<ul>
-<li>成绩表：userorgz</li>
-</ul>
+</li>
+<li>
+<p>学生表：USERORGZ</p>
 <table>
 <thead>
 <tr>
@@ -393,6 +447,8 @@
 </tr>
 </tbody>
 </table>
+</li>
+</ol>
 <h2 id="anchor_3">
     <a class="anchor-navigation-ex-anchor" href="#anchor_3" name="anchor_3">
         <i aria-hidden="true" class="fa fa-link"></i>
