@@ -127,66 +127,66 @@
             <div class="search-plus" id="book-search-results">
                 <div class="search-noresults">
                     <section class="normal markdown-section">
-                        <div id='anchor-navigation-ex-navbar'><i class='fa fa-anchor'></i><ul><li><span class='title-icon fa fa-hand-o-right'></span><a aria-label class='on-toolbar-action' href='' onclick="$('.fa.fa-align-justify').parent()[0].click();">目录</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_1'><b></b>Oracle 语法总结</a></li></ul></div><a href='#anchor_1' id='anchorNavigationExGoTop'><i class='fa fa-arrow-up'></i></a>
+                        <div id='anchor-navigation-ex-navbar'><i class='fa fa-anchor'></i><ul><li><span class='title-icon fa fa-hand-o-right'></span><a aria-label class='on-toolbar-action' href='' onclick="$('.fa.fa-align-justify').parent()[0].click();">目录</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_1'><b></b>oracle 语法总结</a></li></ul></div><a href='#anchor_1' id='anchorNavigationExGoTop'><i class='fa fa-arrow-up'></i></a>
                         <h1 id="anchor_1">
     <a class="anchor-navigation-ex-anchor" href="#anchor_1" name="anchor_1">
         <i aria-hidden="true" class="fa fa-link"></i>
-    </a>Oracle 语法总结
+    </a>oracle 语法总结
 </h1>
 <ul>
 <li>
-<p>CREATE</p>
-\[\textcolor{#228B22}{CREATE}
+<p>create</p>
+\[\textcolor{#228b22}{create}
 \begin{cases}
-  \textcolor{#228B22}{USER} \space \text{用户名} \space \textcolor{#228B22}{IDENTIFIED \space BY \space} \text{密码} \space[\textcolor{#228B22}{ACCOUNT \space LOCK}|\textcolor{#228B22}{UNLOCK}] ; \\
-  \textcolor{#228B22}{TABLE} \space \text{表名} ( \text{列名} \space \text{类型} \space [\textcolor{#228B22}{NULL}|\textcolor{#228B22}{NOT \space NULL}] \space [\textcolor{#228B22}{CONSTRAINT}]) ; \\
-  [\textcolor{#228B22}{OR \space replace}] \space [\textcolor{#228B22}{noforce} | \textcolor{#228B22}{force}] \space \textcolor{#228B22}{view} \space \text{视图名} \space \textcolor{#228B22}{AS} \space SELECT \text{查询} \space [\textcolor{#228B22}{with \space READ \space only}] ; \\
-  [\textcolor{#228B22}{UNIQUE}] \space \textcolor{#228B22}{INDEX} \space \text{索引名} \space \textcolor{#228B22}{ON} \space \text{表名} ( \text{列名} \space [ , \space \text{列名} …]) ;\\
+  \textcolor{#228b22}{user} \space \text{用户名} \space \textcolor{#228b22}{identified \space by \space} \text{密码} \space[\textcolor{#228b22}{account \space lock}|\textcolor{#228b22}{unlock}] ; \\
+  \textcolor{#228b22}{table} \space \text{表名} ( \text{列名} \space \text{类型} \space [\textcolor{#228b22}{null}|\textcolor{#228b22}{not \space null}] \space [\textcolor{#228b22}{constraint}]) ; \\
+  [\textcolor{#228b22}{or \space replace}] \space [\textcolor{#228b22}{noforce} | \textcolor{#228b22}{force}] \space \textcolor{#228b22}{view} \space \text{视图名} \space \textcolor{#228b22}{as} \space select \text{查询} \space [\textcolor{#228b22}{with \space read \space only}] ; \\
+  [\textcolor{#228b22}{unique}] \space \textcolor{#228b22}{index} \space \text{索引名} \space \textcolor{#228b22}{on} \space \text{表名} ( \text{列名} \space [ , \space \text{列名} …]) ;\\
 \end{cases}
 \]
 </li>
 <li>
-<p>ALTER</p>
-\[\textcolor{#228B22}{ALTER}
+<p>alter</p>
+\[\textcolor{#228b22}{alter}
 \begin{cases}
-  \textcolor{#228B22}{USER} \space \text{用户名} \space{
+  \textcolor{#228b22}{user} \space \text{用户名} \space{
     \begin{cases}
-      \textcolor{#228B22}{IDENTIFIED \space BY} \space \text{新密码} ; \\
-      \textcolor{#228B22}{ACCOUNT \space LOCK}|\textcolor{#228B22}{UNLOCK};
+      \textcolor{#228b22}{identified \space by} \space \text{新密码} ; \\
+      \textcolor{#228b22}{account \space lock}|\textcolor{#228b22}{unlock};
     \end{cases}
   } \\
-  \textcolor{#228B22}{TABLE} \space \text{表名} \space{
+  \textcolor{#228b22}{table} \space \text{表名} \space{
     \begin{cases}
-      \textcolor{#228B22}{ADD} \space {
+      \textcolor{#228b22}{add} \space {
         \begin{cases}
           \text{列名} \space \text{列类型} \space \text{列约束} ; \\
-          \textcolor{#228B22}{CONSTRAINT} \space \text{约束名} \space {
+          \textcolor{#228b22}{constraint} \space \text{约束名} \space {
             \begin{cases}
-              \textcolor{#228B22}{PRIMARY \space KEY}( \text{列名} ) ; \\
-              \textcolor{#228B22}{FOREIGN \space KEY}( \text{列名} ) \space \textcolor{#228B22}{REFERENCES} \space \text{参照表} ( \text{参照列} ) ; \\
-              \textcolor{#228B22}{UNIQUE} ( \text{列名} ) ; \\
-              \textcolor{#228B22}{CHECK} ( \text{条件} ) ; \\
+              \textcolor{#228b22}{primary \space key}( \text{列名} ) ; \\
+              \textcolor{#228b22}{foreign \space key}( \text{列名} ) \space \textcolor{#228b22}{references} \space \text{参照表} ( \text{参照列} ) ; \\
+              \textcolor{#228b22}{unique} ( \text{列名} ) ; \\
+              \textcolor{#228b22}{check} ( \text{条件} ) ; \\
             \end{cases}
           }
         \end{cases}
       } \\
-      \textcolor{#228B22}{DROP} \space {
+      \textcolor{#228b22}{drop} \space {
         \begin{cases}
-          \textcolor{#228B22}{COLUMN} \space \text{列名} ; \\
-          \textcolor{#228B22}{CONSTRAINT} \space \text{约束名} ;
+          \textcolor{#228b22}{column} \space \text{列名} ; \\
+          \textcolor{#228b22}{constraint} \space \text{约束名} ;
         \end{cases}
       } \\
-      \textcolor{#228B22}{MODIFY} \space \text{列名} \space {
+      \textcolor{#228b22}{modify} \space \text{列名} \space {
         \begin{cases}
           \text{数据类型}; \\
-          \textcolor{#228B22}{NOT \space NULL} | \textcolor{#228B22}{NULL} ; \\
-          \textcolor{#228B22}{DEFAULT} \space \text{默认值} | \textcolor{#228B22}{NULL};
+          \textcolor{#228b22}{not \space null} | \textcolor{#228b22}{null} ; \\
+          \textcolor{#228b22}{default} \space \text{默认值} | \textcolor{#228b22}{null};
         \end{cases}
       } \\
-      \textcolor{#228B22}{RENAME} \space {
+      \textcolor{#228b22}{rename} \space {
         \begin{cases}
-          \textcolor{#228B22}{TO} \space \text{新表名}; \\
-          \textcolor{#228B22}{COLUMN} \space \text{列名} \space \textcolor{#228B22}{TO} \space \text{新列名};
+          \textcolor{#228b22}{to} \space \text{新表名}; \\
+          \textcolor{#228b22}{column} \space \text{列名} \space \textcolor{#228b22}{to} \space \text{新列名};
         \end{cases}
       }
     \end{cases}
@@ -195,120 +195,120 @@
 \]
 </li>
 <li>
-<p>DROP</p>
-\[\textcolor{#228B22}{DROP}
+<p>drop</p>
+\[\textcolor{#228b22}{drop}
 \begin{cases}
-  \textcolor{#228B22}{USER} \space \text{用户名} \space [\textcolor{#228B22}{CASCADE}] ; \\
-  \textcolor{#228B22}{TABLE} \space \text{表名} ; \\
-  \textcolor{#228B22}{VIEW} \space \text{视图名} ; \\
-  \textcolor{#228B22}{INDEX} \space \text{索引名} ; \\
+  \textcolor{#228b22}{user} \space \text{用户名} \space [\textcolor{#228b22}{cascade}] ; \\
+  \textcolor{#228b22}{table} \space \text{表名} ; \\
+  \textcolor{#228b22}{view} \space \text{视图名} ; \\
+  \textcolor{#228b22}{index} \space \text{索引名} ; \\
 \end{cases}
 \]
 </li>
 <li>
 <p><strong>语法结构</strong>：查询</p>
-<pre class="line-numbers"><code class="lang-sql rainbow-braces">SELECT [DISTINCT] *|列|表达式
-FROM A
-JOIN B              --内连接
-  ON 表之间关联的条件
-RIGHT JOIN C        --右外连接
-  ON 表之间关联的条件
-LEFT JOIN D         --左外连接
-  ON 表之间关联的条件
-FULL JOIN E         --全连接
-  ON 表之间关联的条件
-WHERE 结果筛选条件
-GROUP BY 分组列
-  HAVING 分组后结果筛选
-ORDER BY 排序列 [ASC|DESC];
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">select [distinct] *|列|表达式
+from a
+join b              --内连接
+  on 表之间关联的条件
+right join c        --右外连接
+  on 表之间关联的条件
+left join d         --左外连接
+  on 表之间关联的条件
+full join e         --全连接
+  on 表之间关联的条件
+where 结果筛选条件
+group by 分组列
+  having 分组后结果筛选
+order by 排序列 [asc|desc];
 </code></pre>
 </li>
 <li>
 <p><strong>语法结构</strong>：创建用户</p>
-<pre class="line-numbers"><code class="lang-sql rainbow-braces">CREATE USER 用户名 IDENTIFIED BY 口令 [ACCOUNT LOCK|UNLOCK];
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">create user 用户名 identified by 口令 [account lock|unlock];
 </code></pre>
 </li>
 <li>
 <p><strong>语法结构</strong>：修改用户的密码</p>
-<pre class="line-numbers"><code class="lang-sql rainbow-braces">ALTER USER 用户名 IDENTIFIED BY 新密码;
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">alter user 用户名 identified by 新密码;
 </code></pre>
 </li>
 <li>
 <p><strong>语法结构</strong>：修改用户处于锁定（非锁定）状态</p>
-<pre class="line-numbers"><code class="lang-sql rainbow-braces">ALTER USER 用户名 ACCOUNT LOCK|UNLOCK;
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">alter user 用户名 account lock|unlock;
 </code></pre>
 </li>
 <li>
 <p><strong>语法结构</strong>：删除用户</p>
-<pre class="line-numbers"><code class="lang-sql rainbow-braces">DROP USER 用户名 CASCADE;
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">drop user 用户名 cascade;
 </code></pre>
 </li>
 <li>
 <p><strong>语法结构</strong>：授予权限</p>
-<pre class="line-numbers"><code class="lang-sql rainbow-braces">GRANT 角色|权限 TO 用户|角色;
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">grant 角色|权限 to 用户|角色;
 </code></pre>
 </li>
 <li>
 <p><strong>语法结构</strong>：回收权限</p>
-<pre class="line-numbers"><code class="lang-sql rainbow-braces">REVOKE 角色|权限 FROM 用户|角色;
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">revoke 角色|权限 from 用户|角色;
 </code></pre>
 </li>
 <li>
 <p><strong>语法结构</strong>：创建表</p>
-<pre class="line-numbers"><code class="lang-sql rainbow-braces">CREATE TABLE 表名(
-  列名1 类型 [NULL | NOT NULL] [CONSTRAINT],
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">create table 表名(
+  列名1 类型 [null | not null] [constraint],
   类名2 类型
 );
 </code></pre>
 </li>
 <li>
 <p><strong>语法结构</strong>：修改表名</p>
-<pre class="line-numbers"><code class="lang-sql rainbow-braces">RENAME 原表名 TO 新表名;
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">rename 原表名 to 新表名;
 </code></pre>
 </li>
 <li>
 <p><strong>语法结构</strong>：添加列</p>
-<pre class="line-numbers"><code class="lang-sql rainbow-braces">ALTER TABLE 表名 ADD 列名 列类型 列约束;
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">alter table 表名 add 列名 列类型 列约束;
 </code></pre>
 </li>
 <li>
 <p><strong>语法结构</strong>：删除列</p>
-<pre class="line-numbers"><code class="lang-sql rainbow-braces">ALTER TABLE 表名 DROP COLUMN 列名;
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">alter table 表名 drop column 列名;
 </code></pre>
 </li>
 <li>
 <p><strong>语法结构</strong>： 删除表</p>
-<pre class="line-numbers"><code class="lang-sql rainbow-braces">DROP TABLE 表名;
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">drop table 表名;
 </code></pre>
 </li>
 <li>
 <p><strong>语法结构</strong>：添加约束</p>
-<pre class="line-numbers"><code class="lang-sql rainbow-braces">ALTER TABLE 表名 ADD CONSTRAINT 约束名 约束内容;
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">alter table 表名 add constraint 约束名 约束内容;
 </code></pre>
 </li>
 <li>
 <p><strong>语法结构</strong>：删除约束</p>
-<pre class="line-numbers"><code class="lang-sql rainbow-braces">ALTER TABLE 表名 DROP CONSTRAINT 约束名;
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">alter table 表名 drop constraint 约束名;
 </code></pre>
 </li>
 <li>
 <p>语法结构：数据插入</p>
-<pre class="line-numbers"><code class="lang-sql rainbow-braces">INSERT INTO 表名(列名 1，列名 2……) VALUES (值 1，值 2……)
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">insert into 表名(列名 1，列名 2……) values (值 1，值 2……)
 </code></pre>
 </li>
 <li>
 <p>语法结构：更新数据</p>
-<pre class="line-numbers"><code class="lang-sql rainbow-braces">UPDATE 表名 SET 列名1=值,列名2=值 WHERE 条件;
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">update 表名 set 列名1=值,列名2=值 where 条件;
 </code></pre>
 </li>
 <li>
 <p>语法结构：删除数据</p>
-<pre class="line-numbers"><code class="lang-sql rainbow-braces">DELETE FROM 表名 WHERE 条件;
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">delete from 表名 where 条件;
 </code></pre>
 </li>
 <li>
 <p>语法结构：删除全部数据！！ 无法回滚，高危！</p>
-<pre class="line-numbers"><code class="lang-sql rainbow-braces">TRUNCATE TABLE 表名;
+<pre class="line-numbers"><code class="lang-sql rainbow-braces">truncate table 表名;
 </code></pre>
 </li>
 </ul>
