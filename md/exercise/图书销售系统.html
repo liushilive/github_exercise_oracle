@@ -161,7 +161,7 @@
    <tr><td>ISBN<td>VARCHAR2<td>50<td>PRIMARY KEY<td>图书号
    <tr><td>title<td>VARCHAR2<td>50<td><td>图书名
    <tr><td>author<td>VARCHAR2<td>50<td><td>作者
-   <tr><td>pubdate<td>DATE<td><td><td>出版社
+   <tr><td>pubdate<td>DATE<td><td><td>出版日期
    <tr><td>publisher_id<td>NUMBER<td>2<td>FOREIGN KEY<td>出版社 ID
    <tr><td>cost<td>NUMBER<td>6,2<td><td>批发（大于 10 本）价格
    <tr><td>retail<td>NUMBER<td>6,2<td><td>零售价格
@@ -193,18 +193,73 @@
    <tr><td>minretail<td>NUMBER<td>5,2<td>NOT NULL<td>图书最低价
    <tr><td>maxretial<td>NUMBER<td>5,2<td><td>图书最高价
  </table>
-</li>
-<li>
-<p>在 BOOKS 表的 title 列上创建一个非唯一性索引。</p>
-</li>
-<li>
-<p>在 ORDERS 表的 ISBN 列上创建一个唯一性索引。</p>
-</li>
-<li>
-<p>创建一个视图 customers_book，描述客户与订单的详细信息，包括客户编号、客户名单、订购图书的 ISBN、图书名称、图书数量、订货日期、发货日期等。</p>
-</li>
-<li>
-<p>创建一个视图 customers_gift，描述客户获得礼品的信息，包括客户名称、图书总价、礼品名称。</p>
+<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx1"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx1"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql rainbow-braces">create table customers
+(
+    customer_id number(4) primary key,
+    name        char(20)     not null,
+    phone       varchar2(50) not null,
+    email       varchar2(50),
+    address     varchar2(200),
+    code        varchar2(10)
+);
+
+create table publishers
+(
+    publisher_id number(2) primary key,
+    name         varchar2(50),
+    contact      char(10),
+    phone        varchar2(50)
+);
+
+create table books
+(
+    isbn         varchar2(50) primary key,
+    title        varchar2(50),
+    author       varchar2(50),
+    pubdate      date,
+    publisher_id number(2),
+    cost         number(6, 2),
+    retail       number(6, 2),
+    category     varchar2(50)
+);
+alter table books
+    add constraint fk_books_publisher_id foreign key (publisher_id)
+        references publishers (publisher_id);
+
+create table orders
+(
+    order_id    number(4) primary key,
+    customer_id number(4),
+    orderdate   date not null,
+    shipdate    date,
+    shipaddress varchar2(200),
+    shipcode    varchar2(10)
+);
+alter table orders
+    add constraint fk_orders_customer_id foreign key (customer_id)
+        references customers (customer_id);
+
+create table orderitem
+(
+    order_id number(4),
+    item_id  number(4),
+    isbn     varchar2(50) not null,
+    quantity number(4)
+);
+alter table orderitem
+    add constraint pk_orderitem_order_id_item_id primary key (order_id, item_id);
+alter table orderitem
+    add constraint fk_orderitem_order_id foreign key (order_id)
+        references orders (order_id);
+
+create table promotion
+(
+    gift_id   number(2),
+    name      char(20) primary key,
+    minretail number(5, 2) not null,
+    maxretial number(5, 2)
+);
+</code></pre></div></div></div></sec>
 </li>
 <li>
 <p>将表 A-7 至表 A-12 中的数据插入数据库的相应表中。</p>
@@ -236,7 +291,7 @@
    <caption>表A-11 ORDERITEM</caption>
    <tr><th>order_id<th>item_id<th>ISBN<th>quantity
    <tr><td>1000<td>1<td>978-7-121-18619-8<td>5
-   <tr><td>1000<td>2<td>978-7-121-18619-8<td>20
+   <tr><td>1000<td>2<td>978-7-122-18619-8<td>20
    <tr><td>1001<td>1<td>978-7-121-18619-8<td>15
  </table>
  <table>
@@ -246,93 +301,277 @@
    <tr><td>2<td>笔记本<td>150<td>300
    <tr><td>3<td>保温杯<td>300<td>500
  </table>
+<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx2"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx2"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql rainbow-braces">insert into customers
+values (1, &#x27;王牧&#x27;, &#x27;83823422&#x27;, &#x27;Wangmu@sina.com&#x27;, &#x27;北京&#x27;, &#x27;110010&#x27;);
+insert into customers
+values (2, &#x27;李青&#x27;, &#x27;83824566&#x27;, &#x27;Liqing@sina.com&#x27;, &#x27;大连&#x27;, &#x27;116023&#x27;);
+
+insert into publishers
+values (1, &#x27;电子工业出版社&#x27;, &#x27;张芳&#x27;, &#x27;56231234&#x27;);
+insert into publishers
+values (2, &#x27;机械工业出版社&#x27;, &#x27;孙翔&#x27;, &#x27;89673456&#x27;);
+
+insert into books
+values (&#x27;978-7-121-18619-8&#x27;, &#x27;文件化基础&#x27;, &#x27;王澜&#x27;, to_date(&#x27;2010-1-1&#x27;, &#x27;YYYY-MM-DD&#x27;), 2, 35, 28, &#x27;管理&#x27;);
+insert into books
+values (&#x27;978-7-122-18619-8&#x27;, &#x27;Oracle&#x27;, &#x27;孙风栋&#x27;, to_date(&#x27;2011-2-1&#x27;, &#x27;YYYY-MM-DD&#x27;), 1, 40, 32, &#x27;计算机&#x27;);
+
+insert into orders
+values (1000, 1, to_date(&#x27;2013-2-1&#x27;, &#x27;YYYY-MM-DD&#x27;), to_date(&#x27;2013-2-5&#x27;, &#x27;YYYY-MM-DD&#x27;), &#x27;大连&#x27;, &#x27;116023&#x27;);
+insert into orders
+values (1001, 2, to_date(&#x27;2013-3-1&#x27;, &#x27;YYYY-MM-DD&#x27;), to_date(&#x27;2013-3-10&#x27;, &#x27;YYYY-MM-DD&#x27;), &#x27;大连&#x27;, &#x27;116023&#x27;);
+
+insert into orderitem
+values (1000, 1, &#x27;978-7-121-18619-8&#x27;, 5);
+insert into orderitem
+values (1000, 2, &#x27;978-7-122-18619-8&#x27;, 20);
+insert into orderitem
+values (1001, 1, &#x27;978-7-121-18619-8&#x27;, 15);
+
+insert into promotion
+values (1, &#x27;签字笔&#x27;, 100, 150);
+insert into promotion
+values (2, &#x27;笔记本&#x27;, 150, 300);
+insert into promotion
+values (3, &#x27;保温杯&#x27;, 300, 500);
+</code></pre></div></div></div></sec>
 </li>
 <li>
 <p>将 ISBN 为 978-7-121-18619-8 的图书的零售价格（retail）修改为 30。</p>
+<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx3"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx3"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql rainbow-braces">update books
+set retail = 30
+where isbn = &#x27;978-7-121-18619-8&#x27;;
+</code></pre></div></div></div></sec>
 </li>
 <li>
 <p>将订单号为 1000 的订单的发货日期修改为“2013-2-2”。</p>
+<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx4"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx4"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql rainbow-braces">update orders
+set shipdate = to_date(&#x27;2013-2-2&#x27;, &#x27;YYYY-MM-DD&#x27;)
+where order_id = 1000;
+</code></pre></div></div></div></sec>
 </li>
 <li>
 <p>查询 BOOKS 表中包含的所有图书列表。</p>
+<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx5"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx5"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql rainbow-braces">select *
+from books;
+</code></pre></div></div></div></sec>
 </li>
 <li>
 <p>列出 BOOKS 表中有图书类型非空的图书书名。</p>
+<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx6"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx6"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql rainbow-braces">select title
+from books
+where category is not null;
+</code></pre></div></div></div></sec>
 </li>
 <li>
 <p>列出 BOOKS 表中每本书的书名和出版日期，对 pubdate 字段使用 Publication Date 列标题。</p>
+<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx7"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx7"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql rainbow-braces">select title, pubdate &quot;Publication Date&quot;
+from books;
+</code></pre></div></div></div></sec>
 </li>
 <li>
 <p>列出 CUSTOMERS 表中每一个客户的客户号及他们所在的地址。</p>
+<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx8"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx8"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql rainbow-braces">select customer_id, address
+from customers;
+</code></pre></div></div></div></sec>
 </li>
 <li>
 <p>创建一个包含各个出版社的名称、联系人及出版社电话号码的列表。其中，联系人的列在显示的结果中重命名为 Contact Person。</p>
+<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx9"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx9"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql rainbow-braces">select name, contact &quot;Contact Person&quot;, phone
+from publishers;
+</code></pre></div></div></div></sec>
 </li>
 <li>
 <p>查询下达了订单的每一个客户的客户号。</p>
+<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx10"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx10"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql rainbow-braces">select distinct customer_id
+from orders;
+</code></pre></div></div></div></sec>
 </li>
 <li>
 <p>查询 2013 年 3 月 1 日之后发货的订单。</p>
+<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx11"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx11"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql rainbow-braces">select *
+from orders
+where shipdate &gt; to_date(&#x27;2013-3-1&#x27;, &#x27;YYYY-MM-DD&#x27;);
+</code></pre></div></div></div></sec>
 </li>
 <li>
 <p>查询居住在北京或大连的客户，将结果按姓名的升序排列。</p>
+<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx12"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx12"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql rainbow-braces">select *
+from customers
+where address in (&#x27;北京&#x27;, &#x27;大连&#x27;)
+order by name asc;
+</code></pre></div></div></div></sec>
 </li>
 <li>
 <p>列出姓“王”的作者编写的所有图书信息，并将结果按姓名降序排序。</p>
+<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx13"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx13"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql rainbow-braces">select *
+from books
+where author like &#x27;王%&#x27;
+order by author desc;
+</code></pre></div></div></div></sec>
 </li>
 <li>
 <p>查询“儿童”类和“烹饪”类的所有图书。</p>
+<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx14"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx14"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql rainbow-braces">select *
+from books
+where category in (&#x27;儿童&#x27;, &#x27;烹饪&#x27;);
+</code></pre></div></div></div></sec>
 </li>
 <li>
 <p>查询书名的第二个字母是“A”、第四个字母是“N”的图书信息。</p>
+<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx15"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx15"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql rainbow-braces">select *
+from books
+where title like &#x27;_A_N%&#x27;;
+</code></pre></div></div></div></sec>
 </li>
 <li>
 <p>查询电子工业出版社在 2012 年出版的所有“计算机”类图书的名称。</p>
+<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx16"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx16"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql rainbow-braces">select *
+from books b
+join publishers p
+    on to_char(b.pubdate, &#x27;YYYY&#x27;) = 2012
+        and b.category = &#x27;计算机&#x27;;
+        and p.publisher_id = b.publisher_id
+        and p.name = &#x27;电子工业出版社&#x27;
+</code></pre></div></div></div></sec>
 </li>
 <li>
 <p>查询图书名称、出版社名称、出版社联系人的名称和电话号码。</p>
+<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx17"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx17"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql rainbow-braces">select b.title, p.name, p.contact, p.phone
+from books b
+    join publishers p
+        on p.publisher_id = b.publisher_id;
+</code></pre></div></div></div></sec>
 </li>
 <li>
 <p>查询当前还没有发货的订单信息及下达订单的用户名，查询结果按下达订单日期排序。</p>
+<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx18"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx18"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql rainbow-braces">select o.*, c.name
+from orders o
+join customers c
+    on c.customer_id = o.customer_id
+        and o.shipdate is null
+order by o.orderdate;
+</code></pre></div></div></div></sec>
 </li>
 <li>
 <p>查询已经购买了“计算机”类图书的所有人的客户号和姓名。</p>
+<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx19"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx19"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql rainbow-braces">select c.customer_id, c.name
+from orders o
+join customers c
+    on c.customer_id = o.customer_id
+join orderitem o1
+    on o1.order_id = o.order_id
+join books b
+    on o1.isbn = b.isbn
+where b.category = &#x27;计算机&#x27;;
+</code></pre></div></div></div></sec>
 </li>
 <li>
 <p>查询“王牧”购买的图书的 ISBN 以及书名。</p>
+<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx20"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx20"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql rainbow-braces">select b.isbn, b.title
+from orders o
+join customers c
+    on c.customer_id = o.customer_id
+join orderitem o1
+    on o1.order_id = o.order_id
+join books b
+    on o1.isbn = b.isbn
+where c.name = &#x27;王牧&#x27;;
+</code></pre></div></div></div></sec>
 </li>
 <li>
 <p>查询订购图书“Oracle 数据库基础”的客户将收到什么样的礼品。</p>
+<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx21"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx21"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql rainbow-braces">select c.name, p.name
+from (
+    select t1.order_id, sum(t1.总价) 订单总价
+    from (
+        select o1.order_id, sum(o1.quantity) * (case when sum(o1.quantity) &gt; 10 then b.cost else b.retail end) 总价
+        from orderitem o1
+        join books b
+            on o1.isbn = b.isbn
+        group by o1.order_id, b.cost, b.retail
+    ) t1
+    group by t1.order_id
+) t2,
+promotion p,
+orders o1,
+customers c,
+orderitem o2,
+books b2
+where t2.订单总价 between p.minretail and p.maxretial
+    and t2.order_id = o1.order_id
+    and o1.customer_id = c.customer_id
+    and o1.order_id = o2.order_id
+    and o2.isbn = b2.isbn
+    and b2.title = &#x27;Oracle&#x27;;
+</code></pre></div></div></div></sec>
 </li>
 <li>
 <p>确定客户“张扬”订购的图书的作者。</p>
+<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx22"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx22"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql rainbow-braces">select b.author
+from customers c1
+join orders o1
+    on c1.customer_id = o1.customer_id
+join orderitem o2
+    on o1.order_id = o2.order_id
+join books b
+    on o2.isbn = b.isbn
+where c1.name = &#x27;张扬&#x27;;
+</code></pre></div></div></div></sec>
 </li>
 <li>
 <p>查询 CUSTOMERS 表中的每一个客户所下达的订单数量。</p>
+<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx23"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx23"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql rainbow-braces">select c1.name, count(*)
+from customers c1
+join orders o1
+    on c1.customer_id = o1.customer_id
+group by c1.customer_id, c1.name;
+</code></pre></div></div></div></sec>
 </li>
 <li>
 <p>查询价格低于同一种类图书的平均价格的图书的信息。</p>
+<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx24"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx24"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql rainbow-braces">select *
+from books b1
+where retail &lt; (
+    select avg(retail)
+    from books b2
+    where b1.category = b2.category
+);
+</code></pre></div></div></div></sec>
 </li>
 <li>
 <p>查询每个出版社出版图书的平均价格、最高价格、最低价格。</p>
+<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx25"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx25"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql rainbow-braces">select p.name, avg(b.retail), max(b.retail), min(b.retail)
+from books b, publishers p
+where b.publisher_id = p.publisher_id
+group by b.publisher_id,p.name;
+</code></pre></div></div></div></sec>
 </li>
 <li>
 <p>统计每个客户购买图书的数量及总价钱。</p>
-</li>
-<li>
-<p>查询比 1000 号订单中图书数量多的其他订单信息。</p>
-</li>
-<li>
-<p>查询所有客户及其订购图书的信息。</p>
-</li>
-<li>
-<p>查询没有订购任何图书的客户信息。</p>
-</li>
-<li>
-<p>查询订购金额最高的客户信息。</p>
-</li>
-<li>
-<p>查询名为“赵敏”的客户订购图书的订单信息、订单明细。</p>
+<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx26"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx26"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql rainbow-braces">select customer_id, name, sum(总数量), sum(订单总价)
+from (
+    select c2.customer_id, c2.name, t2.*
+    from (
+        select t1.order_id, sum(t1.数量) 总数量, sum(t1.总价) 订单总价
+        from (
+            select o1.order_id,
+                sum(o1.quantity) 数量,
+                sum(o1.quantity) * (case when sum(o1.quantity) &gt; 10 then b.cost else b.retail end) 总价
+            from orderitem o1
+            join books b
+                on o1.isbn = b.isbn
+            group by o1.order_id, b.cost, b.retail
+        ) t1
+        group by t1.order_id
+    ) t2,
+    orders o,
+    customers c2
+    where t2.order_id = o.order_id
+        and o.customer_id = c2.customer_id
+)
+group by customer_id, name;
+</code></pre></div></div></div></sec>
 </li>
 </ol>
 
@@ -384,7 +623,7 @@ setTimeout('busuanzi()', 2000);
                 "next_page_link": ""
             },
             "basePath": "../..",
-            "js": {}
+            "js": {'prism': ['../../../asserts/lsbook/prismjs/clipboard.min.js', '../../../asserts/lsbook/prismjs/prism.js']}
         });
     });
 </script>
