@@ -179,11 +179,11 @@
  </table>
  <table>
    <caption>表A-5 ORDERITEM</caption>
-   <tr><th>字段名<th>数据类型<th>长度<th colspan=2>约束<th>说明
-   <tr><td>order_id<td>NUMBER<td>4<td>FOREIGN KEY<td rowspan=2>PRIMARY KEY<td>订单号
+   <tr><th>字段名<th>数据类型<th>长度<th>约束<th>说明
+   <tr><td>order_id<td>NUMBER<td>4<td>FOREIGN KEY<td>订单号
    <tr><td>item_id<td>NUMBER<td>4<td><td>订单明细号
-   <tr><td>ISBN<td>VARCHAR2<td>50<td colspan=2>NOT NULL<td>图书编号
-   <tr><td>quantity<td>NUMBER<td>4<td colspan=2><td>图书数量
+   <tr><td>ISBN<td>VARCHAR2<td>50<td>NOT NULL<td>图书编号
+   <tr><td>quantity<td>NUMBER<td>4<td><td>图书数量
  </table>
  <table>
    <caption>表A-6 PROMOTION</caption>
@@ -246,8 +246,6 @@ create table orderitem
     isbn     varchar2(50) not null,
     quantity number(4)
 );
-alter table orderitem
-    add constraint pk_orderitem_order_id_item_id primary key (order_id, item_id);
 alter table orderitem
     add constraint fk_orderitem_order_id foreign key (order_id)
         references orders (order_id);
