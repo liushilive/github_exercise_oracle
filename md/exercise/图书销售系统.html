@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-<title>Oracle 相关 - Oracle 练习 0007</title>
+<title>Oracle 相关 - 图书销售系统</title>
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="" name="description">
 <meta content="刘士" name="author">
@@ -20,7 +20,7 @@
       rel="apple-touch-icon-precomposed" sizes="152x152">
 <link href="../../../asserts/lsbook/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
 <!--分页-->
-<link href="0008.html" rel="next"/>
+<link href="" rel="next"/>
 </head>
 <body>
 <div class="book match-braces"><div class="book-summary">
@@ -50,7 +50,7 @@
 <li class="chapter" data-level="1.5.4" data-path="0004.html"><a href="0004.html" title="Oracle 练习 0004"><b>1.5.4.</b>Oracle 练习 0004</a></li>
 <li class="chapter" data-level="1.5.5" data-path="0005.html"><a href="0005.html" title="Oracle 练习 0005"><b>1.5.5.</b>Oracle 练习 0005</a></li>
 <li class="chapter" data-level="1.5.6" data-path="0006.html"><a href="0006.html" title="Oracle 练习 0006"><b>1.5.6.</b>Oracle 练习 0006</a></li>
-<li class="chapter active" data-level="1.5.7" data-path="0007.html"><a href="0007.html" title="Oracle 练习 0007"><b>1.5.7.</b>Oracle 练习 0007</a></li>
+<li class="chapter" data-level="1.5.7" data-path="0007.html"><a href="0007.html" title="Oracle 练习 0007"><b>1.5.7.</b>Oracle 练习 0007</a></li>
 <li class="chapter" data-level="1.5.8" data-path="0008.html"><a href="0008.html" title="Oracle 练习 0008"><b>1.5.8.</b>Oracle 练习 0008</a></li></ul>
 <hr />
 <ul class="articles"><li class="chapter" data-level="1.5.9" data-path="1001.html"><a href="1001.html" title="Oracle 练习 1001"><b>1.5.9.</b>Oracle 练习 1001</a></li>
@@ -102,7 +102,7 @@
 <li class="chapter" data-level="1.5.53" data-path="3004.html"><a href="3004.html" title="Oracle 练习 3004"><b>1.5.53.</b>Oracle 练习 3004</a></li></ul>
 <hr />
 <ul class="articles"><li class="chapter" data-level="1.5.54" data-path="选择题.html"><a href="选择题.html" title="Oracle 选择题"><b>1.5.54.</b>Oracle 选择题</a></li>
-<li class="chapter" data-level="1.5.55" data-path="图书销售系统.html"><a href="图书销售系统.html" title="图书销售系统"><b>1.5.55.</b>图书销售系统</a></li></ul></li></ul>
+<li class="chapter active" data-level="1.5.55" data-path="图书销售系统.html"><a href="图书销售系统.html" title="图书销售系统"><b>1.5.55.</b>图书销售系统</a></li></ul></li></ul>
             <li class="divider"></li>
             <li>
                 <a class="lsbook-link" href="https://github.com/liushilive/lsbook" target="blank">
@@ -119,7 +119,7 @@
         <!-- Title -->
         <h1>
             <i class="fa fa-circle-o-notch fa-spin"></i>
-            <a href="../..">Oracle 练习 0007</a>
+            <a href="../..">图书销售系统</a>
         </h1>
     </div>
 
@@ -128,74 +128,213 @@
             <div class="search-plus" id="book-search-results">
                 <div class="search-noresults">
                     <section class="normal markdown-section">
-                        <div id='anchor-navigation-ex-navbar'><i class='fa fa-anchor'></i><ul><li><span class='title-icon fa fa-hand-o-right'></span><a aria-label class='on-toolbar-action' href='' onclick="$('.fa.fa-align-justify').parent()[0].click();">目录</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_1'><b></b>Oracle 练习</a></li><ul><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_2'><b>1. </b>题目</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_3'><b>2. </b>实例</a></li></ul></ul></div><a href='#anchor_1' id='anchorNavigationExGoTop'><i class='fa fa-arrow-up'></i></a>
+                        <div id='anchor-navigation-ex-navbar'><i class='fa fa-anchor'></i><ul><li><span class='title-icon fa fa-hand-o-right'></span><a aria-label class='on-toolbar-action' href='' onclick="$('.fa.fa-align-justify').parent()[0].click();">目录</a></li><li><span class='title-icon fa fa-hand-o-right'></span><a href='#anchor_1'><b></b>图书销售系统</a></li></ul></div><a href='#anchor_1' id='anchorNavigationExGoTop'><i class='fa fa-arrow-up'></i></a>
                         <h1 id="anchor_1">
     <a class="anchor-navigation-ex-anchor" href="#anchor_1" name="anchor_1">
         <i aria-hidden="true" class="fa fa-link"></i>
-    </a>Oracle 练习
+    </a>图书销售系统
 </h1>
-<h2 id="anchor_2">
-    <a class="anchor-navigation-ex-anchor" href="#anchor_2" name="anchor_2">
-        <i aria-hidden="true" class="fa fa-link"></i>
-    </a>1. 题目
-</h2>
-<p>创建表 class_info</p>
-<table>
-<thead>
-<tr>
-<th align="left">字段名</th>
-<th align="left">类型</th>
-<th align="left">长度</th>
-<th align="left">可选值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">c_id</td>
-<td align="left">字符串</td>
-<td align="left">20</td>
-<td align="left">主键</td>
-</tr>
-<tr>
-<td align="left">c_type</td>
-<td align="left">字符串</td>
-<td align="left">6</td>
-<td align="left">UI、测试、开发</td>
-</tr>
-<tr>
-<td align="left">c_position</td>
-<td align="left">字符串</td>
-<td align="left">20</td>
-<td align="left">非空</td>
-</tr>
-<tr>
-<td align="left">start_time</td>
-<td align="left">日期</td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">c_status</td>
-<td align="left">字符串</td>
-<td align="left">6</td>
-<td align="left">在读、毕业</td>
-</tr>
-</tbody>
-</table>
-<h2 id="anchor_3">
-    <a class="anchor-navigation-ex-anchor" href="#anchor_3" name="anchor_3">
-        <i aria-hidden="true" class="fa fa-link"></i>
-    </a>2. 实例
-</h2>
-<sec data-title="点我看答案"><div class="panel panel-default"><div class="panel-heading"><b>点我看答案<a class="pull-right section atTitle btn btn-default " target="sectionx1"><span class="fa fa-angle-down" /></a></b></div><div class="panel-collapse collapse" id="sectionx1"><div class="panel-body"><pre class="line-numbers"><code class="lang-sql rainbow-braces">CREATE TABLE class_info
-(
-    c_id VARCHAR2(20) PRIMARY KEY,
-    c_type VARCHAR2(10) CHECK(c_type in (&#x27;UI&#x27;, &#x27;测试&#x27;, &#x27;开发&#x27;)),
-    c_position VARCHAR2(20) NOT NULL,
-    start_time DATE,
-    c_status VARCHAR2(10) CHECK(c_status in (&#x27;在读&#x27;, &#x27;毕业&#x27;))
-);
-</code></pre></div></div></div></sec>
+<ol>
+<li>
+<p>根据图书销售系统关系模式设计，创建表 A-1 至表 A-6</p>
+ <table>
+   <caption>表A-1 CUSTOMERS</caption>
+   <tr><th>字段名<th>数据类型<th>长度<th>约束<th>说明
+   <tr><td>customer_id<td>NUMBER<td>4<td>PRIMARY KEY<td>客户编号
+   <tr><td>name<td>CHAR<td>20<td>NOT NULL<td>客户名称
+   <tr><td>phone<td>VARCHAR2<td>50<td>NOT NULL<td>电话
+   <tr><td>email<td>VARCHAR2<td>50<td><td>Email
+   <tr><td>address<td>VARCHAR2<td>200<td><td>地址
+   <tr><td>code<td>VARCHAR2<td>10<td><td>邮政编码
+ </table>
+ <table>
+   <caption>表A-2 PUBLISHERS</caption>
+   <tr><th>字段名<th>数据类型<th>长度<th>约束<th>说明
+   <tr><td>publisher_id<td>NUMBER<td>2<td>PRIMARY KEY<td>出版社号
+   <tr><td>name<td>VARCHAR2<td>50<td><td>出版社名
+   <tr><td>contact<td>CHAR<td>10<td><td>联系人
+   <tr><td>phone<td>VARCHAR2<td>50<td><td>电话
+ </table>
+ <table>
+   <caption>表A-3 BOOKS</caption>
+   <tr><th>字段名<th>数据类型<th>长度<th>约束<th>说明
+   <tr><td>ISBN<td>VARCHAR2<td>50<td>PRIMARY KEY<td>图书号
+   <tr><td>title<td>VARCHAR2<td>50<td><td>图书名
+   <tr><td>author<td>VARCHAR2<td>50<td><td>作者
+   <tr><td>pubdate<td>DATE<td><td><td>出版社
+   <tr><td>publisher_id<td>NUMBER<td>2<td>FOREIGN KEY<td>出版社 ID
+   <tr><td>cost<td>NUMBER<td>6,2<td><td>批发（大于 10 本）价格
+   <tr><td>retail<td>NUMBER<td>6,2<td><td>零售价格
+   <tr><td>category<td>VARCHAR2<td>50<td><td>图书类型
+ </table>
+ <table>
+   <caption>表A-4 ORDERS</caption>
+   <tr><th>字段名<th>数据类型<th>长度<th>约束<th>说明
+   <tr><td>order_id<td>NUMBER<td>4<td>PRIMARY KEY<td>订单号
+   <tr><td>customer_id<td>NUMBER<td>4<td>FOREIGN KEY<td>顾客号
+   <tr><td>orderdate<td>DATE<td><td>NOT NULL<td>订货日期
+   <tr><td>shipdate<td>DATE<td><td><td>发货日期
+   <tr><td>shipaddress<td>VARCHAR2<td>200<td><td>发货地址
+   <tr><td>shipcode<td>VARCHAR2<td>10<td><td>发货邮政编码
+ </table>
+ <table>
+   <caption>表A-5 ORDERITEM</caption>
+   <tr><th>字段名<th>数据类型<th>长度<th colspan=2>约束<th>说明
+   <tr><td>order_id<td>NUMBER<td>4<td>FOREIGN KEY<td rowspan=2>PRIMARY KEY<td>订单号
+   <tr><td>item_id<td>NUMBER<td>4<td><td>订单明细号
+   <tr><td>ISBN<td>VARCHAR2<td>50<td colspan=2>NOT NULL<td>图书编号
+   <tr><td>quantity<td>NUMBER<td>4<td colspan=2><td>图书数量
+ </table>
+ <table>
+   <caption>表A-6 PROMOTION</caption>
+   <tr><th>字段名<th>数据类型<th>长度<th>约束<th>说明
+   <tr><td>gift_id<td>NUMBER<td>2<td><td>礼品编号
+   <tr><td>name<td>CHAR<td>20<td>PRIMARY KEY<td>礼品名称
+   <tr><td>minretail<td>NUMBER<td>5,2<td>NOT NULL<td>图书最低价
+   <tr><td>maxretial<td>NUMBER<td>5,2<td><td>图书最高价
+ </table>
+</li>
+<li>
+<p>在 BOOKS 表的 title 列上创建一个非唯一性索引。</p>
+</li>
+<li>
+<p>在 ORDERS 表的 ISBN 列上创建一个唯一性索引。</p>
+</li>
+<li>
+<p>创建一个视图 customers_book，描述客户与订单的详细信息，包括客户编号、客户名单、订购图书的 ISBN、图书名称、图书数量、订货日期、发货日期等。</p>
+</li>
+<li>
+<p>创建一个视图 customers_gift，描述客户获得礼品的信息，包括客户名称、图书总价、礼品名称。</p>
+</li>
+<li>
+<p>将表 A-7 至表 A-12 中的数据插入数据库的相应表中。</p>
+ <table>
+   <caption>表A-7 CUSTOMERS</caption>
+   <tr><th>customer_id<th>name<th>phone<th>email<th>address<th>code
+   <tr><td>1<td>王牧<td>83823422<td>Wangmu@sina.com<td>北京<td>110010
+   <tr><td>2<td>李青<td>83824566<td>Liqing@sina.com<td>大连<td>116023
+ </table>
+ <table>
+   <caption>表A-8 PUBLISHERS</caption>
+   <tr><th>publisher_id<th>name<th>contact<th>Phone
+   <tr><td>1<td>电子工业出版社<td>张芳<td>56231234
+   <tr><td>2<td>机械工业出版社<td>孙翔<td>89673456
+ </table>
+ <table>
+   <caption>表A-9 BOOKS</caption>
+   <tr><th>ISBN<th>title<th>author<th>pubdate<th>publisher_id<th>cost<th>retail<th>category
+   <tr><td>978-7-121-18619-8<td>文件化基础<td>王澜<td>2010-1-1<td>2<td>35<td>28<td>管理
+   <tr><td>978-7-122-18619-8<td>Oracle<td>孙风栋<td>2011-2-1<td>1<td>40<td>32<td>计算机
+ </table>
+ <table>
+   <caption>表A-10 ORDERS</caption>
+   <tr><th>order_id<th>customer_id<th>orderdate<th>shipdate<th>shipaddress<th>shipcode
+   <tr><td>1000<td>1<td>2013-2-1<td>2013-2-5<td>大连<td>116023
+   <tr><td>1001<td>2<td>2013-3-1<td>2013-3-10<td>大连<td>116023
+ </table>
+ <table>
+   <caption>表A-11 ORDERITEM</caption>
+   <tr><th>order_id<th>item_id<th>ISBN<th>quantity
+   <tr><td>1000<td>1<td>978-7-121-18619-8<td>5
+   <tr><td>1000<td>2<td>978-7-121-18619-8<td>20
+   <tr><td>1001<td>1<td>978-7-121-18619-8<td>15
+ </table>
+ <table>
+   <caption>表A-12 PROMOTION</caption>
+   <tr><th>gift_id<th>name<th>minretail<th>maxretial
+   <tr><td>1<td>签字笔<td>100<td>150
+   <tr><td>2<td>笔记本<td>150<td>300
+   <tr><td>3<td>保温杯<td>300<td>500
+ </table>
+</li>
+<li>
+<p>将 ISBN 为 978-7-121-18619-8 的图书的零售价格（retail）修改为 30。</p>
+</li>
+<li>
+<p>将订单号为 1000 的订单的发货日期修改为“2013-2-2”。</p>
+</li>
+<li>
+<p>查询 BOOKS 表中包含的所有图书列表。</p>
+</li>
+<li>
+<p>列出 BOOKS 表中有图书类型非空的图书书名。</p>
+</li>
+<li>
+<p>列出 BOOKS 表中每本书的书名和出版日期，对 pubdate 字段使用 Publication Date 列标题。</p>
+</li>
+<li>
+<p>列出 CUSTOMERS 表中每一个客户的客户号及他们所在的地址。</p>
+</li>
+<li>
+<p>创建一个包含各个出版社的名称、联系人及出版社电话号码的列表。其中，联系人的列在显示的结果中重命名为 Contact Person。</p>
+</li>
+<li>
+<p>查询下达了订单的每一个客户的客户号。</p>
+</li>
+<li>
+<p>查询 2013 年 3 月 1 日之后发货的订单。</p>
+</li>
+<li>
+<p>查询居住在北京或大连的客户，将结果按姓名的升序排列。</p>
+</li>
+<li>
+<p>列出姓“王”的作者编写的所有图书信息，并将结果按姓名降序排序。</p>
+</li>
+<li>
+<p>查询“儿童”类和“烹饪”类的所有图书。</p>
+</li>
+<li>
+<p>查询书名的第二个字母是“A”、第四个字母是“N”的图书信息。</p>
+</li>
+<li>
+<p>查询电子工业出版社在 2012 年出版的所有“计算机”类图书的名称。</p>
+</li>
+<li>
+<p>查询图书名称、出版社名称、出版社联系人的名称和电话号码。</p>
+</li>
+<li>
+<p>查询当前还没有发货的订单信息及下达订单的用户名，查询结果按下达订单日期排序。</p>
+</li>
+<li>
+<p>查询已经购买了“计算机”类图书的所有人的客户号和姓名。</p>
+</li>
+<li>
+<p>查询“王牧”购买的图书的 ISBN 以及书名。</p>
+</li>
+<li>
+<p>查询订购图书“Oracle 数据库基础”的客户将收到什么样的礼品。</p>
+</li>
+<li>
+<p>确定客户“张扬”订购的图书的作者。</p>
+</li>
+<li>
+<p>查询 CUSTOMERS 表中的每一个客户所下达的订单数量。</p>
+</li>
+<li>
+<p>查询价格低于同一种类图书的平均价格的图书的信息。</p>
+</li>
+<li>
+<p>查询每个出版社出版图书的平均价格、最高价格、最低价格。</p>
+</li>
+<li>
+<p>统计每个客户购买图书的数量及总价钱。</p>
+</li>
+<li>
+<p>查询比 1000 号订单中图书数量多的其他订单信息。</p>
+</li>
+<li>
+<p>查询所有客户及其订购图书的信息。</p>
+</li>
+<li>
+<p>查询没有订购任何图书的客户信息。</p>
+</li>
+<li>
+<p>查询订购金额最高的客户信息。</p>
+</li>
+<li>
+<p>查询名为“赵敏”的客户订购图书的订单信息、订单明细。</p>
+</li>
+</ol>
 
                         <footer class="page-footer">
 <span class="copyright">© 2021 刘士. All rights reserved.</span>
@@ -227,14 +366,10 @@ setTimeout('busuanzi()', 2000);
 </div>
 
 
-<a aria-label="Previous page: Oracle 练习 0006" class="navigation navigation-prev" href="0006.html">
+<a aria-label="Previous page: Oracle 选择题" class="navigation navigation-prev" href="选择题.html">
     <i class="fa fa-angle-left"></i>
 </a>
 
-
-<a aria-label="Next page: Oracle 练习 0008" class="navigation navigation-next" href="0008.html">
-    <i class="fa fa-angle-right"></i>
-</a>
 
 
 </div>
@@ -245,11 +380,11 @@ setTimeout('busuanzi()', 2000);
             "config": {
                 "github_url":"https://liushilive.github.io/",
                 "language": "zh-cn",
-                "previous_page_link": "0006.html",
-                "next_page_link": "0008.html"
+                "previous_page_link": "选择题.html",
+                "next_page_link": ""
             },
             "basePath": "../..",
-            "js": {'prism': ['../../../asserts/lsbook/prismjs/clipboard.min.js', '../../../asserts/lsbook/prismjs/prism.js']}
+            "js": {}
         });
     });
 </script>
